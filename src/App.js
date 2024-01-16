@@ -6,22 +6,28 @@ import AssetList from "./components/AssetList";
 import AssetNew from "./components/AssetNew";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
+import { UserProvider } from "./providers/UserProvider";
+import { AssetProvider } from "./providers/AssetProvider";
 
 function App() {
   return (
-    <div style={{ textAlign: "center" }}>
-      <BrowserRouter>
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<Home />} index />
-          <Route path="/signup" element={<SignUp />} />
+    <UserProvider>
+      <AssetProvider>
+        <div style={{ textAlign: "center" }}>
+          <BrowserRouter>
+            <Navigation />
+            <Routes>
+              <Route path="/" element={<Home />} index />
+              <Route path="/signup" element={<SignUp />} />
 
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/assetlist" element={<AssetList />} />
-          <Route path="/assetnew" element={<AssetNew />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+              <Route path="/signin" element={<SignIn />} />
+              <Route path="/assetlist" element={<AssetList />} />
+              <Route path="/assetnew" element={<AssetNew />} />
+            </Routes>
+          </BrowserRouter>
+        </div>
+      </AssetProvider>
+    </UserProvider>
   );
 }
 
