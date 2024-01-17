@@ -1,7 +1,5 @@
 import React from "react";
 
-const AssetNewContext = () => {
-  return <div>AssetNewContext</div>;
-};
+const ResponseContext = React.createContext();
 
-export default AssetNewContext;
+export default ResponseContext;

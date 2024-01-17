@@ -11,9 +11,9 @@ const Navigation = () => {
         <span> | </span>
         <Link to="/signin">Sign In</Link>
         <span> | </span>
-        <Link to="/assetlist">Asset List</Link>
+        <Link to="/assets">Assets</Link>
         <span> | </span>
-        <Link to="/assetnew">Asset New</Link>
+        <Link to="/create">Asset New</Link>
 
         <hr></hr>
       </nav>

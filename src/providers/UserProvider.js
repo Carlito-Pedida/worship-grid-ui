@@ -2,7 +2,7 @@ import axios from "axios";
 import UserContext from "../contexts/UserContext";
 
 export const UserProvider = (props) => {
-  const baseUrl = "http://localhost:5000/server/users/signup";
+  const baseUrl = "http://localhost:5000/server/users/";
 
   function signupUser(
     first_name,
@@ -29,17 +29,16 @@ export const UserProvider = (props) => {
       avatar
     };
 
-    return axios.post(baseUrl, user).then((response) => {
+    return axios.post(`${baseUrl}/signup`, user).then((response) => {
       return new Promise((resolve) => resolve(response.data));
     });
   }
 
   function signInUser(username, password) {
-    let url = "http://localhost:5000/server/users/signin";
     let user = { username, password };
 
-    return axios.post(url, user).then((response) => {
-      localStorage.setItem("userSignInToken", response.data.token);
+    return axios.post(`${baseUrl}/signin`, user).then((response) => {
+      localStorage.setItem("loggedUserToken", response.data.token);
       return new Promise((resolve) => resolve(response.data));
     });
   }

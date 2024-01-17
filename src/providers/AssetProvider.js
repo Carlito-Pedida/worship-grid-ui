@@ -6,20 +6,45 @@ export const AssetProvider = (props) => {
   const [asset, setAsset] = useState([]);
   const baseUrl = "http://localhost:5000/server/assets/";
 
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     await getAllUserAssets();
+  //   }
+  //   fetchData();
+  // }, []);
+
+  // function getAllUserAssets() {
+  //   return axios.get(baseUrl).then((response) => setAsset(response.data));
+  // }
+
   useEffect(() => {
     async function fetchData() {
-      await getAllUserAsset();
+      await getAllUserAssets();
     }
     fetchData();
-  }, []);
+  }, []); // Removed dependency array since getAllUserAssets doesn't depend on any props or state
 
-  function getAllUserAsset() {
-    return axios.get(baseUrl).then((response) => setAsset(response.data));
+  function getAllUserAssets() {
+    return axios
+      .get(baseUrl)
+      .then((response) => setAsset(response.data))
+      .catch((error) => console.error("Error fetching user assets:", error));
+  }
+
+  function createUserAsset(asset) {
+    let headers = {
+      Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
+    };
+
+    return axios
+      .post(`${baseUrl}/create_new_asset`, asset, { headers })
+      .then((response) => {
+        getAllUserAssets();
+        return new Promise((resolve) => resolve(response.data));
+      });
   }
 
   function getOneUserAsset(user_id) {}
-
-  function createUserAsset(asset) {}
 
   function updateUserAsset(asset) {}
 
@@ -29,7 +54,7 @@ export const AssetProvider = (props) => {
     <AssetContext.Provider
       value={{
         asset,
-        getAllUserAsset,
+        getAllUserAssets,
         getOneUserAsset,
         createUserAsset,
         updateUserAsset,
