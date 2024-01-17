@@ -34,7 +34,9 @@ export const UserProvider = (props) => {
     });
   }
 
-  function signInUser(username, password) {}
+  function signInUser(username, password) {
+    let user = { username, password };
+  }
 
   return (
     <UserContext.Provider
