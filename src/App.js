@@ -21,8 +21,8 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
 
               <Route path="/signin" element={<SignIn />} />
-              <Route path="/assetlist" element={<AssetList />} />
-              <Route path="/assetnew" element={<AssetNew />} />
+              <Route path="/assets" element={<AssetList />} />
+              <Route path="/create" element={<AssetNew />} />
             </Routes>
           </BrowserRouter>
         </div>
