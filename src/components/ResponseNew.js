@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ResponseContext from "../contexts/ResponseContext";
+import "emoji-picker-element";
 
 const ResponseNew = () => {
   let params = useParams();
@@ -51,12 +52,17 @@ const ResponseNew = () => {
           onChange={handleChange}
         />
         <span>Reactions </span>
-        <input
-          type="text"
+        <select
           name="reactions"
           value={newResponse.reactions}
           onChange={handleChange}
-        />
+        >
+          <option value="👍">👍</option>
+          <option value="❤️">❤️</option>
+          <option value="😄">😄</option>
+          {/* Add more emoji options as needed */}
+        </select>
+
         <button>Submit</button>
       </form>
     </div>
