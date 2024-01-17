@@ -26,6 +26,7 @@ const AssetList = () => {
                         <p>{a.message}</p>
                       </div>
                       Video Screen here<div>{a.videoLink}</div>
+                      <Link to={`/${a.asset_id}/reply`}>reply</Link>
                     </div>
                   );
                 })}

@@ -8,24 +8,29 @@ import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import { UserProvider } from "./providers/UserProvider";
 import { AssetProvider } from "./providers/AssetProvider";
+import { ResponseProvider } from "./providers/ResponseProvider";
+import ResponseNew from "./components/ResponseNew";
 
 function App() {
   return (
     <UserProvider>
       <AssetProvider>
-        <div style={{ textAlign: "center" }}>
-          <BrowserRouter>
-            <Navigation />
-            <Routes>
-              <Route path="/" element={<Home />} index />
-              <Route path="/signup" element={<SignUp />} />
+        <ResponseProvider>
+          <div style={{ textAlign: "center" }}>
+            <BrowserRouter>
+              <Navigation />
+              <Routes>
+                <Route path="/" element={<Home />} index />
+                <Route path="/signup" element={<SignUp />} />
 
-              <Route path="/signin" element={<SignIn />} />
-              <Route path="/assets" element={<AssetList />} />
-              <Route path="/create" element={<AssetNew />} />
-            </Routes>
-          </BrowserRouter>
-        </div>
+                <Route path="/signin" element={<SignIn />} />
+                <Route path="/assets" element={<AssetList />} />
+                <Route path="/create" element={<AssetNew />} />
+                <Route path="/:asset_id/reply" element={<ResponseNew />} />
+              </Routes>
+            </BrowserRouter>
+          </div>
+        </ResponseProvider>
       </AssetProvider>
     </UserProvider>
   );
