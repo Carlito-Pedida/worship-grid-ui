@@ -13,7 +13,7 @@ const SignIn = () => {
     event.preventDefault();
     signInUser(username, password)
       .then(() => {
-        navigate("/coffee");
+        navigate("/assetlist");
       })
       .catch((error) => {
         console.log(error);

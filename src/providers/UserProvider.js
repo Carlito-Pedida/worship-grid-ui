@@ -35,7 +35,13 @@ export const UserProvider = (props) => {
   }
 
   function signInUser(username, password) {
+    let url = "http://localhost:5000/server/users/signin";
     let user = { username, password };
+
+    return axios.post(url, user).then((response) => {
+      localStorage.setItem("userSignInToken", response.data.token);
+      return new Promise((resolve) => resolve(response.data));
+    });
   }
 
   return (
