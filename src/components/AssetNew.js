@@ -18,7 +18,6 @@ const AssetNew = () => {
     });
   }
 
-  console.log(newAsset);
   function handleSubmit(event) {
     event.preventDefault();
     createUserAsset(newAsset)
