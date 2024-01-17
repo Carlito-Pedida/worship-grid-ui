@@ -4,9 +4,18 @@ import AssetContext from "../contexts/AssetContext";
 
 export const AssetProvider = (props) => {
   const [asset, setAsset] = useState([]);
-  const baseUrl = "http://localhost:0500/server/assets/";
+  const baseUrl = "http://localhost:5000/server/assets/";
 
-  function getAllUserAsset() {}
+  useEffect(() => {
+    async function fetchData() {
+      await getAllUserAsset();
+    }
+    fetchData();
+  }, []);
+
+  function getAllUserAsset() {
+    return axios.get(baseUrl).then((response) => setAsset(response.data));
+  }
 
   function getOneUserAsset(user_id) {}
 
@@ -19,6 +28,7 @@ export const AssetProvider = (props) => {
   return (
     <AssetContext.Provider
       value={{
+        asset,
         getAllUserAsset,
         getOneUserAsset,
         createUserAsset,
