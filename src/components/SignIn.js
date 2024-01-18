@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 
-const SignIn = () => {
+const SignIn = ({ user }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -11,14 +11,9 @@ const SignIn = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    signInUser(username, password)
-      .then(() => {
-        navigate("/assets");
-      })
-      .catch((error) => {
-        console.log(error);
-        window.alert("Failed login");
-      });
+    signInUser(username, password).then(() => {
+      window.location.href = "/assets"; // or set the desired URL
+    });
   }
 
   return (

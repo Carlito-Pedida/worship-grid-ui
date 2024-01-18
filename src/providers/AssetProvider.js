@@ -6,17 +6,6 @@ export const AssetProvider = (props) => {
   const [asset, setAsset] = useState([]);
   const baseUrl = "http://localhost:5000/server/assets/";
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     await getAllUserAssets();
-  //   }
-  //   fetchData();
-  // }, []);
-
-  // function getAllUserAssets() {
-  //   return axios.get(baseUrl).then((response) => setAsset(response.data));
-  // }
-
   useEffect(() => {
     async function fetchData() {
       await getAllUserAssets();
