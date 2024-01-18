@@ -1,8 +1,26 @@
 import axios from "axios";
 import UserContext from "../contexts/UserContext";
+import { useContext, useEffect, useState } from "react";
 
 export const UserProvider = (props) => {
+  const [loggedUser, setLoggedUser] = useState([]);
   const baseUrl = "http://localhost:5000/server/users/";
+
+  console.log(loggedUser);
+
+  useEffect(() => {
+    async function fetchData() {
+      await getAllUserAssets();
+    }
+    fetchData();
+  }, []); // Removed dependency array since getAllUserAssets doesn't depend on any props or state
+
+  function getAllUserAssets() {
+    return axios
+      .get(baseUrl)
+      .then((response) => setLoggedUser(response.data))
+      .catch((error) => console.error("Error fetching user assets:", error));
+  }
 
   function signupUser(
     first_name,
@@ -43,11 +61,26 @@ export const UserProvider = (props) => {
     });
   }
 
+  function getOneUser(user_id) {
+    let headers = {
+      Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
+    };
+
+    return axios
+      .post(`${baseUrl}${user_id}`, user_id, { headers })
+      .then((response) => {
+        return new Promise((resolve) => resolve(response.data));
+      });
+  }
+
   return (
     <UserContext.Provider
       value={{
+        loggedUser,
+        getAllUserAssets,
         signupUser,
-        signInUser
+        signInUser,
+        getOneUser
       }}
     >
       {props.children}
