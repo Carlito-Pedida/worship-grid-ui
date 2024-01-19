@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
+import { Stack } from "react-bootstrap";
 
 const Navigation = ({ user }) => {
   let { user_id } = useParams();
@@ -34,41 +35,49 @@ const Navigation = ({ user }) => {
     };
   }, []);
   return (
-    <div>
+    <div className="justify-content-center align-items-center pt-3">
       <nav>
-        <Link to="/">Home</Link>
-        <span> | </span>
-        {!user && (
-          <React.Fragment>
-            <Link to="/signup">Sign Up</Link>
-            <span> | </span>
-            <Link to="/signin">Sign In</Link>
-          </React.Fragment>
-        )}
         {user && (
           <React.Fragment>
+            <Link to="/">Home</Link>
+            <span> | </span>
+            <Link to="/assets">Assets</Link>
+            <span> | </span>
+            <Link to="/create">Asset New</Link>
+            <span> | </span>
+            <Link to="/signup">Welcome Back {user.first_name}</Link>
+            <span> | </span>
+            <Link to="/signout">SignOut </Link>
+
             <span>
               <img
+                style={{
+                  borderRadius: "50%",
+                  border: "solid 5px",
+
+                  borderColor: "green",
+                  marginLeft: "5px"
+                }}
                 src={user.avatar}
                 size="40"
                 round="true"
-                height={35}
-                width={35}
+                height={65}
+                width={65}
               />
             </span>
-
-            <Link to="/signup">Welcome Back {user.first_name}</Link>
-            <span> | </span>
-            <Link to="/signin">Something Else2</Link>
-            <span> | </span>
-            <Link to="/signout">SignOut</Link>
           </React.Fragment>
         )}
-
-        <span> | </span>
-        <Link to="/assets">Assets</Link>
-        <span> | </span>
-        <Link to="/create">Asset New</Link>
+        {!user && (
+          <React.Fragment>
+            <Link to="/">Home</Link>
+            <span> | </span>
+            <Link to="/signup">Sign Up</Link>
+            <span> | </span>
+            <Link to="/signin">Sign In</Link>
+            <span> | </span>
+            <Link to="/assets">Assets</Link>
+          </React.Fragment>
+        )}
 
         <hr></hr>
       </nav>
