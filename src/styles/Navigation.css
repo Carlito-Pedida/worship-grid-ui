@@ -1,0 +1,7 @@
+.navi {
+  background-color: rgb(81, 125, 37);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
