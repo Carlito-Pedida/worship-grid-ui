@@ -38,7 +38,13 @@ const Navigation = ({ user }) => {
     <>
       <div className="navi">
         <span>
-          <img src="/logo.png" height={65} width={65} />
+          <img
+            src="/logo.png"
+            height={65}
+            width={65}
+            style={{ borderRadius: "7px" }}
+          />
+          <img className="ms-3" src="/wgbrand.png" height={40} width={250} />
         </span>
         <nav>
           {user && (
