@@ -113,7 +113,38 @@
 .brand-image:hover {
   border: solid;
   border-color: #ececec;
-  border-radius: 10px;
+
   filter: opacity(70%);
   transition: transform 0.4s ease-out;
+}
+.brand-image2 {
+  display: inline-block;
+  position: relative;
+  color: #006419;
+  text-decoration: none;
+  font-family: "Dosis", sans-serif;
+  color: rgb(175, 175, 175);
+  font-size: medium;
+  padding-left: 10px;
+  padding-right: 10px;
+  outline: #c0e5d1;
+}
+
+.brand-image2:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  color: white;
+  background-color: #c0e5d1;
+  transform-origin: bottom center;
+  transition: transform 0.25s ease-out;
+}
+
+.brand-image2:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom center;
 }
