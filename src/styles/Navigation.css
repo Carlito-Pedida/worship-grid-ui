@@ -12,7 +12,19 @@
   padding: 10px;
 }
 
-.nav-links2 {
+.nav-links:hover {
+  background-color: #3e8e41;
+  color: white;
+  padding: 10px;
+  transition: 0.25s;
+}
+
+.nav-container {
+  background-color: #2c5728;
+  border-top: 2px gray;
+}
+
+.navLinks2-container {
   border-top: 1px solid rgb(175, 175, 175);
   border-bottom: 1px solid rgb(175, 175, 175);
   margin-top: 5px;
@@ -21,14 +33,87 @@
   width: 1000px;
 }
 
-.nav-links:hover {
+.hover-underline-animation:hover {
   background-color: #3e8e41;
+  padding-left: 10px;
+  padding-right: 10px;
   color: white;
-  padding: 10px;
-  transition: 0.5s;
+  transition: 0.25s;
 }
 
-.nav-container {
-  background-color: #2c5728;
-  border-top: 2px gray;
+.search-tool-animation {
+  color: rgb(175, 175, 175);
+  font-size: medium;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* 
+.search-tool-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(10);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  color: white;
+  background-color: #c0e5d1;
+  transform-origin: bottom center;
+  transition: transform 0.25s ease-out;
+} */
+.search-tool-animation:hover {
+  background-color: #3e8e41;
+  border-radius: 50%;
+  border: solid;
+  border-color: #2c5728;
+  padding: 8px;
+  transition: 0.25s;
+  color: rgb(255, 255, 255);
+  font-size: medium;
+  padding-left: 6px;
+  padding-right: 6px;
+  border: solid;
+}
+.search-tool-icon:hover {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #006419;
+  text-decoration: none;
+  font-family: "Dosis", sans-serif;
+  color: rgb(175, 175, 175);
+  font-size: medium;
+  padding-left: 10px;
+  padding-right: 10px;
+  outline: #c0e5d1;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  color: white;
+  background-color: #c0e5d1;
+  transform-origin: bottom center;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom center;
+}
+
+.brand-image:hover {
+  border: solid;
+  border-color: #ececec;
+  border-radius: 10px;
+  filter: opacity(70%);
+  transition: transform 0.4s ease-out;
 }
