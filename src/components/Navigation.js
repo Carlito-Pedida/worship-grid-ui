@@ -1,6 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "../styles/Navigation.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
@@ -42,51 +45,87 @@ const Navigation = ({ user }) => {
           <Nav className="navi">
             {user && (
               <React.Fragment>
-                <Link className="nav-links" to="/">
-                  WORSHIP GRID ACADEMY
-                </Link>
+                <div>
+                  <div>
+                    <Link className="nav-links" to="/">
+                      WORSHIP GRID ACADEMY
+                    </Link>
 
-                <Link className="nav-links" to="/signup">
-                  MERCHANDISE
-                </Link>
+                    <Link className="nav-links" to="/signup">
+                      MERCHANDISE
+                    </Link>
 
-                <Navbar.Brand href="#home">
-                  <img src="/logo.png" height={80} />
-                </Navbar.Brand>
+                    <Link className="nav-links" to="/create">
+                      BLOG
+                    </Link>
 
-                <Link className="nav-links" to="/assets">
-                  CONVERSATIONS
-                </Link>
+                    <Link to="/" className="brand m-0 p-0">
+                      <img
+                        className="brand-image"
+                        src="/logo.png"
+                        height={80}
+                        width={80}
+                      />
+                    </Link>
 
-                <Link className="nav-links" to="/create">
-                  BLOG
-                </Link>
+                    <Link className="nav-links" to="/assets">
+                      CONVERSATIONS
+                    </Link>
 
-                <Link className="nav-links" to="/">
-                  Hello, {user.first_name}!
-                </Link>
+                    <Link className="nav-links" to="/">
+                      HELLO,{" "}
+                      <strong style={{ textTransform: "uppercase" }}>
+                        {user.first_name}!
+                      </strong>
+                    </Link>
 
-                <span>
-                  <img
-                    style={{
-                      borderRadius: "50%",
-                      border: "solid 5px",
+                    <span>
+                      <img
+                        style={{
+                          borderRadius: "50%",
+                          border: "solid 5px",
 
-                      borderColor: "white",
-                      marginLeft: "5px",
-                      marginRight: "5px"
-                    }}
-                    src={user.avatar}
-                    size="40"
-                    round="true"
-                    height={65}
-                    width={65}
-                  />
-                </span>
+                          borderColor: "white",
+                          marginLeft: "5px",
+                          marginRight: "5px"
+                        }}
+                        src={user.avatar}
+                        size="40"
+                        round="true"
+                        height={65}
+                        width={65}
+                      />
+                    </span>
 
-                <Link className="nav-links" to="/signout">
-                  SignOut
-                </Link>
+                    <Link className="nav-links" to="/signout">
+                      SIGN OUT
+                    </Link>
+                    <div className="navLinks2-container">
+                      <Link className="hover-underline-animation" to="#">
+                        NEW LINK
+                      </Link>
+                      <Link className="hover-underline-animation" to="#">
+                        NEW LINK
+                      </Link>
+                      <Link className="hover-underline-animation" to="#">
+                        NEW LINK
+                      </Link>
+                      <Link className="hover-underline-animation" to="#">
+                        RSS
+                      </Link>
+                      <Link className="hover-underline-animation" to="#">
+                        TUTORIALS
+                      </Link>
+                      <Link className="search-tool-animation">
+                        <FontAwesomeIcon
+                          className="search-tool-icon"
+                          icon={faSearch}
+                          size="xl"
+                        />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </React.Fragment>
             )}
             {!user && (
@@ -101,10 +140,14 @@ const Navigation = ({ user }) => {
                       MERCHANDISE
                     </Link>
 
-                    <Navbar.Brand href="#" className="brand m-0 p-0">
-                      <img src="/logo.png" height={80} width={80} />
-                    </Navbar.Brand>
-
+                    <Link to="/" className="brand m-0 p-0">
+                      <img
+                        className="brand-image"
+                        src="/logo.png"
+                        height={80}
+                        width={80}
+                      />
+                    </Link>
                     <Link className="nav-links" to="/signup">
                       GET ACCESS
                     </Link>
@@ -117,20 +160,20 @@ const Navigation = ({ user }) => {
                       CONVERSATIONS
                     </Link>
                   </div>
-                  <div className="nav-links2">
-                    <Link className="nav-links" to="#">
+                  <div className="navLinks2-container">
+                    <Link className="hover-underline-animation" to="#">
                       NEW LINK
                     </Link>
-                    <Link className="nav-links" to="#">
+                    <Link className="hover-underline-animation" to="#">
                       NEW LINK
                     </Link>
-                    <Link className="nav-links" to="#">
+                    <Link className="hover-underline-animation" to="#">
                       NEW LINK
                     </Link>
-                    <Link className="nav-links" to="#">
+                    <Link className="hover-underline-animation" to="#">
                       NEW LINK
                     </Link>
-                    <Link className="nav-links" to="#">
+                    <Link className="hover-underline-animation" to="#">
                       NEW LINK
                     </Link>
                   </div>
