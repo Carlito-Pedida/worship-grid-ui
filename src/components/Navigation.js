@@ -35,19 +35,80 @@ const Navigation = ({ user }) => {
     };
   }, []);
   return (
-    <div className="justify-content-center align-items-center pt-3">
+    <div
+      className="justify-content-center align-items-center pt-3"
+      style={{ backgroundColor: "olivegreen", alignItems: "center" }}
+    >
       <nav>
         {user && (
           <React.Fragment>
-            <Link to="/">Home</Link>
-            <span> | </span>
-            <Link to="/assets">Assets</Link>
-            <span> | </span>
-            <Link to="/create">Asset New</Link>
-            <span> | </span>
-            <Link to="/signup">Welcome Back {user.first_name}</Link>
-            <span> | </span>
-            <Link to="/signout">SignOut </Link>
+            <Link
+              style={{
+                color: "white",
+                textDecoration: "none",
+                fontSize: "25px"
+              }}
+              to="/"
+            >
+              Home
+            </Link>
+            <span
+              style={{
+                color: "white",
+                fontSize: "25px"
+              }}
+            >
+              {" "}
+              |{" "}
+            </span>
+            <Link
+              style={{
+                color: "white",
+                textDecoration: "none",
+                fontSize: "25px"
+              }}
+              to="/assets"
+            >
+              Assets
+            </Link>
+            <span
+              style={{
+                color: "white",
+                fontSize: "25px"
+              }}
+            >
+              {" "}
+              |{" "}
+            </span>
+            <Link
+              style={{
+                color: "white",
+                textDecoration: "none",
+                fontSize: "25px"
+              }}
+              to="/create"
+            >
+              Asset New
+            </Link>
+            <span
+              style={{
+                color: "white",
+                fontSize: "25px"
+              }}
+            >
+              {" "}
+              |{" "}
+            </span>
+            <Link
+              style={{
+                color: "white",
+                textDecoration: "none",
+                fontSize: "25px"
+              }}
+              to="/signup"
+            >
+              Hello, {user.first_name}!
+            </Link>
 
             <span>
               <img
@@ -56,7 +117,8 @@ const Navigation = ({ user }) => {
                   border: "solid 5px",
 
                   borderColor: "green",
-                  marginLeft: "5px"
+                  marginLeft: "5px",
+                  marginRight: "5px"
                 }}
                 src={user.avatar}
                 size="40"
@@ -65,17 +127,88 @@ const Navigation = ({ user }) => {
                 width={65}
               />
             </span>
+
+            <Link
+              style={{
+                color: "white",
+                textDecoration: "none",
+                fontSize: "25px"
+              }}
+              to="/signout"
+            >
+              SignOut{" "}
+            </Link>
           </React.Fragment>
         )}
         {!user && (
           <React.Fragment>
-            <Link to="/">Home</Link>
-            <span> | </span>
-            <Link to="/signup">Sign Up</Link>
-            <span> | </span>
-            <Link to="/signin">Sign In</Link>
-            <span> | </span>
-            <Link to="/assets">Assets</Link>
+            <Link
+              style={{
+                color: "white",
+                textDecoration: "none",
+                fontSize: "25px"
+              }}
+              to="/"
+            >
+              Home
+            </Link>
+            <span
+              style={{
+                color: "white",
+                fontSize: "25px"
+              }}
+            >
+              {" "}
+              |{" "}
+            </span>
+            <Link
+              style={{
+                color: "white",
+                textDecoration: "none",
+                fontSize: "25px"
+              }}
+              to="/signup"
+            >
+              Sign Up
+            </Link>
+            <span
+              style={{
+                color: "white",
+                fontSize: "25px"
+              }}
+            >
+              {" "}
+              |{" "}
+            </span>
+            <Link
+              style={{
+                color: "white",
+                textDecoration: "none",
+                fontSize: "25px"
+              }}
+              to="/signin"
+            >
+              Sign In
+            </Link>
+            <span
+              style={{
+                color: "white",
+                fontSize: "25px"
+              }}
+            >
+              {" "}
+              |{" "}
+            </span>
+            <Link
+              style={{
+                color: "white",
+                textDecoration: "none",
+                fontSize: "25px"
+              }}
+              to="/assets"
+            >
+              Assets
+            </Link>
           </React.Fragment>
         )}
 
