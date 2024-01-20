@@ -57,3 +57,16 @@
 .pass {
   color: #65c25d;
 }
+
+.featured-vids {
+  color: white;
+  background-image: linear-gradient(
+    to top right,
+    rgb(18, 18, 18),
+    rgb(51, 51, 51)
+  );
+}
+.vids-container {
+  margin-left: auto;
+  margin-right: auto;
+}
