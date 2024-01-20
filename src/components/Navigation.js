@@ -52,19 +52,18 @@ const Navigation = ({ user }) => {
                     </Link>
 
                     <Link className="nav-links" to="/signup">
-                      MERCHANDISE
+                      MY SETLIST
                     </Link>
 
                     <Link className="nav-links" to="/create">
                       BLOG
                     </Link>
 
-                    <Link to="/" className="brand m-0 p-0">
+                    <Link type="link" to="/" className="brand m-0 p-2">
                       <img
                         className="brand-image"
-                        src="/logo.png"
-                        height={80}
-                        width={80}
+                        src="/logo-2.png"
+                        height={55}
                       />
                     </Link>
 
@@ -102,13 +101,13 @@ const Navigation = ({ user }) => {
                     </Link>
                     <div className="navLinks2-container">
                       <Link className="hover-underline-animation" to="#">
-                        NEW LINK
+                        CHURCHES IN THE AREA
                       </Link>
                       <Link className="hover-underline-animation" to="#">
-                        NEW LINK
+                        MERCHANDISE
                       </Link>
                       <Link className="hover-underline-animation" to="#">
-                        NEW LINK
+                        EVENTS
                       </Link>
                       <Link className="hover-underline-animation" to="#">
                         RSS
@@ -140,12 +139,11 @@ const Navigation = ({ user }) => {
                       MERCHANDISE
                     </Link>
 
-                    <Link to="/" className="brand m-0 p-0">
+                    <Link to="/" className="brand m-0 p-2">
                       <img
                         className="brand-image"
-                        src="/logo.png"
-                        height={80}
-                        width={80}
+                        src="/logo-2.png"
+                        height={55}
                       />
                     </Link>
                     <Link className="nav-links" to="/signup">
@@ -162,19 +160,26 @@ const Navigation = ({ user }) => {
                   </div>
                   <div className="navLinks2-container">
                     <Link className="hover-underline-animation" to="#">
-                      NEW LINK
+                      CHURCHES IN THE AREA
                     </Link>
                     <Link className="hover-underline-animation" to="#">
-                      NEW LINK
+                      MERCHANDISE
                     </Link>
                     <Link className="hover-underline-animation" to="#">
-                      NEW LINK
+                      EVENTS
                     </Link>
                     <Link className="hover-underline-animation" to="#">
-                      NEW LINK
+                      RSS
                     </Link>
                     <Link className="hover-underline-animation" to="#">
-                      NEW LINK
+                      TUTORIALS
+                    </Link>
+                    <Link className="search-tool-animation">
+                      <FontAwesomeIcon
+                        className="search-tool-icon"
+                        icon={faSearch}
+                        size="xl"
+                      />
                     </Link>
                   </div>
                 </div>
