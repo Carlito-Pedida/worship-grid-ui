@@ -51,7 +51,7 @@ const Home = () => {
                 <a style={{ textDecoration: "none" }} href="#">
                   <strong>HERE</strong>
                 </a>{" "}
-                to try it for 1 month!
+                to try it FREE for 1 month!
               </span>
             </h4>
           </div>
