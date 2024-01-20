@@ -78,6 +78,8 @@ const Home = () => {
                   loop={true}
                   url={`https://youtu.be/Mi_QNN3aiD4?si=S_dwR0__rfbRG8Md`}
                   controls
+                  height={400}
+                  width={560}
                 />
                 <p className="mt-3">
                   {" "}
@@ -92,6 +94,8 @@ const Home = () => {
                   loop={true}
                   url={`https://youtu.be/Mi_QNN3aiD4?si=S_dwR0__rfbRG8Md`}
                   controls
+                  height={400}
+                  width={560}
                 />
                 <p className="mt-3">
                   {" "}
@@ -108,6 +112,8 @@ const Home = () => {
                   loop={true}
                   url={`https://youtu.be/Mi_QNN3aiD4?si=S_dwR0__rfbRG8Md`}
                   controls
+                  height={400}
+                  width={560}
                 />
                 <p className="mt-3">
                   {" "}
@@ -121,6 +127,8 @@ const Home = () => {
                   loop={true}
                   url={`https://youtu.be/Mi_QNN3aiD4?si=S_dwR0__rfbRG8Md`}
                   controls
+                  height={400}
+                  width={560}
                 />
                 <p className="mt-3">
                   {" "}

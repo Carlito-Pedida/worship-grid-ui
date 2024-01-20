@@ -59,7 +59,7 @@ const Navigation = ({ user }) => {
                       BLOG
                     </Link>
 
-                    <Link type="link" to="/" className="brand m-0 p-2">
+                    <Link type="link" to="/" className="brand m-2 p-2">
                       <img
                         className="brand-image"
                         src="/logo-2.png"
@@ -139,7 +139,7 @@ const Navigation = ({ user }) => {
                       MERCHANDISE
                     </Link>
 
-                    <Link to="/" className="brand m-0 p-2">
+                    <Link to="/" className="brand m-2 p-2">
                       <img
                         className="brand-image"
                         src="/logo-2.png"
