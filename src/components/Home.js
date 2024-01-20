@@ -2,17 +2,17 @@ import React from "react";
 import "../styles/Home.css";
 import { Button, Card, Col, Container, Row, Stack } from "react-bootstrap";
 import ReactPlayer from "react-player";
+import NewsBanner from "../componentResources/NewsBanner";
 
 const Home = () => {
   return (
     <>
-      <div className="banner">
-        <h2>New Song Alert!</h2>
-        <p>John Smith released a new single titled "Be With You"</p>
-        <p>Get all the stems now in the All Access Pass!</p>
-        <Button>LEARN MORE</Button>
-      </div>
-
+      <NewsBanner
+        title="New Song Alert!"
+        subTitle1="John Smith released a new single titled 'Be With You'"
+        subTitle2="Sign up and get access to all the stems with the ALL ACCESS PASS!"
+        buttonText="LEARN MORE"
+      />
       <div
         className="landing-top"
         // style={{
@@ -51,7 +51,7 @@ const Home = () => {
                 <a style={{ textDecoration: "none" }} href="#">
                   <strong>HERE</strong>
                 </a>{" "}
-                to try it for 1 month!
+                to try it FREE for 1 month!
               </span>
             </h4>
           </div>
@@ -92,7 +92,7 @@ const Home = () => {
                   className="player"
                   playing={false}
                   loop={true}
-                  url={`https://youtu.be/Mi_QNN3aiD4?si=S_dwR0__rfbRG8Md`}
+                  url={`https://www.youtube.com/watch?v=4ZlPtapuJNs`}
                   controls
                   height={400}
                   width={560}
@@ -110,7 +110,7 @@ const Home = () => {
                   className="player"
                   playing={false}
                   loop={true}
-                  url={`https://youtu.be/Mi_QNN3aiD4?si=S_dwR0__rfbRG8Md`}
+                  url={`https://www.youtube.com/watch?v=xy_px_mi0jQ`}
                   controls
                   height={400}
                   width={560}
@@ -125,7 +125,7 @@ const Home = () => {
                   className="player"
                   playing={false}
                   loop={true}
-                  url={`https://youtu.be/Mi_QNN3aiD4?si=S_dwR0__rfbRG8Md`}
+                  url={`https://www.youtube.com/watch?v=8IXWSipYYXc`}
                   controls
                   height={400}
                   width={560}

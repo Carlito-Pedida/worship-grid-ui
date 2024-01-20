@@ -1,11 +1,16 @@
 import React from "react";
 import AssetContext from "../contexts/AssetContext";
 import { Link } from "react-router-dom";
+import NewsBanner from "../componentResources/NewsBanner";
 
 const AssetList = () => {
   return (
     <div>
-      {" "}
+      <NewsBanner
+        title="JOIN THE CONVERSATION!"
+        subTitle1="See what's latest in the worship community in your area!"
+        buttonText="GET ACCESS!"
+      />{" "}
       <AssetContext.Consumer>
         {({ asset }) => {
           return (
