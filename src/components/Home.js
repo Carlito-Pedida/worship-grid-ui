@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Home.css";
-import { Button, Card, Container } from "react-bootstrap";
+import { Button, Card, Col, Container, Row, Stack } from "react-bootstrap";
+import ReactPlayer from "react-player";
 
 const Home = () => {
   return (
@@ -60,8 +61,75 @@ const Home = () => {
           <br />
         </div>
       </div>
-      <div>
-        <div></div>
+
+      <div className="featured-vids">
+        <Stack>
+          <div className="vids-container">
+            <Row>
+              <Col style={{ justifyContent: "center", marginTop: "20px" }}>
+                <h1 className="mt-5">FEATURED VIDEOS</h1>
+              </Col>
+            </Row>
+            <Row style={{ margin: "25px" }}>
+              <Col className="m-3">
+                <ReactPlayer
+                  className="player m-"
+                  playing={false}
+                  loop={true}
+                  url={`https://youtu.be/Mi_QNN3aiD4?si=S_dwR0__rfbRG8Md`}
+                  controls
+                />
+                <p className="mt-3">
+                  {" "}
+                  This is a where the description of the video goes.
+                </p>
+              </Col>
+
+              <Col className="m-3">
+                <ReactPlayer
+                  className="player"
+                  playing={false}
+                  loop={true}
+                  url={`https://youtu.be/Mi_QNN3aiD4?si=S_dwR0__rfbRG8Md`}
+                  controls
+                />
+                <p className="mt-3">
+                  {" "}
+                  This is a where the description of the video goes.
+                </p>
+              </Col>
+            </Row>
+
+            <Row className="row" style={{ margin: "30px" }}>
+              <Col className="m-3">
+                <ReactPlayer
+                  className="player"
+                  playing={false}
+                  loop={true}
+                  url={`https://youtu.be/Mi_QNN3aiD4?si=S_dwR0__rfbRG8Md`}
+                  controls
+                />
+                <p className="mt-3">
+                  {" "}
+                  This is a where the description of the video goes.
+                </p>
+              </Col>
+              <Col className="m-3">
+                <ReactPlayer
+                  className="player"
+                  playing={false}
+                  loop={true}
+                  url={`https://youtu.be/Mi_QNN3aiD4?si=S_dwR0__rfbRG8Md`}
+                  controls
+                />
+                <p className="mt-3">
+                  {" "}
+                  This is a where the description of the video goes.
+                </p>
+              </Col>
+            </Row>
+          </div>
+        </Stack>
       </div>
     </>
   );
