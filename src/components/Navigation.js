@@ -139,12 +139,11 @@ const Navigation = ({ user }) => {
                       MERCHANDISE
                     </Link>
 
-                    <Link to="/" className="brand m-0 p-0">
+                    <Link to="/" className="brand m-0 p-2">
                       <img
                         className="brand-image"
-                        src="/logo.png"
-                        height={80}
-                        width={80}
+                        src="/logo-2.png"
+                        height={55}
                       />
                     </Link>
                     <Link className="nav-links" to="/signup">
