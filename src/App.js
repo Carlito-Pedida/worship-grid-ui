@@ -13,6 +13,7 @@ import { jwtDecode } from "jwt-decode";
 import SignOut from "./components/SignOut";
 import Navigation from "./componentResources/Navigation";
 import AboutInfo from "./components/AboutInfo";
+import Footer from "./components/Footer";
 
 function App() {
   const [user, setUser] = useState();
@@ -45,6 +46,7 @@ function App() {
               </Routes>
             </BrowserRouter>
             <AboutInfo />
+            <Footer />
           </div>
         </ResponseProvider>
       </AssetProvider>
