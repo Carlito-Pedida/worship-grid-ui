@@ -4,7 +4,6 @@ import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
 import AssetList from "./components/AssetList";
 import AssetNew from "./components/AssetNew";
-import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import { UserProvider } from "./providers/UserProvider";
 import { AssetProvider } from "./providers/AssetProvider";
@@ -12,6 +11,8 @@ import { ResponseProvider } from "./providers/ResponseProvider";
 import ResponseNew from "./components/ResponseNew";
 import { jwtDecode } from "jwt-decode";
 import SignOut from "./components/SignOut";
+import Navigation from "./componentResources/Navigation";
+import AboutInfo from "./components/AboutInfo";
 
 function App() {
   const [user, setUser] = useState();
@@ -43,6 +44,7 @@ function App() {
                 <Route path="/:asset_id/reply" element={<ResponseNew />} />
               </Routes>
             </BrowserRouter>
+            <AboutInfo />
           </div>
         </ResponseProvider>
       </AssetProvider>
