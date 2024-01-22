@@ -11,9 +11,12 @@ import { ResponseProvider } from "./providers/ResponseProvider";
 import ResponseNew from "./components/ResponseNew";
 import { jwtDecode } from "jwt-decode";
 import SignOut from "./components/SignOut";
-import Navigation from "./componentResources/Navigation";
+import Navigation from "./props/Navigation";
 import AboutInfo from "./components/AboutInfo";
 import Footer from "./components/Footer";
+import MySetlist from "./components/MySetlist";
+import Academy from "./components/Academy";
+import Merchandise from "./components/Merchandise";
 
 function App() {
   const [user, setUser] = useState();
@@ -38,6 +41,9 @@ function App() {
                 <Route path="/signup" element={<SignUp />} />
 
                 <Route path="/signin" element={<SignIn user={user} />} />
+                <Route path="/setlist" element={<MySetlist user={user} />} />
+                <Route path="/academy" element={<Academy />} />
+                <Route path="/merchandise" element={<Merchandise />} />
 
                 <Route path="/signout" element={<SignOut />} />
                 <Route user={user} path="/assets" element={<AssetList />} />

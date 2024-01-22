@@ -47,7 +47,7 @@ const Navigation = ({ user }) => {
               <React.Fragment>
                 <div>
                   <div>
-                    <Link className="nav-links" to="/">
+                    <Link className="nav-links" to="/academy">
                       WORSHIP GRID ACADEMY
                     </Link>
 
@@ -100,7 +100,10 @@ const Navigation = ({ user }) => {
                       SIGN OUT
                     </Link>
                     <div className="navLinks2-container">
-                      <Link className="hover-underline-animation" to="#">
+                      <Link
+                        className="hover-underline-animation"
+                        to="/church-locations"
+                      >
                         CHURCHES IN THE AREA
                       </Link>
                       <Link className="hover-underline-animation" to="#">
@@ -131,12 +134,11 @@ const Navigation = ({ user }) => {
               <React.Fragment>
                 <div>
                   <div>
-                    <Link className="nav-links" to="#">
+                    <Link className="nav-links" to="academy">
                       WORSHIP GRID ACADEMY
                     </Link>
-
                     <Link className="nav-links" to="/signup">
-                      MERCHANDISE
+                      GET ACCESS
                     </Link>
 
                     <Link to="/" className="brand m-2 p-2">
@@ -145,9 +147,6 @@ const Navigation = ({ user }) => {
                         src="/logo-2.png"
                         height={55}
                       />
-                    </Link>
-                    <Link className="nav-links" to="/signup">
-                      GET ACCESS
                     </Link>
 
                     <Link className="nav-links" to="/signin">
@@ -162,7 +161,10 @@ const Navigation = ({ user }) => {
                     <Link className="hover-underline-animation" to="#">
                       CHURCHES IN THE AREA
                     </Link>
-                    <Link className="hover-underline-animation" to="#">
+                    <Link
+                      className="hover-underline-animation"
+                      to="/merchandise"
+                    >
                       MERCHANDISE
                     </Link>
                     <Link className="hover-underline-animation" to="#">

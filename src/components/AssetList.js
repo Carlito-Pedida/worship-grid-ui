@@ -1,7 +1,7 @@
 import React from "react";
 import AssetContext from "../contexts/AssetContext";
 import { Link } from "react-router-dom";
-import NewsBanner from "../componentResources/NewsBanner";
+import NewsBanner from "../props/NewsBanner";
 
 const AssetList = () => {
   return (

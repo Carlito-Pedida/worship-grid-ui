@@ -6,4 +6,6 @@
   justify-content: center;
   color: rgb(149, 149, 149);
   font-size: large;
+  margin-bottom: 0;
+  overflow: hidden;
 }
