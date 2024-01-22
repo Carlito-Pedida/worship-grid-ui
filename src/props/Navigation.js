@@ -106,7 +106,10 @@ const Navigation = ({ user }) => {
                       >
                         CHURCHES IN THE AREA
                       </Link>
-                      <Link className="hover-underline-animation" to="#">
+                      <Link
+                        className="hover-underline-animation"
+                        to="/merchandise"
+                      >
                         MERCHANDISE
                       </Link>
                       <Link className="hover-underline-animation" to="#">

@@ -5,8 +5,8 @@ import Row from "react-bootstrap/Row";
 
 const MerchandiseItem = ({ name, price, image, description }) => (
   <>
-    <Row xs={1} md={2} className="g-5">
-      {Array.from({ length: 4 }).map((_, idx) => (
+    <Row xs={1} md={3} className="g-5">
+      {Array.from({ length: 6 }).map((_, idx) => (
         <Col key={idx}>
           <div>
             <h2>{name}</h2>
@@ -57,7 +57,8 @@ const Merchandise = () => {
         color: "white"
       }}
     >
-      <h2>Merchandise</h2>
+      <h2>Worship Grid Merchandise</h2>
+      <br />
       <MerchandiseList items={merchandiseData} />
     </div>
   );
