@@ -31,17 +31,28 @@ const AssetNew = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <span>Message </span>
-        <input
-          type="text"
-          name="message"
-          value={newAsset.message}
-          onChange={handleChange}
-        />
-        <button>Submit</button>
-      </form>
+    <div
+      style={{
+        backgroundColor: "rgb(51, 51, 51)",
+        padding: "100px",
+        margin: "50px",
+        borderRadius: "25px",
+        color: "white",
+        opacity: "85%"
+      }}
+    >
+      <div>
+        <form onSubmit={handleSubmit}>
+          <span>Message </span>
+          <input
+            type="text"
+            name="message"
+            value={newAsset.message}
+            onChange={handleChange}
+          />
+          <button>Submit</button>
+        </form>
+      </div>
     </div>
   );
 };

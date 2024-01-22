@@ -167,7 +167,10 @@ const Navigation = ({ user }) => {
                     >
                       MERCHANDISE
                     </Link>
-                    <Link className="hover-underline-animation" to="#">
+                    <Link
+                      className="hover-underline-animation"
+                      to="/merchandise"
+                    >
                       EVENTS
                     </Link>
                     <Link className="hover-underline-animation" to="#">
