@@ -1,0 +1,31 @@
+.landing-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sub-invite {
+  background-color: rgba(0, 0, 0, 0.618);
+  border-radius: 25px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 40px 85px 40px 85px;
+  color: white;
+}
+
+.sub-invite > Button {
+  border: none;
+  background-color: #2c5728;
+  padding: 10px 35px 10px 35px;
+  font-weight: 200;
+  font-size: 15px;
+}
+
+.all-access {
+  font-weight: 800;
+  font-size: 65px;
+  font-style: italic;
+}
+
+.textFx {
+  color: #65c25d;
+}

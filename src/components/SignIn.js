@@ -17,28 +17,39 @@ const SignIn = ({ user }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>LOGIN</h1>
-      <span>Username </span>
-      <input
-        placeholder="Enter username"
-        type="text"
-        name="username"
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <br></br>
-      <br></br>
-      <span>Password </span>
-      <input
-        placeholder="Enter password"
-        type="password"
-        name="password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <br />
-      <br></br>
-      <button>Sign In</button>
-    </form>
+    <div
+      style={{
+        backgroundColor: "rgb(51, 51, 51)",
+        padding: "100px",
+        margin: "50px",
+        borderRadius: "25px",
+        color: "white",
+        opacity: "85%"
+      }}
+    >
+      <form onSubmit={handleSubmit}>
+        <h1>LOGIN</h1>
+        <span>Username </span>
+        <input
+          placeholder="Enter username"
+          type="text"
+          name="username"
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <br></br>
+        <br></br>
+        <span>Password </span>
+        <input
+          placeholder="Enter password"
+          type="password"
+          name="password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <br />
+        <br></br>
+        <button>Sign In</button>
+      </form>
+    </div>
   );
 };
 

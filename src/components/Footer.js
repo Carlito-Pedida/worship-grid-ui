@@ -3,11 +3,13 @@ import "../styles/Footer.css";
 
 const Footer = () => {
   return (
-    <div className="footer">
-      <p>
-        &copy; {new Date().getFullYear()} | Worship Grid Inc. All rights
-        reserved.
-      </p>
+    <div className="foot-container">
+      <div className="footer">
+        <p>
+          &copy; {new Date().getFullYear()} | Worship Grid Inc. All rights
+          reserved.
+        </p>
+      </div>
     </div>
   );
 };

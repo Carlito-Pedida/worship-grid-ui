@@ -2,7 +2,8 @@ import React from "react";
 import "../styles/Home.css";
 import { Button, Card, Col, Container, Row, Stack } from "react-bootstrap";
 import ReactPlayer from "react-player";
-import NewsBanner from "../componentResources/NewsBanner";
+import NewsBanner from "../props/NewsBanner";
+import AdsBanner from "../props/AdsBanner";
 
 const Home = () => {
   return (
@@ -13,54 +14,25 @@ const Home = () => {
         subTitle2="Sign up and get access to all the stems with the ALL ACCESS PASS!"
         buttonText="LEARN MORE"
       />
-      <div
-        className="landing-top"
-        // style={{
-        //   backgroundImage: `url("https://images.unsplash.com/photo-1443186547344-2437c72a228e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHx8")`,
-        //   backgroundSize: ,
-        //   height: "900px"
-        // }}
-      >
-        <div className="sub-invite">
-          <div>
-            <h1 className="all-access">
-              GET THE ALL ACCESS <span className="pass">PASS</span>
-            </h1>
-            <br />
-            <h3>
-              Every resource you need to make to create a condusive practice
-              environment.
-            </h3>
-            <br />
-            <p>
-              Browse through all the music and practice resources to get you
-              hyped up and performance ready on your weekly gig. <br />
-              Pitch up or down your music to match the assigned keys in your
-              setlist to make for accurate practice. <br />
-              Watch all premium video tutorials from favorite musicians and
-              artists!
-            </p>
-            <br />
 
-            <h3>Starting at just 14.99/month</h3>
-
-            <h4>
-              Not ready to get the ALL ACCESS PASS yet?{" "}
-              <span>
-                Click{" "}
-                <a style={{ textDecoration: "none" }} href="#">
-                  <strong>HERE</strong>
-                </a>{" "}
-                to try it FREE for 1 month!
-              </span>
-            </h4>
-          </div>
-          <br />
-
-          <Button>LEARN MORE</Button>
-          <br />
-        </div>
-      </div>
+      <AdsBanner
+        header="GET THE ALL ACCESS"
+        textFx="PASS"
+        subHeader="Every resource you need to make to create a condusive practice
+        environment."
+        smallText1="Browse through all the music and practice resources to get you
+        hyped up and performance ready on your weekly gig."
+        smallText2="Pitch up or down your music to match the assigned keys in your
+        setlist to make for accurate practice."
+        smallText3="Watch all premium video tutorials from favorite musicians and
+        artists!"
+        bigText1="Starting at just 14.99/month"
+        bigText2="Not ready to get the ALL ACCESS PASS yet?"
+        bigText3="Click"
+        linkedText="HERE"
+        bigText4="to try it FREE for 1 month!"
+        buttonText2="LEARN MORE"
+      />
 
       <div className="featured-vids">
         <Stack>
