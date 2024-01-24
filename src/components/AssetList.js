@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import AssetContext from "../contexts/AssetContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NewsBanner from "../props/NewsBanner";
 import moment from "moment";
 
 const AssetList = () => {
+  let navigate = useNavigate();
+  let { deleteUserAssets } = useContext(AssetContext);
+
+  function handleDelete(asset_id) {
+    const confirmDelete = window.confirm("Are you sure?");
+    if (confirmDelete) {
+      deleteUserAssets(asset_id)
+        .then(() => {
+          navigate("/assets");
+        })
+        .catch((error) => {
+          console.log(error);
+          window.alert("You need to sign in to perform this operation");
+          navigate("/assets");
+        });
+    }
+  }
+
   return (
     <div>
       <NewsBanner
@@ -27,6 +45,7 @@ const AssetList = () => {
                       moment(a.createdAt).valueOf()
                   )
                   .map((a, i) => {
+                    console.log(asset);
                     return (
                       <div
                         style={{
@@ -48,6 +67,17 @@ const AssetList = () => {
                           {/* <img src={a.imageLink} alt="here goes the images" /> */}
 
                           <p>{a.message}</p>
+                          <Link
+                            to={"#"}
+                            onClick={handleDelete.bind(
+                              this,
+                              a.asset_id,
+                              a.UserDatum.user_id
+                            )}
+                          >
+                            delete
+                          </Link>
+
                           {a.UserResponses && a.UserResponses.length > 0 ? (
                             <div key={a.UserResponses.responses_id}>
                               {a.UserResponses.map((r, i) => (
@@ -78,7 +108,6 @@ const AssetList = () => {
                         <br />
                         <Link to={`/${a.asset_id}/edit`}>edit</Link>
                         <br />
-                        <Link to={`/${a.asset_id}/delete`}>delete</Link>
                       </div>
                     );
                   })}

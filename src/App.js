@@ -17,6 +17,7 @@ import Footer from "./components/Footer";
 import MySetlist from "./components/MySetlist";
 import Academy from "./components/Academy";
 import Merchandise from "./components/Merchandise";
+import AssetEdit from "./components/AssetEdit";
 
 function App() {
   const [user, setUser] = useState();
@@ -47,7 +48,7 @@ function App() {
                 <Route user={user} path="/assets" element={<AssetList />} />
                 <Route path="/create" element={<AssetNew />} />
                 <Route path="/:asset_id/reply" element={<ResponseNew />} />
-                <Route path="/:asset_id/edit" element={<ResponseNew />} />
+                <Route path="/:asset_id/edit" element={<AssetEdit />} />
               </Routes>
             </BrowserRouter>
             <AboutInfo />
