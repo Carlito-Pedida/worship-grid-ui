@@ -17,16 +17,16 @@ export const UserProvider = (props) => {
 
   function getAllUserAssets() {
     return axios
-      .get(baseUrl)
+      .get("http://localhost:5000/server/assets/")
       .then((response) => setLoggedUser(response.data))
       .catch((error) => console.error("Error fetching user assets:", error));
   }
 
   function signupUser(
-    first_name,
-    last_name,
     username,
     password,
+    first_name,
+    last_name,
     email,
     city,
     state,
@@ -35,10 +35,10 @@ export const UserProvider = (props) => {
     avatar
   ) {
     let user = {
-      first_name,
-      last_name,
       username,
       password,
+      first_name,
+      last_name,
       email,
       city,
       state,
@@ -47,7 +47,7 @@ export const UserProvider = (props) => {
       avatar
     };
 
-    return axios.post(`${baseUrl}/signup`, user).then((response) => {
+    return axios.post(`${baseUrl}signup`, user).then((response) => {
       return new Promise((resolve) => resolve(response.data));
     });
   }
@@ -55,7 +55,7 @@ export const UserProvider = (props) => {
   function signInUser(username, password) {
     let user = { username, password };
 
-    return axios.post(`${baseUrl}/signin`, user).then((response) => {
+    return axios.post(`${baseUrl}signin`, user).then((response) => {
       localStorage.setItem("loggedUserToken", response.data.token);
       return new Promise((resolve) => resolve(response.data));
     });

@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import UserContext from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import "../styles/SignUp.css";
-import { Button, Form, Stack } from "react-bootstrap";
+import { Button, Stack } from "react-bootstrap";
 
 const SignUp = () => {
   const [first_name, setFirst_Name] = useState("");
@@ -23,10 +23,10 @@ const SignUp = () => {
   function handleSubmit(event) {
     event.preventDefault();
     signupUser(
-      first_name,
-      last_name,
       username,
       password,
+      first_name,
+      last_name,
       email,
       city,
       state,
@@ -70,7 +70,7 @@ const SignUp = () => {
                   onChange={(e) => setUsername(e.target.value)}
                 />
                 <input
-                  type="text"
+                  type="password"
                   name="password"
                   value={password}
                   placeholder="Password"
@@ -97,7 +97,7 @@ const SignUp = () => {
 
               <input
                 className="single-line-input"
-                type="text"
+                type="email"
                 name="email"
                 value={email}
                 placeholder="Email"
@@ -140,10 +140,10 @@ const SignUp = () => {
                 type="text"
                 name="avatar"
                 value={avatar}
-                placeholder="Image URL"
+                placeholder="Avatar"
                 onChange={(e) => setAvatar(e.target.value)}
               />
-              <Button className="p-3">Sign Up</Button>
+              <button className="p-3">Sign Up</button>
             </Stack>
           </form>
         </div>
