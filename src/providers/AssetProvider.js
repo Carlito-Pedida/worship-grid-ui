@@ -37,7 +37,16 @@ export const AssetProvider = (props) => {
 
   function updateUserAsset(asset) {}
 
-  function deleteUserAsset(user_id) {}
+  function deleteUserAsset(asset_id) {
+    let url = "http://localhost:5000/server/assets/";
+    let headers = {
+      Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
+    };
+    return axios.delete(url + asset_id, { headers }).then((response) => {
+      getAllUserAssets();
+      return new Promise((resolve) => resolve(response.data));
+    });
+  }
 
   return (
     <AssetContext.Provider
