@@ -6,12 +6,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: solid rgb(175, 175, 175);
   border-right: 0;
   background-color: #2c5728;
 }
 .form-inputs {
-  border: solid rgb(175, 175, 175);
+  background-color: rgba(124, 130, 133, 0.175);
 }
 .form-style {
   display: flex;
