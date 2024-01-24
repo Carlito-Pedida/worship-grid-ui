@@ -1,0 +1,42 @@
+.form-grid {
+  display: flex;
+  justify-content: center;
+}
+.form-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid rgb(175, 175, 175);
+  border-right: 0;
+  background-color: #2c5728;
+}
+.form-inputs {
+  border: solid rgb(175, 175, 175);
+}
+.form-style {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(182, 202, 212, 0.071);
+  margin: 20px;
+  padding: 50px;
+  border-radius: 5px;
+  color: rgb(2, 81, 130);
+}
+
+.signup-input {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.signup-input input {
+  border: none;
+  border-radius: 8px;
+  padding: 15px;
+}
+.single-line-input {
+  border: none;
+  border-radius: 8px;
+  padding: 15px;
+}
