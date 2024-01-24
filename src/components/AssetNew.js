@@ -53,14 +53,14 @@ const AssetNew = () => {
           <span>Upload Photo </span>
           <input
             type="text"
-            name="message"
+            name="imageLink"
             value={newAsset.imageLink}
             onChange={handleChange}
           />
           <span>Upload Video </span>
           <input
             type="text"
-            name="message"
+            name="videoLink"
             value={newAsset.videoLink}
             onChange={handleChange}
           />

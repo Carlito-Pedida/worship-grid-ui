@@ -6,12 +6,12 @@ import moment from "moment";
 
 const AssetList = () => {
   let navigate = useNavigate();
-  let { deleteUserAssets } = useContext(AssetContext);
+  let { deleteUserAsset } = useContext(AssetContext);
 
   function handleDelete(asset_id) {
     const confirmDelete = window.confirm("Are you sure?");
     if (confirmDelete) {
-      deleteUserAssets(asset_id)
+      deleteUserAsset(asset_id)
         .then(() => {
           navigate("/assets");
         })
@@ -45,7 +45,6 @@ const AssetList = () => {
                       moment(a.createdAt).valueOf()
                   )
                   .map((a, i) => {
-                    console.log(asset);
                     return (
                       <div
                         style={{
@@ -61,22 +60,31 @@ const AssetList = () => {
                         key={i}
                       >
                         <div>
+                          <span>
+                            <img
+                              style={{
+                                borderRadius: "50%",
+                                border: "solid 5px",
+
+                                borderColor: "white",
+                                marginLeft: "5px",
+                                marginRight: "5px"
+                              }}
+                              src={a.UserDatum.avatar}
+                              size="40"
+                              round="true"
+                              height={65}
+                              width={65}
+                            />
+                          </span>
                           <h2>
                             {a.UserDatum.first_name} | {a.UserDatum.last_name}
                           </h2>
                           {/* <img src={a.imageLink} alt="here goes the images" /> */}
 
                           <p>{a.message}</p>
-                          <Link
-                            to={"#"}
-                            onClick={handleDelete.bind(
-                              this,
-                              a.asset_id,
-                              a.UserDatum.user_id
-                            )}
-                          >
-                            delete
-                          </Link>
+                          <p>{a.imageLink}</p>
+                          <p>{a.videoLink}</p>
 
                           {a.UserResponses && a.UserResponses.length > 0 ? (
                             <div key={a.UserResponses.responses_id}>
@@ -107,6 +115,17 @@ const AssetList = () => {
                         <Link to={`/${a.asset_id}/reply`}>reply</Link>
                         <br />
                         <Link to={`/${a.asset_id}/edit`}>edit</Link>
+                        <br />
+                        <Link
+                          to={"#"}
+                          onClick={handleDelete.bind(
+                            this,
+                            a.asset_id,
+                            a.UserDatum.user_id
+                          )}
+                        >
+                          delete
+                        </Link>
                         <br />
                       </div>
                     );
