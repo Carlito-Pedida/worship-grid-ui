@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AdsBanner from "../props/AdsBanner";
 
 const Academy = () => {
+  useEffect(() => {
+    // Update the HTML title when the component mounts
+    document.title = "Worship Grid - Academy";
+
+    // Optionally, you can reset the title when the component unmounts
+    //   return () => {
+    //     document.title = "Worship Grid";
+    //   };
+  }, []);
   return (
     <AdsBanner
       header="SOMETHING AWESOME COMING"

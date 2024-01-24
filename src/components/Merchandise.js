@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -47,6 +47,11 @@ const Merchandise = () => {
     // { name: "Item 5", price: 14.99, image: "item3.jpg" }
     // Add more items as needed
   ];
+
+  useEffect(() => {
+    // Update the HTML title when the component mounts
+    document.title = "Worship Grid > Merch";
+  }, []);
 
   return (
     <div

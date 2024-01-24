@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AssetContext from "../contexts/AssetContext";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import NewsBanner from "../props/NewsBanner";
@@ -32,6 +32,11 @@ const AssetList = () => {
   const handleSubmitEditAsset = (e) => {
     e.preventDefault();
   };
+
+  useEffect(() => {
+    // Update the HTML title when the component mounts
+    document.title = "Worship Grid > Convo";
+  }, []);
 
   return (
     <div>
@@ -152,9 +157,6 @@ const AssetList = () => {
           );
         }}
       </AssetContext.Consumer>
-      <Stack>
-        <Outlet />
-      </Stack>
     </div>
   );
 };

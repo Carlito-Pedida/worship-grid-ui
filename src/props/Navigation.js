@@ -49,11 +49,11 @@ const Navigation = ({ user }) => {
                       WORSHIP GRID ACADEMY
                     </Link>
 
-                    <Link className="nav-links" to="/signup">
+                    <Link className="nav-links" to="/setlist">
                       MY SETLIST
                     </Link>
 
-                    <Link className="nav-links" to="/create">
+                    <Link className="nav-links" to="/article">
                       BLOG
                     </Link>
 
@@ -69,7 +69,10 @@ const Navigation = ({ user }) => {
                       CONVERSATIONS
                     </Link>
 
-                    <Link className="nav-links" to="/">
+                    <Link
+                      className="nav-links"
+                      to={`/profile/${user.username}`}
+                    >
                       HELLO,{" "}
                       <strong style={{ textTransform: "uppercase" }}>
                         {user.first_name}!

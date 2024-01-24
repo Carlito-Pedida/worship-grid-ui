@@ -33,9 +33,25 @@ export const AssetProvider = (props) => {
       });
   }
 
-  function getOneUserAsset(user_id) {}
+  function getOneUserAsset(asset_id) {
+    return axios.get(baseUrl + asset_id).then((response) => {
+      getAllUserAssets();
+      console.log(response.data);
+      return new Promise((resolve) => resolve(response.data));
+    });
+  }
 
-  function updateUserAsset(asset) {}
+  function updateUserAsset(asset, user_id) {
+    let headers = {
+      Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
+    };
+    return axios
+      .put(baseUrl + asset.asset_id, { ...asset, user_id }, { headers })
+      .then((response) => {
+        getAllUserAssets();
+        return new Promise((resolve) => resolve(response.data));
+      });
+  }
 
   function deleteUserAsset(asset_id) {
     let headers = {

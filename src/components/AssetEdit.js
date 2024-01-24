@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import AssetContext from "../contexts/AssetContext";
 import { Button, Modal } from "react-bootstrap";
@@ -14,7 +14,19 @@ const AssetEdit = ({ showEditAsset, handleClose, handleShow }) => {
     videoLink: ""
   });
 
-  let { getOneUserAsset } = useContext(AssetContext);
+  let { getOneUserAsset, updateUserAsset } = useContext(AssetContext);
+
+  let { asset_id, message, imageLink, videoLink } = assetUpdate;
+
+  useEffect(() => {
+    if (asset_id === undefined) return;
+    async function fetchData() {
+      await getOneUserAsset(asset_id).then((oneAsset) =>
+        setAssetUpdate(oneAsset)
+      );
+    }
+    fetchData();
+  }, []);
 
   return (
     <div>
