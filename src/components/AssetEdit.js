@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import AssetContext from "../contexts/AssetContext";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Col, Container, Modal, Row, Stack } from "react-bootstrap";
+import "../styles/AssetEdit.css";
 
 const AssetEdit = ({ showEditAsset, handleClose, handleShow }) => {
   let params = useParams();
@@ -32,11 +33,68 @@ const AssetEdit = ({ showEditAsset, handleClose, handleShow }) => {
     <div>
       <>
         <Modal centered show={showEditAsset} onHide={handleClose}>
-          <Modal.Header closeButton>
+          <Modal.Header
+            style={{
+              backgroundColor: "#2c5728",
+              color: "gray"
+            }}
+            closeButton
+          >
             <Modal.Title>Edit Post</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-          <Modal.Footer>
+          <Modal.Body
+            className="p-4"
+            style={{
+              backgroundColor: "grey",
+              color: "white"
+            }}
+          >
+            <Container className="grid-example">
+              <Row>
+                <Col xs={6} md={4}></Col>
+                <form
+                  className="edit-form p-5"
+                  style={{
+                    backgroundColor: "rgb(100, 100, 100)",
+                    borderRadius: "8px"
+                  }}
+                >
+                  <Stack>
+                    <p>Edit Message</p>
+                    <textarea
+                      className="mb-3"
+                      name="message"
+                      value={message}
+                      onChange={""}
+                      placeholder="Message Edit"
+                    />
+                    <p>Edit Image URL</p>
+                    <input
+                      className="mb-3"
+                      type="textarea"
+                      name="message"
+                      value={message}
+                      onChange={""}
+                      placeholder="Image URL"
+                    />
+                    <p>Edit Video Link</p>
+                    <input
+                      className="mb-3"
+                      type="textarea"
+                      name="message"
+                      value={message}
+                      onChange={""}
+                      placeholder="Video URL"
+                    />
+                  </Stack>
+                </form>
+              </Row>
+            </Container>
+          </Modal.Body>
+          <Modal.Footer
+            className="p-3"
+            style={{ backgroundColor: "#2c5728", color: "white" }}
+          >
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
