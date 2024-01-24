@@ -1,8 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AssetContext from "../contexts/AssetContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import NewsBanner from "../props/NewsBanner";
 import moment from "moment";
+import { Stack } from "react-bootstrap";
+import AssetEdit from "./AssetEdit";
 
 const AssetList = () => {
   let navigate = useNavigate();
@@ -23,8 +25,26 @@ const AssetList = () => {
     }
   }
 
+  const [showEditAsset, setShowEditAsset] = useState(false);
+
+  const openEditAsset = () => setShowEditAsset(true);
+  const closeEditAsset = () => setShowEditAsset(false);
+  const handleSubmitEditAsset = (e) => {
+    e.preventDefault();
+  };
+
+  useEffect(() => {
+    // Update the HTML title when the component mounts
+    document.title = "Worship Grid > Convo";
+  }, []);
+
   return (
     <div>
+      <AssetEdit
+        showEditAsset={showEditAsset}
+        handleClose={closeEditAsset}
+        handleSubmit={handleSubmitEditAsset}
+      />
       <NewsBanner
         title="JOIN THE CONVERSATION!"
         subTitle1="See what's latest in the worship community in your area!"
@@ -114,7 +134,9 @@ const AssetList = () => {
                         {/* Video Screen here<div>{a.videoLink}</div> */}
                         <Link to={`/${a.asset_id}/reply`}>reply</Link>
                         <br />
-                        <Link to={`/${a.asset_id}/edit`}>edit</Link>
+                        <Link to={openEditAsset} onClick={openEditAsset}>
+                          Edit
+                        </Link>
                         <br />
                         <Link
                           to={"#"}

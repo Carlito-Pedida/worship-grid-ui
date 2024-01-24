@@ -14,10 +14,12 @@ import SignOut from "./components/SignOut";
 import Navigation from "./props/Navigation";
 import AboutInfo from "./components/AboutInfo";
 import Footer from "./components/Footer";
-import MySetlist from "./components/MySetlist";
 import Academy from "./components/Academy";
 import Merchandise from "./components/Merchandise";
 import AssetEdit from "./components/AssetEdit";
+import BlogArticle from "./components/BlogArticle";
+import UserSetlist from "./components/UserSetlist";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   const [user, setUser] = useState();
@@ -41,14 +43,24 @@ function App() {
                 <Route path="/" element={<Home />} index />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/signin" element={<SignIn user={user} />} />
-                <Route path="/setlist" element={<MySetlist user={user} />} />
+                <Route path="/setlist" element={<UserSetlist user={user} />} />
                 <Route path="/academy" element={<Academy />} />
+                <Route path="setlist" element={<UserSetlist />} />
+                <Route path="/article" element={<BlogArticle />} />
+                <Route user={user} path="/assets" element={<AssetList />} />
+                <Route
+                  path="/profile/:username"
+                  element={<UserProfile user={user} />}
+                />
                 <Route path="/merchandise" element={<Merchandise />} />
                 <Route path="/signout" element={<SignOut />} />
-                <Route user={user} path="/assets" element={<AssetList />} />
+
                 <Route path="/create" element={<AssetNew />} />
-                <Route path="/:asset_id/reply" element={<ResponseNew />} />
-                <Route path="/:asset_id/edit" element={<AssetEdit />} />
+                <Route
+                  path="/assets/:asset_id/reply"
+                  element={<ResponseNew />}
+                />
+                <Route path="/assets/:asset_id/edit" element={<AssetEdit />} />
               </Routes>
             </BrowserRouter>
             <AboutInfo />
