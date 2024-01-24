@@ -43,11 +43,25 @@ const AssetNew = () => {
     >
       <div>
         <form onSubmit={handleSubmit}>
-          <span>Message </span>
+          <span>Write a Message </span>
           <input
             type="text"
             name="message"
             value={newAsset.message}
+            onChange={handleChange}
+          />
+          <span>Upload Photo </span>
+          <input
+            type="text"
+            name="message"
+            value={newAsset.imageLink}
+            onChange={handleChange}
+          />
+          <span>Upload Video </span>
+          <input
+            type="text"
+            name="message"
+            value={newAsset.videoLink}
             onChange={handleChange}
           />
           <button>Submit</button>

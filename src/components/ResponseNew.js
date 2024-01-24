@@ -57,6 +57,7 @@ const ResponseNew = () => {
           value={newResponse.reactions}
           onChange={handleChange}
         >
+          <option>select-reaction</option>
           <option value="👍">👍</option>
           <option value="❤️">❤️</option>
           <option value="😄">😄</option>

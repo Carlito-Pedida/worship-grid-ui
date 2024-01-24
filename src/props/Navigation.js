@@ -8,11 +8,9 @@ import "../styles/Navigation.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
 const Navigation = ({ user }) => {
-  let { user_id } = useParams();
   const [userLog, setUserLog] = useState();
 
   let { loggedUser } = useContext(UserContext);
-  console.log(loggedUser);
 
   useEffect(() => {
     let isMounted = true;
