@@ -39,16 +39,15 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} index />
                 <Route path="/signup" element={<SignUp />} />
-
                 <Route path="/signin" element={<SignIn user={user} />} />
                 <Route path="/setlist" element={<MySetlist user={user} />} />
                 <Route path="/academy" element={<Academy />} />
                 <Route path="/merchandise" element={<Merchandise />} />
-
                 <Route path="/signout" element={<SignOut />} />
                 <Route user={user} path="/assets" element={<AssetList />} />
                 <Route path="/create" element={<AssetNew />} />
                 <Route path="/:asset_id/reply" element={<ResponseNew />} />
+                <Route path="/:asset_id/edit" element={<ResponseNew />} />
               </Routes>
             </BrowserRouter>
             <AboutInfo />
