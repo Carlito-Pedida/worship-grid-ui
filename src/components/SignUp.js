@@ -59,7 +59,7 @@ const SignUp = () => {
           <img src="/logo.png" />
         </div>
         <div className="form-inputs">
-          <form className="form-style">
+          <form className="form-style" onSubmit={handleSubmit}>
             <Stack gap={3} className="mx-auto">
               <div className="signup-input">
                 <input
