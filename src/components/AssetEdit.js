@@ -4,54 +4,48 @@ import AssetContext from "../contexts/AssetContext";
 import { Button, Col, Container, Modal, Row, Stack } from "react-bootstrap";
 import "../styles/AssetEdit.css";
 
-const AssetEdit = ({ showEditAsset, handleClose, selectedAsset }) => {
+const AssetEdit = () => {
   let params = useParams();
   let navigate = useNavigate();
 
-  let [assetUpdate, setAssetUpdate] = useState({
-    asset_id: selectedAsset?.asset_id || "",
-    message: selectedAsset?.message || "",
-    imageLink: selectedAsset?.imageLink || "",
-    videoLink: selectedAsset?.videoLink || ""
+  let [updateAsset, setUpdateAsset] = useState({
+    asset_id: params.asset_id,
+    message: "",
+    imageLink: "",
+    videoLink: ""
   });
 
-  console.log(assetUpdate);
+  console.log(updateAsset);
 
   let { getOneUserAsset, updateUserAsset } = useContext(AssetContext);
 
-  let { message, imageLink, videoLink } = selectedAsset;
+  let { asset_id, message, imageLink, videoLink } = updateAsset;
 
   useEffect(() => {
-    if (selectedAsset?.asset_id) return;
+    if (asset_id === undefined) return;
     async function fetchData() {
-      await getOneUserAsset(selectedAsset?.asset_id).then((oneAsset) =>
-        setAssetUpdate(oneAsset)
+      await getOneUserAsset(asset_id).then((oneAsset) =>
+        setUpdateAsset(oneAsset)
       );
     }
     fetchData();
   }, []);
 
-  //   useEffect(() => {
-  //     if (selectedAsset?.asset_id) return;
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setUpdateAsset((prevValue) => ({ ...prevValue, [name]: value }));
+  }
 
-  //     async function fetchData() {
-  //       const oneAsset = await getOneUserAsset(selectedAsset.asset_id);
-  //       setAssetUpdate(oneAsset);
-  //     }
-
-  //     fetchData();
-  //   }, []);
-
-  //   function editPost() {
-  //     return updateUserAsset(assetUpdate);
-  //   }
+  function updatePostFn() {
+    return updateUserAsset(updateAsset);
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    updateUserAsset(assetUpdate)
+    updatePostFn(updateAsset)
       .then(() => {
-        if (!assetUpdate.ok) {
+        if (!updateAsset.ok) {
           alert("Update Succesfull");
         }
         navigate("/assets");
@@ -65,28 +59,47 @@ const AssetEdit = ({ showEditAsset, handleClose, selectedAsset }) => {
   }
 
   return (
-    <div>
-      <>
-        <Modal centered show={showEditAsset} onHide={handleClose}>
-          <Modal.Header
-            style={{
-              backgroundColor: "#2c5728",
-              color: "gray"
-            }}
-            closeButton
-          >
-            <Modal.Title>Edit Post</Modal.Title>
+    <>
+      <div
+        className="modal show"
+        style={{ display: "block", position: "initial" }}
+      >
+        <Modal.Dialog>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal title</Modal.Title>
           </Modal.Header>
-          <Modal.Body
-            className="p-4"
-            style={{
-              backgroundColor: "grey",
-              color: "white"
-            }}
-          >
-            <Container className="grid-example">
-              <Row>
-                <Col xs={6} md={4}></Col>
+
+          <Modal.Body>
+            <p>Modal body text goes here.</p>
+          </Modal.Body>
+
+          <Modal.Footer>
+            <Button variant="secondary">Close</Button>
+            <Button variant="primary">Save changes</Button>
+          </Modal.Footer>
+        </Modal.Dialog>
+      </div>
+      <div>
+        <div
+          className="header"
+          style={{
+            backgroundColor: "#2c5728",
+            color: "gray"
+          }}
+          closeButton
+        >
+          <h2>Edit Post</h2>
+        </div>
+        <div
+          className="body p-4"
+          style={{
+            backgroundColor: "grey",
+            color: "white"
+          }}
+        >
+          <div className="container grid-example">
+            <div className="row">
+              <div className="col" xs={6} md={4}>
                 <form
                   onSubmit={handleSubmit}
                   className="edit-form p-5"
@@ -101,7 +114,7 @@ const AssetEdit = ({ showEditAsset, handleClose, selectedAsset }) => {
                       className="mb-3"
                       name="message"
                       value={message}
-                      onChange={(e) => setAssetUpdate(e.target.value)}
+                      onChange={handleChange}
                       placeholder="Message Edit"
                     />
                     <p>Edit Image URL</p>
@@ -110,7 +123,7 @@ const AssetEdit = ({ showEditAsset, handleClose, selectedAsset }) => {
                       type="text"
                       name="imageLink"
                       value={imageLink}
-                      onChange={(e) => setAssetUpdate(e.target.value)}
+                      onChange={handleChange}
                       placeholder="Image URL"
                     />
                     <p>Edit Video Link</p>
@@ -119,27 +132,23 @@ const AssetEdit = ({ showEditAsset, handleClose, selectedAsset }) => {
                       type="text"
                       name="videoLink"
                       value={videoLink}
-                      onChange={(e) => setAssetUpdate(e.target.value)}
+                      onChange={handleChange}
                       placeholder="Video URL"
                     />
                   </Stack>
-                  <Button variant="secondary" onClick={handleClose}>
-                    Close
-                  </Button>
-                  <Button variant="primary" onClick={handleSubmit}>
-                    Save Changes
-                  </Button>
+
+                  <Button variant="primary">Save Changes</Button>
                 </form>
-              </Row>
-            </Container>
-          </Modal.Body>
-          <Modal.Footer
-            className="p-3"
-            style={{ backgroundColor: "#2c5728", color: "white" }}
-          ></Modal.Footer>
-        </Modal>
-      </>
-    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="footer p-3"
+          style={{ backgroundColor: "#2c5728", color: "white" }}
+        ></div>
+      </div>
+    </>
   );
 };
 

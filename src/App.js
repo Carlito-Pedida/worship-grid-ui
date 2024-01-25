@@ -16,7 +16,7 @@ import AboutInfo from "./components/AboutInfo";
 import Footer from "./components/Footer";
 import Academy from "./components/Academy";
 import Merchandise from "./components/Merchandise";
-import AssetEdit from "./components/AssetEdit";
+import AssetEdit from "./components/AssetEdit.js";
 import BlogArticle from "./components/BlogArticle";
 import UserSetlist from "./components/UserSetlist";
 import UserProfile from "./components/UserProfile";
@@ -47,7 +47,7 @@ function App() {
                 <Route path="/academy" element={<Academy />} />
                 <Route path="setlist" element={<UserSetlist />} />
                 <Route path="/article" element={<BlogArticle />} />
-                <Route user={user} path="/assets" element={<AssetList />} />
+                <Route path="/assets" element={<AssetList />} />
                 <Route
                   path="/profile/:username"
                   element={<UserProfile user={user} />}
@@ -57,10 +57,13 @@ function App() {
 
                 <Route path="/create" element={<AssetNew />} />
                 <Route
-                  path="/assets/:asset_id/reply"
+                  path="/asset/:asset_id/reply"
                   element={<ResponseNew />}
                 />
-                <Route path="/assets/edit" element={<AssetEdit />} />
+                <Route
+                  path="/asset/:asset_id/edit"
+                  element={<AssetEdit user={user} />}
+                />
               </Routes>
             </BrowserRouter>
             <AboutInfo />
