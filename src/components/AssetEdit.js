@@ -8,50 +8,44 @@ const AssetEdit = ({ showEditAsset, handleClose, selectedAsset }) => {
   let params = useParams();
   let navigate = useNavigate();
 
-  let [assetUpdate, setAssetUpdate] = useState({
-    asset_id: selectedAsset?.asset_id || "",
-    message: selectedAsset?.message || "",
-    imageLink: selectedAsset?.imageLink || "",
-    videoLink: selectedAsset?.videoLink || ""
+  let [updateAsset, setUpdateAsset] = useState({
+    asset_id: params.asset_id,
+    message: selectedAsset.message,
+    imageLink: selectedAsset.imageLink,
+    videoLink: selectedAsset.videoLink
   });
 
-  console.log(assetUpdate);
+  console.log(updateAsset);
 
   let { getOneUserAsset, updateUserAsset } = useContext(AssetContext);
 
-  let { message, imageLink, videoLink } = selectedAsset;
+  let { asset_id, message, imageLink, videoLink } = updateAsset;
 
   useEffect(() => {
-    if (selectedAsset?.asset_id) return;
+    if (asset_id === undefined) return;
     async function fetchData() {
-      await getOneUserAsset(selectedAsset?.asset_id).then((oneAsset) =>
-        setAssetUpdate(oneAsset)
+      await getOneUserAsset(asset_id).then((oneAsset) =>
+        setUpdateAsset(oneAsset)
       );
     }
     fetchData();
   }, []);
 
-  //   useEffect(() => {
-  //     if (selectedAsset?.asset_id) return;
+  function updatePostFn() {
+    return updateUserAsset(updateAsset);
+  }
 
-  //     async function fetchData() {
-  //       const oneAsset = await getOneUserAsset(selectedAsset.asset_id);
-  //       setAssetUpdate(oneAsset);
-  //     }
-
-  //     fetchData();
-  //   }, []);
-
-  //   function editPost() {
-  //     return updateUserAsset(assetUpdate);
-  //   }
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setUpdateAsset((prevValue) => ({ ...prevValue, [name]: value }));
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    updateUserAsset(assetUpdate)
+    updatePostFn(updateAsset)
       .then(() => {
-        if (!assetUpdate.ok) {
+        if (!updateAsset.ok) {
           alert("Update Succesfull");
         }
         navigate("/assets");
@@ -101,7 +95,7 @@ const AssetEdit = ({ showEditAsset, handleClose, selectedAsset }) => {
                       className="mb-3"
                       name="message"
                       value={message}
-                      onChange={(e) => setAssetUpdate(e.target.value)}
+                      onChange={handleChange}
                       placeholder="Message Edit"
                     />
                     <p>Edit Image URL</p>
@@ -110,7 +104,7 @@ const AssetEdit = ({ showEditAsset, handleClose, selectedAsset }) => {
                       type="text"
                       name="imageLink"
                       value={imageLink}
-                      onChange={(e) => setAssetUpdate(e.target.value)}
+                      onChange={handleChange}
                       placeholder="Image URL"
                     />
                     <p>Edit Video Link</p>
@@ -119,7 +113,7 @@ const AssetEdit = ({ showEditAsset, handleClose, selectedAsset }) => {
                       type="text"
                       name="videoLink"
                       value={videoLink}
-                      onChange={(e) => setAssetUpdate(e.target.value)}
+                      onChange={handleChange}
                       placeholder="Video URL"
                     />
                   </Stack>

@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import AssetContext from "../contexts/AssetContext";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NewsBanner from "../props/NewsBanner";
 import moment from "moment";
-import { Stack } from "react-bootstrap";
 import AssetEdit from "./AssetEdit";
 
 const AssetList = () => {
@@ -28,8 +27,8 @@ const AssetList = () => {
   const [showEditAsset, setShowEditAsset] = useState(false);
   const [selectedAsset, setSelectedAsset] = useState([]);
 
-  const openEditAsset = (asset) => {
-    setSelectedAsset(asset);
+  const openEditAsset = (a) => {
+    setSelectedAsset(a);
     setShowEditAsset(true);
   };
   const closeEditAsset = () => setShowEditAsset(false);
