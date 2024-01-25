@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import NewsBanner from "../props/NewsBanner";
 import moment from "moment";
 import AssetEdit from "./AssetEdit";
+import { Stack } from "react-bootstrap";
 
 const AssetList = () => {
   let navigate = useNavigate();
@@ -27,8 +28,8 @@ const AssetList = () => {
   const [showEditAsset, setShowEditAsset] = useState(false);
   const [selectedAsset, setSelectedAsset] = useState([]);
 
-  const openEditAsset = (a) => {
-    setSelectedAsset(a);
+  const openEditAsset = (asset) => {
+    setSelectedAsset(asset);
     setShowEditAsset(true);
   };
   const closeEditAsset = () => setShowEditAsset(false);
@@ -43,12 +44,6 @@ const AssetList = () => {
 
   return (
     <div>
-      <AssetEdit
-        showEditAsset={showEditAsset}
-        handleClose={closeEditAsset}
-        handleSubmit={handleSubmitEditAsset}
-        selectedAsset={selectedAsset}
-      />
       <NewsBanner
         title="JOIN THE CONVERSATION!"
         subTitle1="See what's latest in the worship community in your area!"
@@ -136,16 +131,9 @@ const AssetList = () => {
                           )}
                         </div>
                         {/* Video Screen here<div>{a.videoLink}</div> */}
-                        <Link to={`/${a.asset_id}/reply`}>reply</Link>
+                        <Link to={`asset/${a.asset_id}/reply`}>reply</Link>
                         <br />
-                        <Link
-                          to={"#"}
-                          onClick={() => {
-                            openEditAsset(a);
-                          }}
-                        >
-                          Edit
-                        </Link>
+                        <Link to={`/asset/${a.asset_id}/edit`}>Edit</Link>
                         <br />
                         <Link
                           to={"#"}

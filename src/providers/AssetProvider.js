@@ -37,7 +37,6 @@ export const AssetProvider = (props) => {
     let url = "http://localhost:5000/server/assets/asset/";
     return axios.get(url + asset_id).then((response) => {
       getAllUserAssets();
-      console.log(response.data);
       return new Promise((resolve) => resolve(response.data));
     });
   }
