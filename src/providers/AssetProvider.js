@@ -34,21 +34,27 @@ export const AssetProvider = (props) => {
   }
 
   function getOneUserAsset(asset_id) {
-    return axios.get(baseUrl + asset_id).then((response) => {
+    let url = "http://localhost:5000/server/assets/asset/";
+    return axios.get(url + asset_id).then((response) => {
       getAllUserAssets();
-      console.log(response.data);
       return new Promise((resolve) => resolve(response.data));
     });
   }
 
-  function updateUserAsset(asset, user_id) {
+  function updateUserAsset(UpdatedAsset, user_id) {
+    let url = "http://localhost:5000/server/assets/asset/";
     let headers = {
       Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
     };
     return axios
-      .put(baseUrl + asset.asset_id, { ...asset, user_id }, { headers })
+      .put(
+        url + UpdatedAsset.asset_id,
+        { ...UpdatedAsset, user_id },
+        { headers }
+      )
       .then((response) => {
         getAllUserAssets();
+        console.log(response.data);
         return new Promise((resolve) => resolve(response.data));
       });
   }
