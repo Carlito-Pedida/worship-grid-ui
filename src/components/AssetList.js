@@ -26,8 +26,12 @@ const AssetList = () => {
   }
 
   const [showEditAsset, setShowEditAsset] = useState(false);
+  const [selectedAsset, setSelectedAsset] = useState([]);
 
-  const openEditAsset = () => setShowEditAsset(true);
+  const openEditAsset = (asset) => {
+    setSelectedAsset(asset);
+    setShowEditAsset(true);
+  };
   const closeEditAsset = () => setShowEditAsset(false);
   const handleSubmitEditAsset = (e) => {
     e.preventDefault();
@@ -44,6 +48,7 @@ const AssetList = () => {
         showEditAsset={showEditAsset}
         handleClose={closeEditAsset}
         handleSubmit={handleSubmitEditAsset}
+        selectedAsset={selectedAsset}
       />
       <NewsBanner
         title="JOIN THE CONVERSATION!"
@@ -134,7 +139,12 @@ const AssetList = () => {
                         {/* Video Screen here<div>{a.videoLink}</div> */}
                         <Link to={`/${a.asset_id}/reply`}>reply</Link>
                         <br />
-                        <Link to={openEditAsset} onClick={openEditAsset}>
+                        <Link
+                          to={"#"}
+                          onClick={() => {
+                            openEditAsset(a);
+                          }}
+                        >
                           Edit
                         </Link>
                         <br />

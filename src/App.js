@@ -60,7 +60,7 @@ function App() {
                   path="/assets/:asset_id/reply"
                   element={<ResponseNew />}
                 />
-                <Route path="/assets/:asset_id/edit" element={<AssetEdit />} />
+                <Route path="/assets/edit" element={<AssetEdit />} />
               </Routes>
             </BrowserRouter>
             <AboutInfo />
