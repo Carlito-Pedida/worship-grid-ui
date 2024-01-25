@@ -41,13 +41,17 @@ export const AssetProvider = (props) => {
     });
   }
 
-  function updateUserAsset(asset, user_id) {
+  function updateUserAsset(UpdatedAsset, user_id) {
     let url = "http://localhost:5000/server/assets/asset/";
     let headers = {
       Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
     };
     return axios
-      .put(url + asset.asset_id, { ...asset, user_id }, { headers })
+      .put(
+        url + UpdatedAsset.asset_id,
+        { ...UpdatedAsset, user_id },
+        { headers }
+      )
       .then((response) => {
         getAllUserAssets();
         console.log(response.data);

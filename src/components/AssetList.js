@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import NewsBanner from "../props/NewsBanner";
 import moment from "moment";
 import AssetEdit from "./AssetEdit";
-import { Stack } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 
 const AssetList = () => {
   let navigate = useNavigate();
@@ -25,22 +25,15 @@ const AssetList = () => {
     }
   }
 
-  const [showEditAsset, setShowEditAsset] = useState(false);
-  const [selectedAsset, setSelectedAsset] = useState([]);
-
-  const openEditAsset = (asset) => {
-    setSelectedAsset(asset);
-    setShowEditAsset(true);
-  };
-  const closeEditAsset = () => setShowEditAsset(false);
-  const handleSubmitEditAsset = (e) => {
-    e.preventDefault();
-  };
-
   useEffect(() => {
     // Update the HTML title when the component mounts
     document.title = "Worship Grid > Convo";
   }, []);
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div>
@@ -133,7 +126,9 @@ const AssetList = () => {
                         {/* Video Screen here<div>{a.videoLink}</div> */}
                         <Link to={`asset/${a.asset_id}/reply`}>reply</Link>
                         <br />
-                        <Link to={`/asset/${a.asset_id}/edit`}>Edit</Link>
+                        <Link to={"#"} onClick={handleShow}>
+                          Edit
+                        </Link>
                         <br />
                         <Link
                           to={"#"}
@@ -154,6 +149,35 @@ const AssetList = () => {
           );
         }}
       </AssetContext.Consumer>
+      {/* Edit Asset Modal */}
+      <div>
+        <Button variant="primary" onClick={handleShow}>
+          Launch demo modal
+        </Button>
+
+        <Modal centered show={show} onHide={handleClose}>
+          <Modal.Header
+            className="d-flex text-center"
+            style={{ backgroundColor: "#2c5728" }}
+            closeButton
+          >
+            <Modal.Title
+              style={{ color: "white" }}
+              className="divider text-center mb-2"
+            >
+              Edit Assets
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body style={{ backgroundColor: "#2c5728" }}>
+            <AssetEdit />
+          </Modal.Body>
+          <Modal.Footer style={{ backgroundColor: "#2c5728" }}>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
     </div>
   );
 };
