@@ -4,23 +4,24 @@ import AssetContext from "../contexts/AssetContext";
 import { Button, Stack } from "react-bootstrap";
 import "../styles/AssetEdit.css";
 
-const AssetEdit = ({ message, imageLink, videoLink }) => {
+const AssetEdit = ({ asset_id, message, imageLink, videoLink }) => {
+  let navigate = useNavigate();
+
+  const [updatedAsset_id, setUpdatedAssetId] = useState(asset_id);
   const [updateMessage, setUpdateMessage] = useState(message);
   const [updateImageLink, setUpdateImageLink] = useState(imageLink);
   const [updatVideoLink, setUpdateVideoLink] = useState(videoLink);
 
-  // let params = useParams();
-
-  // const [updateAsset, setUpdateAsset] = useState({
-  //   asset_id: params.asset_id,
-  //   message: message,
-  //   imageLink: imageLink,
-  //   videoLink: videoLink
-  // });
-
   console.log(updateMessage, updateImageLink, updatVideoLink);
 
-  // let { getOneUserAsset } = useContext(AssetContext);
+  let { updateUserAsset } = useContext(AssetContext);
+
+  let updatedAsset = {
+    updatedAsset_id,
+    updateMessage,
+    updateImageLink,
+    updatVideoLink
+  };
 
   // useEffect(() => {
   //   if (asset_id === undefined) return;
@@ -30,7 +31,31 @@ const AssetEdit = ({ message, imageLink, videoLink }) => {
   //     );
   //   }
   //   fetch();
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    updateUserAsset(updatedAsset)
+      .then(() => {
+        if (!updatedAsset.ok) {
+          alert("Your QAK has been updated!");
+        }
+        navigate("/assets");
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+        alert("You are not authorized to perform this action!");
+        navigate("/assets");
+      });
+  }
   // }, []);
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   updateUserAsset(updatedAsset);
+  // };
 
   return (
     <>
@@ -53,6 +78,7 @@ const AssetEdit = ({ message, imageLink, videoLink }) => {
             <div className="row">
               <div className="col" xs={6} md={4}>
                 <form
+                  onSubmit={handleSubmit}
                   className="edit-form p-5"
                   style={{
                     backgroundColor: "rgb(100, 100, 100)",
@@ -87,7 +113,7 @@ const AssetEdit = ({ message, imageLink, videoLink }) => {
                       placeholder="Video URL"
                     />
 
-                    <Button className="mb-3" variant="success">
+                    <Button type="submit" className="mb-3" variant="success">
                       Save Changes
                     </Button>
                   </Stack>
