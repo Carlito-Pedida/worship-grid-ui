@@ -54,19 +54,36 @@ export const AssetProvider = (props) => {
   //       return new Promise((resolve) => resolve(response.data));
   //     });
   // }
-  function updateUserAsset(updatedAsset, user_id) {
+  // function updateUserAsset(updatedAsset, user_id) {
+  //   let url = "http://localhost:5000/server/assets/asset/";
+  //   let headers = {
+  //     Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
+  //   };
+  //   return axios
+  //     .put(
+  //       url + updatedAsset.asset_id,
+  //       { ...updatedAsset, user_id },
+  //       { headers }
+  //     )
+  //     .then((response) => {
+  //       console.log(response);
+  //       console.log(getAllUserAssets());
+  //       console.log(response.data);
+  //       return new Promise((resolve) => resolve(response.data));
+  //     });
+  // }
+
+  function updateUserAsset(updatedAsset) {
     let url = "http://localhost:5000/server/assets/asset/";
     let headers = {
       Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
     };
+
     return axios
-      .put(
-        url + updatedAsset.asset_id,
-        { ...updatedAsset, user_id },
-        { headers }
-      )
+      .put(url + updatedAsset.asset_id, updatedAsset, { headers })
       .then((response) => {
-        getAllUserAssets();
+        console.log(response);
+        console.log(getAllUserAssets());
         console.log(response.data);
         return new Promise((resolve) => resolve(response.data));
       });

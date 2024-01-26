@@ -8,7 +8,7 @@ import { Button, Modal } from "react-bootstrap";
 
 const AssetList = () => {
   let navigate = useNavigate();
-  let { deleteUserAsset } = useContext(AssetContext);
+  let { getAllUserAssets, deleteUserAsset } = useContext(AssetContext);
 
   function handleDelete(asset_id) {
     const confirmDelete = window.confirm("Are you sure?");
@@ -28,12 +28,14 @@ const AssetList = () => {
   useEffect(() => {
     // Update the HTML title when the component mounts
     document.title = "Worship Grid > Convo";
+
+    getAllUserAssets();
   }, []);
 
   const [show, setShow] = useState(false);
   const [selectedAsset, setSelectedAsset] = useState(null);
 
-  console.log(selectedAsset);
+  // console.log(selectedAsset);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -61,6 +63,7 @@ const AssetList = () => {
                         moment(a.createdAt).valueOf()
                     )
                     .map((a, i) => {
+                      console.log(a);
                       return (
                         <div
                           style={{
@@ -131,7 +134,7 @@ const AssetList = () => {
                           <Link to={`asset/${a.asset_id}/reply`}>reply</Link>
                           <br />
                           <Link
-                            to={"#"}
+                            to={`/asset/${a.asset_id}/edit`}
                             onClick={() => {
                               handleShow(true);
                               setSelectedAsset(a);
