@@ -177,6 +177,7 @@ const AssetList = () => {
           </Modal.Header>
           <Modal.Body style={{ backgroundColor: "#366532" }}>
             <AssetEdit
+              asset_id={selectedAsset?.asset_id}
               message={selectedAsset?.message}
               imageLink={selectedAsset?.imageLink}
               videoLink={selectedAsset?.videoLink}
