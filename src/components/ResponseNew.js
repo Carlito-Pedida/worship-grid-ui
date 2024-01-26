@@ -42,7 +42,19 @@ const ResponseNew = () => {
   }
 
   return (
-    <div>
+    <div
+      style={{
+        border: "solid #2c5728 10px",
+        backgroundColor: "dimgrey",
+
+        padding: "30px",
+        borderRadius: "10px",
+        margin: "45px 45px 45px 45px"
+
+        // width: "50%"
+        // position: "relative"
+      }}
+    >
       <form onSubmit={handleSubmit}>
         <span>Reply </span>
         <input

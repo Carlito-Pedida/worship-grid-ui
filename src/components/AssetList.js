@@ -98,110 +98,153 @@ const AssetList = () => {
         <AssetContext.Consumer>
           {({ asset }) => {
             return (
-              <div>
-                <h1>Asset List</h1>
-                <Link to="/create">Create New Asset</Link>
+              <div
+                style={{
+                  // border: "solid #2c5728 10px",
+                  backgroundColor: "dimgrey",
+                  opacity: "90%"
+                }}
+              >
+                <div style={{ color: "white" }}>
+                  <h1>Asset List</h1>
+                  <Link to="/create">Create New Asset</Link>
 
-                <div>
-                  {asset
-                    .sort(
-                      (a, b) =>
-                        moment(b.createdAt).valueOf() -
-                        moment(a.createdAt).valueOf()
-                    )
-                    .map((a, i) => {
-                      console.log(a);
-                      return (
-                        <div
-                          style={{
-                            border: "solid",
-                            borderBlockColor: "dimgrey",
-                            padding: "20px",
-                            borderRadius: "10px",
-                            margin: "auto",
-                            marginTop: "10px",
-                            width: "50%",
-                            position: "relative"
-                          }}
-                          key={i}
-                        >
-                          <div>
-                            <span>
-                              <img
-                                style={{
-                                  borderRadius: "50%",
-                                  border: "solid 5px",
+                  <div>
+                    {asset
+                      .sort(
+                        (a, b) =>
+                          moment(b.createdAt).valueOf() -
+                          moment(a.createdAt).valueOf()
+                      )
+                      .map((a, i) => {
+                        console.log(a);
+                        return (
+                          <div
+                            style={{
+                              border: "solid #2c5728 10px",
+                              backgroundColor: "dimgrey",
 
-                                  borderColor: "white",
-                                  marginLeft: "5px",
-                                  marginRight: "5px"
-                                }}
-                                src={a.UserDatum.avatar}
-                                size="40"
-                                round="true"
-                                height={65}
-                                width={65}
-                              />
-                            </span>
-                            <h2>
-                              {a.UserDatum.first_name} | {a.UserDatum.last_name}
-                            </h2>
-
-                            <p>{a.message}</p>
-                            <p>{a.imageLink}</p>
-                            <p>{a.videoLink}</p>
-
-                            {a.UserResponses && a.UserResponses.length > 0 ? (
-                              <div key={a.UserResponses.responses_id}>
-                                {a.UserResponses.map((r, i) => (
-                                  <div
-                                    style={{
-                                      backgroundColor: "dimgray",
-                                      padding: "2px",
-                                      borderRadius: "15px",
-                                      color: "white",
-                                      marginTop: "5px"
-                                    }}
-                                    key={i}
-                                  >
-                                    <p>
-                                      <strong>{r.UserDatum.username}</strong>
-                                    </p>
-                                    <p>{r.reply}</p>
-                                    <p>{r.reactions}</p>
-                                  </div>
-                                ))}
-                              </div>
-                            ) : (
-                              <>No replies yet!</>
-                            )}
-                          </div>
-                          <Link to={`asset/${a.asset_id}/reply`}>reply</Link>
-                          <br />
-                          <Link
-                            to={"#"}
-                            onClick={() => {
-                              handleShow(true);
-                              setSelectedAsset(a);
+                              padding: "20px",
+                              borderRadius: "10px",
+                              margin: "auto",
+                              marginTop: "10px",
+                              // marginBottom: "10px",
+                              width: "50%",
+                              position: "relative"
                             }}
+                            key={i}
                           >
-                            Edit
-                          </Link>
-                          <br />
-                          <Link
-                            to={"#"}
-                            onClick={handleDelete.bind(
-                              this,
-                              a.asset_id,
-                              a.UserDatum.user_id
-                            )}
-                          >
-                            delete
-                          </Link>
-                          <br />
-                        </div>
-                      );
-                    })}
+                            <div
+                              style={{
+                                color: "white"
+                              }}
+                            >
+                              <span>
+                                <img
+                                  style={{
+                                    borderRadius: "50%",
+                                    border: "solid 5px",
+
+                                    borderColor: "white",
+                                    marginLeft: "5px",
+                                    marginRight: "5px"
+                                  }}
+                                  src={a.UserDatum.avatar}
+                                  size="40"
+                                  round="true"
+                                  height={65}
+                                  width={65}
+                                />
+                              </span>
+
+                              <h2 style={{ color: "white" }}>
+                                {a.UserDatum.first_name} |{" "}
+                                {a.UserDatum.last_name}
+                              </h2>
+
+                              <p>{a.message}</p>
+                              <p>{a.imageLink}</p>
+                              <p>{a.videoLink}</p>
+
+                              {a.UserResponses && a.UserResponses.length > 0 ? (
+                                <div key={a.UserResponses.responses_id}>
+                                  {a.UserResponses.map((r, i) => (
+                                    <div
+                                      style={{
+                                        backgroundColor: "dimgray",
+                                        padding: "2px",
+                                        borderRadius: "15px",
+                                        color: "white",
+                                        marginTop: "5px"
+                                      }}
+                                      key={i}
+                                    >
+                                      <p>
+                                        <strong>{r.UserDatum.username}</strong>
+                                      </p>
+                                      <p>{r.reply}</p>
+                                      <p>{r.reactions}</p>
+                                    </div>
+                                  ))}
+                                </div>
+                              ) : (
+                                <>No replies yet!</>
+                              )}
+                            </div>
+                            <div className="d-flex justify-content-center">
+                              <Link
+                                style={{
+                                  color: "orange",
+                                  textDecoration: "none",
+                                  fontWeight: "bold",
+                                  fontSize: "20px"
+                                }}
+                                className="p-3"
+                                to={`/asset/${a.asset_id}/reply`}
+                              >
+                                Reply
+                              </Link>
+                              <br />
+                              <Link
+                                style={{
+                                  color: "lightblue",
+                                  textDecoration: "none",
+                                  fontWeight: "bold",
+                                  fontSize: "20px"
+                                }}
+                                className="p-3"
+                                to={"#"}
+                                onClick={() => {
+                                  handleShow(true);
+                                  setSelectedAsset(a);
+                                }}
+                              >
+                                Edit
+                              </Link>
+                              <br />
+                              <Link
+                                style={{
+                                  color: "red",
+                                  textDecoration: "none",
+                                  fontWeight: "bold",
+                                  fontSize: "20px"
+                                }}
+                                className="p-3"
+                                to={"#"}
+                                onClick={handleDelete.bind(
+                                  this,
+                                  a.asset_id,
+                                  a.UserDatum.user_id
+                                )}
+                              >
+                                Delete
+                              </Link>
+                              <br />
+                            </div>
+                          </div>
+                        );
+                      })}
+                  </div>
                 </div>
               </div>
             );
