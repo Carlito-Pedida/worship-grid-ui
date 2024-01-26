@@ -1,61 +1,22 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import AssetContext from "../contexts/AssetContext";
+import React, { useState } from "react";
 import { Button, Stack } from "react-bootstrap";
 import "../styles/AssetEdit.css";
 
-const AssetEdit = ({ asset_id, message, imageLink, videoLink }) => {
-  let navigate = useNavigate();
+const AssetEdit = ({ asset, handleClose, handleSubmit, onAssetUpdate }) => {
+  let [updatedAsset, setUpdatedAsset] = useState({
+    asset_id: asset.asset_id,
+    message: asset.message,
+    imageLink: asset.imageLink,
+    videoLink: asset.videoLink
+  });
 
-  const [updatedAsset_id, setUpdatedAssetId] = useState(asset_id);
-  const [updateMessage, setUpdateMessage] = useState(message);
-  const [updateImageLink, setUpdateImageLink] = useState(imageLink);
-  const [updatVideoLink, setUpdateVideoLink] = useState(videoLink);
+  let { asset_id, message, imageLink, videoLink } = updatedAsset;
 
-  console.log(updateMessage, updateImageLink, updatVideoLink);
-
-  let { updateUserAsset } = useContext(AssetContext);
-
-  let updatedAsset = {
-    updatedAsset_id,
-    updateMessage,
-    updateImageLink,
-    updatVideoLink
-  };
-
-  // useEffect(() => {
-  //   if (asset_id === undefined) return;
-  //   async function fetch() {
-  //     await getOneUserAsset(asset_id).then((oneAsset) =>
-  //       setUpdateAsset(oneAsset)
-  //     );
-  //   }
-  //   fetch();
-
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    updateUserAsset(updatedAsset)
-      .then(() => {
-        if (!updatedAsset.ok) {
-          alert("Your QAK has been updated!");
-        }
-        navigate("/assets");
-        window.location.reload();
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-        alert("You are not authorized to perform this action!");
-        navigate("/assets");
-      });
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setUpdatedAsset((prevValue) => ({ ...prevValue, [name]: value }));
+    onAssetUpdate({ ...updatedAsset, [name]: value });
   }
-  // }, []);
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   updateUserAsset(updatedAsset);
-  // };
 
   return (
     <>
@@ -78,6 +39,7 @@ const AssetEdit = ({ asset_id, message, imageLink, videoLink }) => {
             <div className="row">
               <div className="col" xs={6} md={4}>
                 <form
+                  key={asset_id}
                   onSubmit={handleSubmit}
                   className="edit-form p-5"
                   style={{
@@ -90,8 +52,8 @@ const AssetEdit = ({ asset_id, message, imageLink, videoLink }) => {
                     <textarea
                       className="mb-3"
                       name="message"
-                      value={updateMessage}
-                      onChange={(e) => setUpdateMessage(e.target.value)}
+                      value={message}
+                      onChange={handleChange}
                       placeholder="Message Edit"
                     />
                     <p>Edit Image URL</p>
@@ -99,8 +61,8 @@ const AssetEdit = ({ asset_id, message, imageLink, videoLink }) => {
                       className="mb-3"
                       type="text"
                       name="imageLink"
-                      value={updateImageLink}
-                      onChange={(e) => setUpdateImageLink(e.target.value)}
+                      value={imageLink}
+                      onChange={handleChange}
                       placeholder="Image URL"
                     />
                     <p>Edit Video Link</p>
@@ -108,12 +70,17 @@ const AssetEdit = ({ asset_id, message, imageLink, videoLink }) => {
                       className="mb-3"
                       type="text"
                       name="videoLink"
-                      value={updatVideoLink}
-                      onChange={(e) => setUpdateVideoLink(e.target.value)}
+                      value={videoLink}
+                      onChange={handleChange}
                       placeholder="Video URL"
                     />
 
-                    <Button type="submit" className="mb-3" variant="success">
+                    <Button
+                      onClick={handleClose}
+                      type="submit"
+                      className="mb-3"
+                      variant="success"
+                    >
                       Save Changes
                     </Button>
                   </Stack>
@@ -122,10 +89,6 @@ const AssetEdit = ({ asset_id, message, imageLink, videoLink }) => {
             </div>
           </div>
         </div>
-        {/* <div
-          className="footer p-3"
-          style={{ backgroundColor: "#2c5728", color: "white" }}
-        ></div> */}
       </div>
     </>
   );

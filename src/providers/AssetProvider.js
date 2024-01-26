@@ -11,7 +11,7 @@ export const AssetProvider = (props) => {
       await getAllUserAssets();
     }
     fetchData();
-  }, []); // Removed dependency array since getAllUserAssets doesn't depend on any props or state
+  }, []);
 
   function getAllUserAssets() {
     return axios
@@ -41,19 +41,6 @@ export const AssetProvider = (props) => {
     });
   }
 
-  // function updateUserAsset(updatedAsset, asset_id) {
-  //   let url = "http://localhost:5000/server/assets/asset/";
-  //   let headers = {
-  //     Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
-  //   };
-  //   return axios
-  //     .put(url + updatedAsset.asset_id, { asset_id }, { headers })
-  //     .then((response) => {
-  //       getAllUserAssets();
-  //       console.log(response.data);
-  //       return new Promise((resolve) => resolve(response.data));
-  //     });
-  // }
   function updateUserAsset(updatedAsset, user_id) {
     let url = "http://localhost:5000/server/assets/asset/";
     let headers = {
@@ -66,7 +53,24 @@ export const AssetProvider = (props) => {
         { headers }
       )
       .then((response) => {
-        getAllUserAssets();
+        console.log(response);
+        console.log(getAllUserAssets());
+        console.log(response.data);
+        return new Promise((resolve) => resolve(response.data));
+      });
+  }
+
+  function updateUserAsset(updatedAsset) {
+    let url = "http://localhost:5000/server/assets/asset/";
+    let headers = {
+      Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
+    };
+
+    return axios
+      .put(url + updatedAsset.asset_id, updatedAsset, { headers })
+      .then((response) => {
+        console.log(response);
+        console.log(getAllUserAssets());
         console.log(response.data);
         return new Promise((resolve) => resolve(response.data));
       });
