@@ -1,14 +1,53 @@
 import React, { useContext, useEffect, useState } from "react";
 import AssetContext from "../contexts/AssetContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import NewsBanner from "../props/NewsBanner";
 import moment from "moment";
 import AssetEdit from "./AssetEdit";
 import { Button, Modal } from "react-bootstrap";
 
 const AssetList = () => {
+  let params = useParams();
   let navigate = useNavigate();
-  let { getAllUserAssets, deleteUserAsset } = useContext(AssetContext);
+
+  let [updatedAsset, setUpdatedAsset] = useState({
+    asset_id: params.user_id,
+    message: "",
+    imageLink: "",
+    videoLink: ""
+  });
+
+  console.log(updatedAsset);
+
+  let { getOneUserAsset, updateUserAsset, getAllUserAssets, deleteUserAsset } =
+    useContext(AssetContext);
+
+  useEffect(() => {
+    if (params.asset_id === undefined) return;
+    async function fetch() {
+      await getOneUserAsset(params.asset_id).then((oneAsset) =>
+        setUpdatedAsset(oneAsset)
+      );
+    }
+    fetch();
+  }, []);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    updateUserAsset(updatedAsset, params.asset_id)
+      .then(() => {
+        if (!updatedAsset.ok) {
+          alert("Update Successful!");
+        }
+        navigate("/assets");
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+        alert("You are not authorized to perform this action!");
+        navigate("/assets");
+      });
+  }
 
   function handleDelete(asset_id) {
     const confirmDelete = window.confirm("Are you sure?");
@@ -35,10 +74,18 @@ const AssetList = () => {
   const [show, setShow] = useState(false);
   const [selectedAsset, setSelectedAsset] = useState(null);
 
-  // console.log(selectedAsset);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleEdit = (asset) => {
+    setUpdatedAsset(asset);
+    handleShow();
+  };
+
+  const handleEditAssetChange = (updatedAsset) => {
+    // Update the state in AssetList
+    setUpdatedAsset(updatedAsset);
+  };
 
   return (
     <>
@@ -99,7 +146,6 @@ const AssetList = () => {
                             <h2>
                               {a.UserDatum.first_name} | {a.UserDatum.last_name}
                             </h2>
-                            {/* <img src={a.imageLink} alt="here goes the images" /> */}
 
                             <p>{a.message}</p>
                             <p>{a.imageLink}</p>
@@ -130,11 +176,10 @@ const AssetList = () => {
                               <>No replies yet!</>
                             )}
                           </div>
-                          {/* Video Screen here<div>{a.videoLink}</div> */}
                           <Link to={`asset/${a.asset_id}/reply`}>reply</Link>
                           <br />
                           <Link
-                            to={`/asset/${a.asset_id}/edit`}
+                            to={"#"}
                             onClick={() => {
                               handleShow(true);
                               setSelectedAsset(a);
@@ -180,10 +225,10 @@ const AssetList = () => {
           </Modal.Header>
           <Modal.Body style={{ backgroundColor: "#366532" }}>
             <AssetEdit
-              asset_id={selectedAsset?.asset_id}
-              message={selectedAsset?.message}
-              imageLink={selectedAsset?.imageLink}
-              videoLink={selectedAsset?.videoLink}
+              asset={selectedAsset}
+              handleClose={handleClose}
+              handleSubmit={handleSubmit}
+              onAssetUpdate={handleEditAssetChange}
             />
           </Modal.Body>
           <Modal.Footer style={{ backgroundColor: "#366532" }}>

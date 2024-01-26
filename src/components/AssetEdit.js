@@ -1,62 +1,22 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import AssetContext from "../contexts/AssetContext";
+import React, { useState } from "react";
 import { Button, Stack } from "react-bootstrap";
 import "../styles/AssetEdit.css";
 
-const AssetEdit = (props) => {
-  let params = useParams();
-  let navigate = useNavigate();
-
+const AssetEdit = ({ asset, handleClose, handleSubmit, onAssetUpdate }) => {
   let [updatedAsset, setUpdatedAsset] = useState({
-    asset_id: params.asset_id,
-    message: "",
-    imageLink: "",
-    videoLink: ""
+    asset_id: asset.asset_id,
+    message: asset.message,
+    imageLink: asset.imageLink,
+    videoLink: asset.videoLink
   });
 
-  let { getOneUserAsset, updateUserAsset } = useContext(AssetContext);
-
   let { asset_id, message, imageLink, videoLink } = updatedAsset;
-
-  useEffect(() => {
-    if (asset_id === undefined) return;
-    async function fetch() {
-      await getOneUserAsset(asset_id).then((oneAsset) =>
-        setUpdatedAsset(oneAsset)
-      );
-    }
-    fetch();
-  }, []);
 
   function handleChange(event) {
     const { name, value } = event.target;
     setUpdatedAsset((prevValue) => ({ ...prevValue, [name]: value }));
+    onAssetUpdate({ ...updatedAsset, [name]: value });
   }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    updateUserAsset(updatedAsset)
-      .then(() => {
-        if (!updatedAsset.ok) {
-          alert("Your QAK has been updated!");
-        }
-        navigate("/assets");
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-        alert("You are not authorized to perform this action!");
-        navigate("/assets");
-      });
-  }
-  // }, []);
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   updateUserAsset(updatedAsset);
-  // };
 
   return (
     <>
@@ -92,8 +52,6 @@ const AssetEdit = (props) => {
                     <textarea
                       className="mb-3"
                       name="message"
-                      // value={updateMessage}
-                      // onChange={(e) => setUpdateMessage(e.target.value)}
                       value={message}
                       onChange={handleChange}
                       placeholder="Message Edit"
@@ -103,8 +61,6 @@ const AssetEdit = (props) => {
                       className="mb-3"
                       type="text"
                       name="imageLink"
-                      // value={updateImageLink}
-                      // onChange={(e) => setUpdateImageLink(e.target.value)}
                       value={imageLink}
                       onChange={handleChange}
                       placeholder="Image URL"
@@ -114,14 +70,17 @@ const AssetEdit = (props) => {
                       className="mb-3"
                       type="text"
                       name="videoLink"
-                      // value={updatVideoLink}
-                      // onChange={(e) => setUpdateVideoLink(e.target.value)}
                       value={videoLink}
                       onChange={handleChange}
                       placeholder="Video URL"
                     />
 
-                    <Button type="submit" className="mb-3" variant="success">
+                    <Button
+                      onClick={handleClose}
+                      type="submit"
+                      className="mb-3"
+                      variant="success"
+                    >
                       Save Changes
                     </Button>
                   </Stack>
@@ -130,29 +89,9 @@ const AssetEdit = (props) => {
             </div>
           </div>
         </div>
-        {/* <div
-          className="footer p-3"
-          style={{ backgroundColor: "#2c5728", color: "white" }}
-        ></div> */}
       </div>
     </>
   );
 };
 
 export default AssetEdit;
-
-// const [updatedAsset_id, setUpdatedAssetId] = useState(asset_id);
-// const [updateMessage, setUpdateMessage] = useState(message);
-// const [updateImageLink, setUpdateImageLink] = useState(imageLink);
-// const [updatVideoLink, setUpdateVideoLink] = useState(videoLink);
-
-// console.log(updateMessage, updateImageLink, updatVideoLink);
-
-// let { getOneUserAsset, updateUserAsset } = useContext(AssetContext);
-
-// let updatedAsset = {
-//   updatedAsset_id,
-//   updateMessage,
-//   updateImageLink,
-//   updatVideoLink
-// };
