@@ -1,10 +1,37 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import AssetContext from "../contexts/AssetContext";
-import { Button, Col, Container, Modal, Row, Stack } from "react-bootstrap";
+import { Button, Stack } from "react-bootstrap";
 import "../styles/AssetEdit.css";
 
-const AssetEdit = () => {
+const AssetEdit = ({ message, imageLink, videoLink }) => {
+  const [updateMessage, setUpdateMessage] = useState(message);
+  const [updateImageLink, setUpdateImageLink] = useState(imageLink);
+  const [updatVideoLink, setUpdateVideoLink] = useState(videoLink);
+
+  // let params = useParams();
+
+  // const [updateAsset, setUpdateAsset] = useState({
+  //   asset_id: params.asset_id,
+  //   message: message,
+  //   imageLink: imageLink,
+  //   videoLink: videoLink
+  // });
+
+  console.log(updateMessage, updateImageLink, updatVideoLink);
+
+  // let { getOneUserAsset } = useContext(AssetContext);
+
+  // useEffect(() => {
+  //   if (asset_id === undefined) return;
+  //   async function fetch() {
+  //     await getOneUserAsset(asset_id).then((oneAsset) =>
+  //       setUpdateAsset(oneAsset)
+  //     );
+  //   }
+  //   fetch();
+  // }, []);
+
   return (
     <>
       <div>
@@ -37,8 +64,8 @@ const AssetEdit = () => {
                     <textarea
                       className="mb-3"
                       name="message"
-                      // value={""}
-                      // onChange={""}
+                      value={updateMessage}
+                      onChange={(e) => setUpdateMessage(e.target.value)}
                       placeholder="Message Edit"
                     />
                     <p>Edit Image URL</p>
@@ -46,8 +73,8 @@ const AssetEdit = () => {
                       className="mb-3"
                       type="text"
                       name="imageLink"
-                      // value={""}
-                      // onChange={""}
+                      value={updateImageLink}
+                      onChange={(e) => setUpdateImageLink(e.target.value)}
                       placeholder="Image URL"
                     />
                     <p>Edit Video Link</p>
@@ -55,8 +82,8 @@ const AssetEdit = () => {
                       className="mb-3"
                       type="text"
                       name="videoLink"
-                      // value={""}
-                      // onChange={""}
+                      value={updatVideoLink}
+                      onChange={(e) => setUpdateVideoLink(e.target.value)}
                       placeholder="Video URL"
                     />
 
