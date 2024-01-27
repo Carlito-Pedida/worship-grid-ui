@@ -63,7 +63,7 @@ const SignIn = ({ show, handleClose }) => {
         >
           <Modal.Title
             style={{ color: "white" }}
-            className="text-center mx-3 mb-0"
+            className=" m-2 text-center mx-3 "
           >
             Sign In
           </Modal.Title>
@@ -71,12 +71,23 @@ const SignIn = ({ show, handleClose }) => {
 
         <Modal.Body
           style={{
-            backgroundColor: "rgb(100, 100, 100)",
-            padding: "35px"
+            backgroundColor: "#366532"
           }}
         >
-          <div>
-            <div>
+          <div
+            style={{
+              backgroundColor: "grey",
+              color: "white",
+              padding: "35px"
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: "rgb(100, 100, 100)",
+                borderRadius: "8px",
+                padding: "35px"
+              }}
+            >
               <p className="register">
                 Not a member?{" "}
                 <a className="register-link" href="/signup">
@@ -111,12 +122,7 @@ const SignIn = ({ show, handleClose }) => {
                   />
                 </div>
 
-                <Button
-                  className="mb-3 w-100"
-                  variant="primary "
-                  size="sm"
-                  type="submit"
-                >
+                <Button className="mb-3 w-100" variant="success" type="submit">
                   Sign In
                 </Button>
               </Form>
@@ -124,7 +130,12 @@ const SignIn = ({ show, handleClose }) => {
           </div>
         </Modal.Body>
         <Modal.Footer style={{ backgroundColor: "#366532" }}>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button
+            type="submit"
+            className="m-2"
+            variant="secondary"
+            onClick={handleClose}
+          >
             Close
           </Button>
         </Modal.Footer>
