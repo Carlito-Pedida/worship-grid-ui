@@ -5,6 +5,7 @@ import NewsBanner from "../props/NewsBanner";
 import moment from "moment";
 import AssetEdit from "./AssetEdit";
 import { Button, Modal } from "react-bootstrap";
+import "../styles/AssetList.css";
 
 const AssetList = () => {
   let params = useParams();
@@ -255,13 +256,12 @@ const AssetList = () => {
       <div>
         <Modal centered show={show} onHide={handleClose}>
           <Modal.Header
-            className="d-flex text-center"
             style={{ backgroundColor: "#366532" }}
-            closeButton
+            className="divider d-flex align-items-center"
           >
             <Modal.Title
               style={{ color: "white" }}
-              className="divider text-center mb-2"
+              className="text-center mx-3 mb-0"
             >
               Edit Assets
             </Modal.Title>
