@@ -26,15 +26,14 @@ const AdsBanner = (props) => {
         </h1>
 
         <h3>{subHeader}</h3>
-
-        <h7>
+        <br />
+        <h6>
           {smallText1}
           <br />
           {smallText2}
           <br />
           {smallText3}
-        </h7>
-        <br />
+        </h6>
         <br />
         <h3>{bigText1}</h3>
         <h4>

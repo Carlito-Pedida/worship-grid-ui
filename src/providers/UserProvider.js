@@ -71,11 +71,23 @@ export const UserProvider = (props) => {
       });
   }
 
+  function getUserAssets(user_id) {
+    const url = "http://localhost:5000/server/users/assets/";
+    let headers = {
+      Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
+    };
+
+    return axios.get(url + user_id, { headers }).then((response) => {
+      return new Promise((resolve) => resolve(response.data));
+    });
+  }
+
   return (
     <UserContext.Provider
       value={{
         loggedUser,
         getAllUserAssets,
+        getUserAssets,
         signupUser,
         signInUser,
         getOneUser
