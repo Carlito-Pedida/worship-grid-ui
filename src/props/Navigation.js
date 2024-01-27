@@ -1,16 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
+import SignIn from "../components/SignIn";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "../styles/Navigation.css";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar, Stack } from "react-bootstrap";
 
-const Navigation = ({ user }) => {
-  let { user_id } = useParams;
+const Navigation = () => {
   const [userLog, setUserLog] = useState([]);
-  console.log(userLog);
 
   let { getUserAssets } = useContext(UserContext);
 
@@ -38,6 +37,20 @@ const Navigation = ({ user }) => {
       isMounted = false;
     };
   }, []);
+
+  const [showSignInModal, setShowSignInModal] = useState(false);
+
+  const openSignInModal = () => {
+    setShowSignInModal(true);
+  };
+
+  const closeSignInModal = () => {
+    setShowSignInModal(false);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   function whoIsLoggedIn() {
     let { first_name, avatar } = userLog;
@@ -158,11 +171,15 @@ const Navigation = ({ user }) => {
                         />
                       </Link>
 
-                      <Link className="nav-links" to="/signin">
+                      <Link
+                        className="nav-links"
+                        to={openSignInModal}
+                        onClick={openSignInModal}
+                      >
                         MY ACCOUNT
                       </Link>
 
-                      <Link className="nav-links" to="/assets">
+                      <Link className="nav-links" to={"/assets"}>
                         CONVERSATIONS
                       </Link>
                     </div>
@@ -202,6 +219,14 @@ const Navigation = ({ user }) => {
             </Nav>
           </Navbar>
         </Container>
+        {/* <Stack gap={3} className="col-md-10 mx-auto mt-3">
+          <Outlet />
+        </Stack> */}
+        <SignIn
+          show={showSignInModal}
+          handleClose={closeSignInModal}
+          handleSubmit={handleSubmit}
+        />
       </div>
     );
   }

@@ -18,8 +18,6 @@ const AssetList = () => {
     videoLink: ""
   });
 
-  console.log(updatedAsset);
-
   let { getOneUserAsset, updateUserAsset, getAllUserAssets, deleteUserAsset } =
     useContext(AssetContext);
 
@@ -118,7 +116,6 @@ const AssetList = () => {
                           moment(a.createdAt).valueOf()
                       )
                       .map((a, i) => {
-                        console.log(a);
                         return (
                           <div
                             style={{

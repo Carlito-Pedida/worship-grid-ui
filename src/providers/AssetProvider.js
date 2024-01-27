@@ -53,9 +53,7 @@ export const AssetProvider = (props) => {
         { headers }
       )
       .then((response) => {
-        console.log(response);
-        console.log(getAllUserAssets());
-        console.log(response.data);
+        getAllUserAssets();
         return new Promise((resolve) => resolve(response.data));
       });
   }
@@ -69,9 +67,7 @@ export const AssetProvider = (props) => {
     return axios
       .put(url + updatedAsset.asset_id, updatedAsset, { headers })
       .then((response) => {
-        console.log(response);
-        console.log(getAllUserAssets());
-        console.log(response.data);
+        getAllUserAssets();
         return new Promise((resolve) => resolve(response.data));
       });
   }
