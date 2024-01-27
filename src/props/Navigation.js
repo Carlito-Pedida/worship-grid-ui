@@ -8,16 +8,18 @@ import "../styles/Navigation.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
 const Navigation = ({ user }) => {
-  const [userLog, setUserLog] = useState();
+  let { user_id } = useParams;
+  const [userLog, setUserLog] = useState([]);
+  console.log(userLog);
 
-  let { loggedUser } = useContext(UserContext);
+  let { getUserAssets } = useContext(UserContext);
 
   useEffect(() => {
     let isMounted = true;
 
     async function fetchData() {
       try {
-        const result = await loggedUser();
+        const result = await getUserAssets();
         if (isMounted) {
           setUserLog(result);
         }
@@ -36,75 +38,136 @@ const Navigation = ({ user }) => {
       isMounted = false;
     };
   }, []);
-  return (
-    <div className="nav-container">
-      <Container>
-        <Navbar style={{ backgroundColor: "#2c5728" }}>
-          <Nav className="navi">
-            {user && (
-              <React.Fragment>
-                <div>
+
+  function whoIsLoggedIn() {
+    let { first_name, avatar } = userLog;
+    return (
+      <div className="nav-container">
+        <Container>
+          <Navbar style={{ backgroundColor: "#2c5728" }}>
+            <Nav className="navi">
+              {userLog.user_id && (
+                <React.Fragment>
                   <div>
-                    <Link className="nav-links" to="/academy">
-                      WORSHIP GRID ACADEMY
-                    </Link>
+                    <div>
+                      <Link className="nav-links" to="/academy">
+                        WORSHIP GRID ACADEMY
+                      </Link>
 
-                    <Link className="nav-links" to="/setlist">
-                      MY SETLIST
-                    </Link>
+                      <Link className="nav-links" to="/setlist">
+                        MY SETLIST
+                      </Link>
 
-                    <Link className="nav-links" to="/article">
-                      BLOG
-                    </Link>
+                      <Link className="nav-links" to="/article">
+                        BLOG
+                      </Link>
 
-                    <Link type="link" to="/" className="brand m-2 p-2">
-                      <img
-                        className="brand-image"
-                        src="/logo-2.png"
-                        height={55}
-                      />
-                    </Link>
+                      <Link type="link" to="/" className="brand m-2 p-2">
+                        <img
+                          className="brand-image"
+                          src="/logo-2.png"
+                          height={55}
+                        />
+                      </Link>
 
-                    <Link className="nav-links" to="/assets">
-                      CONVERSATIONS
-                    </Link>
+                      <Link className="nav-links" to="/assets">
+                        CONVERSATIONS
+                      </Link>
 
-                    <Link
-                      className="nav-links"
-                      to={`/profile/${user.username}`}
-                    >
-                      HELLO,{" "}
-                      <strong style={{ textTransform: "uppercase" }}>
-                        {user.first_name}!
-                      </strong>
-                    </Link>
-
-                    <span>
-                      <img
-                        style={{
-                          borderRadius: "50%",
-                          border: "solid 5px",
-
-                          borderColor: "white",
-                          marginLeft: "5px",
-                          marginRight: "5px"
-                        }}
-                        src={user.avatar}
-                        size="40"
-                        round="true"
-                        height={65}
-                        width={65}
-                      />
-                    </span>
-
-                    <Link className="nav-links" to="/signout">
-                      SIGN OUT
-                    </Link>
-                    <div className="navLinks2-container">
                       <Link
-                        className="hover-underline-animation"
-                        to="/church-locations"
+                        className="nav-links"
+                        to={`/profile/${userLog.username}`}
                       >
+                        HELLO,{" "}
+                        <strong style={{ textTransform: "uppercase" }}>
+                          {first_name}!
+                        </strong>
+                      </Link>
+
+                      <span>
+                        <img
+                          style={{
+                            borderRadius: "50%",
+                            border: "solid 5px",
+
+                            borderColor: "white",
+                            marginLeft: "5px",
+                            marginRight: "5px"
+                          }}
+                          src={avatar}
+                          size="40"
+                          round="true"
+                          height={65}
+                          width={65}
+                        />
+                      </span>
+
+                      <Link className="nav-links" to="/signout">
+                        SIGN OUT
+                      </Link>
+                      <div className="navLinks2-container">
+                        <Link
+                          className="hover-underline-animation"
+                          to="/church-locations"
+                        >
+                          CHURCHES IN THE AREA
+                        </Link>
+                        <Link
+                          className="hover-underline-animation"
+                          to="/merchandise"
+                        >
+                          MERCHANDISE
+                        </Link>
+                        <Link className="hover-underline-animation" to="#">
+                          EVENTS
+                        </Link>
+                        <Link className="hover-underline-animation" to="#">
+                          RSS
+                        </Link>
+                        <Link className="hover-underline-animation" to="#">
+                          TUTORIALS
+                        </Link>
+                        <Link className="search-tool-animation">
+                          <FontAwesomeIcon
+                            className="search-tool-icon"
+                            icon={faSearch}
+                            size="xl"
+                          />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </React.Fragment>
+              )}
+              {!userLog.user_id && (
+                <React.Fragment>
+                  <div>
+                    <div>
+                      <Link className="nav-links" to="academy">
+                        WORSHIP GRID ACADEMY
+                      </Link>
+                      <Link className="nav-links" to="/signup">
+                        GET ACCESS
+                      </Link>
+
+                      <Link to="/" className="brand m-2 p-2">
+                        <img
+                          className="brand-image"
+                          src="/logo-2.png"
+                          height={55}
+                        />
+                      </Link>
+
+                      <Link className="nav-links" to="/signin">
+                        MY ACCOUNT
+                      </Link>
+
+                      <Link className="nav-links" to="/assets">
+                        CONVERSATIONS
+                      </Link>
+                    </div>
+                    <div className="navLinks2-container">
+                      <Link className="hover-underline-animation" to="#">
                         CHURCHES IN THE AREA
                       </Link>
                       <Link
@@ -113,7 +176,10 @@ const Navigation = ({ user }) => {
                       >
                         MERCHANDISE
                       </Link>
-                      <Link className="hover-underline-animation" to="#">
+                      <Link
+                        className="hover-underline-animation"
+                        to="/merchandise"
+                      >
                         EVENTS
                       </Link>
                       <Link className="hover-underline-animation" to="#">
@@ -131,74 +197,15 @@ const Navigation = ({ user }) => {
                       </Link>
                     </div>
                   </div>
-                </div>
-              </React.Fragment>
-            )}
-            {!user && (
-              <React.Fragment>
-                <div>
-                  <div>
-                    <Link className="nav-links" to="academy">
-                      WORSHIP GRID ACADEMY
-                    </Link>
-                    <Link className="nav-links" to="/signup">
-                      GET ACCESS
-                    </Link>
-
-                    <Link to="/" className="brand m-2 p-2">
-                      <img
-                        className="brand-image"
-                        src="/logo-2.png"
-                        height={55}
-                      />
-                    </Link>
-
-                    <Link className="nav-links" to="/signin">
-                      MY ACCOUNT
-                    </Link>
-
-                    <Link className="nav-links" to="/assets">
-                      CONVERSATIONS
-                    </Link>
-                  </div>
-                  <div className="navLinks2-container">
-                    <Link className="hover-underline-animation" to="#">
-                      CHURCHES IN THE AREA
-                    </Link>
-                    <Link
-                      className="hover-underline-animation"
-                      to="/merchandise"
-                    >
-                      MERCHANDISE
-                    </Link>
-                    <Link
-                      className="hover-underline-animation"
-                      to="/merchandise"
-                    >
-                      EVENTS
-                    </Link>
-                    <Link className="hover-underline-animation" to="#">
-                      RSS
-                    </Link>
-                    <Link className="hover-underline-animation" to="#">
-                      TUTORIALS
-                    </Link>
-                    <Link className="search-tool-animation">
-                      <FontAwesomeIcon
-                        className="search-tool-icon"
-                        icon={faSearch}
-                        size="xl"
-                      />
-                    </Link>
-                  </div>
-                </div>
-              </React.Fragment>
-            )}
-          </Nav>
-        </Navbar>
-      </Container>
-    </div>
-  );
+                </React.Fragment>
+              )}
+            </Nav>
+          </Navbar>
+        </Container>
+      </div>
+    );
+  }
+  return whoIsLoggedIn();
 };
 
 export default Navigation;
