@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import "../styles/SignUp.css";
@@ -43,15 +43,27 @@ const SignUp = () => {
       });
   }
 
+  useEffect(() => {
+    // Scroll to a specific element by its ID
+    const targetElement = document.getElementById("targetElementId");
+
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Alternatively, scroll to a specific position on the page
+    // window.scrollTo(0, 500); // Scroll to y-coordinate 500
+  }, []); // The empty dependency array ensures that this effect runs only once after the initial render
+
   return (
     <div
+      className="centered-container"
+      id="targetElementId"
       style={{
         backgroundColor: "rgb(51, 51, 51)",
-        padding: "100px",
         margin: "50px",
         borderRadius: "25px",
-        color: "white",
-        opacity: "85%"
+        opacity: "95%"
       }}
     >
       <div className="form-grid">
@@ -143,9 +155,18 @@ const SignUp = () => {
                 placeholder="Avatar"
                 onChange={(e) => setAvatar(e.target.value)}
               />
-              <button className="p-3">Sign Up</button>
+              <Button variant="success" className="p-3">
+                Sign Up
+              </Button>
             </Stack>
           </form>
+          <Button
+            onClick={() => navigate(-1)}
+            variant="secondary"
+            className=" mb-3 p-3"
+          >
+            Return to Previous Page
+          </Button>
         </div>
       </div>
     </div>
