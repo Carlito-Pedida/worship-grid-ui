@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Home.css";
-import { Button, Card, Col, Container, Row, Stack } from "react-bootstrap";
+import { Col, Row, Stack } from "react-bootstrap";
 import ReactPlayer from "react-player";
 import NewsBanner from "../props/NewsBanner";
 import AdsBanner from "../props/AdsBanner";

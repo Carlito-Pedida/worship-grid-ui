@@ -91,7 +91,7 @@ const SignIn = ({ show, handleClose }) => {
               <p className="register">
                 Not a member?{" "}
                 <a className="register-link" href="/signup">
-                  Register
+                  Register HERE
                 </a>{" "}
                 it's free!
               </p>
