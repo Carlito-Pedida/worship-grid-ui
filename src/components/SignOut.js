@@ -2,7 +2,7 @@ import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 
 function SignOut() {
-  const [user, setUser] = useState();
+  const [setUser] = useState();
 
   useEffect(() => {
     try {
@@ -11,7 +11,7 @@ function SignOut() {
       setUser(userToken);
     } catch (ex) {}
     window.location = "/";
-  }, []);
+  });
 }
 
 export default SignOut;

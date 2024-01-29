@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../contexts/UserContext";
 
 const UserProfile = () => {
-  const [userLog, setUserLog] = useState("");
+  const [setUserLog] = useState("");
 
   let { loggedUser } = useContext(UserContext);
 
@@ -29,7 +29,7 @@ const UserProfile = () => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  });
 
   useEffect(() => {
     // Update the HTML title when the component mounts

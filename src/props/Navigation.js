@@ -1,17 +1,43 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 import SignIn from "../components/SignIn";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "../styles/Navigation.css";
-import { Container, Nav, Navbar, Stack } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 const Navigation = () => {
   const [userLog, setUserLog] = useState([]);
 
   let { getUserAssets } = useContext(UserContext);
+
+  // useEffect(() => {
+  //   let isMounted = true;
+
+  //   async function fetchData() {
+  //     try {
+  //       const result = await getUserAssets();
+  //       if (isMounted) {
+  //         setUserLog(result);
+  //       }
+  //     } catch (error) {
+  //       if (isMounted) {
+  //         if (error.response && error.response.status === 404) {
+  //           // Set userLog to an empty array or a default value
+  //           setUserLog([]);
+  //         }
+  //       }
+  //     }
+  //   }
+
+  //   fetchData();
+
+  //   return () => {
+  //     isMounted = false;
+  //   };
+  // });
 
   useEffect(() => {
     let isMounted = true;
@@ -36,7 +62,7 @@ const Navigation = () => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  });
 
   const [showSignInModal, setShowSignInModal] = useState(false);
 
@@ -79,6 +105,7 @@ const Navigation = () => {
                         <img
                           className="brand-image"
                           src="/logo-2.png"
+                          alt=""
                           height={55}
                         />
                       </Link>
@@ -112,6 +139,7 @@ const Navigation = () => {
                           round="true"
                           height={65}
                           width={65}
+                          alt=""
                         />
                       </span>
 
@@ -119,7 +147,10 @@ const Navigation = () => {
                         SIGN OUT
                       </Link>
                       <div className="navLinks2-container">
-                        <Link className="hover-underline-animation" to="#">
+                        <Link
+                          className="hover-underline-animation"
+                          to="churchlocations"
+                        >
                           CHURCHES IN THE AREA
                         </Link>
                         <Link
@@ -165,6 +196,7 @@ const Navigation = () => {
                           className="brand-image"
                           src="/logo-2.png"
                           height={55}
+                          alt=""
                         />
                       </Link>
 
@@ -181,7 +213,10 @@ const Navigation = () => {
                       </Link>
                     </div>
                     <div className="navLinks2-container">
-                      <Link className="hover-underline-animation" to="#">
+                      <Link
+                        className="hover-underline-animation"
+                        to="churchlocations"
+                      >
                         CHURCHES IN THE AREA
                       </Link>
                       <Link

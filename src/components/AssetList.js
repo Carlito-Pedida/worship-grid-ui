@@ -29,7 +29,7 @@ const AssetList = () => {
       );
     }
     fetch();
-  }, []);
+  });
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -68,7 +68,7 @@ const AssetList = () => {
     document.title = "Worship Grid > Convo";
 
     getAllUserAssets();
-  }, []);
+  });
 
   const [show, setShow] = useState(false);
   const [selectedAsset, setSelectedAsset] = useState(null);
@@ -139,6 +139,7 @@ const AssetList = () => {
                             >
                               <span>
                                 <img
+                                  alt=""
                                   style={{
                                     borderRadius: "50%",
                                     border: "solid 5px",
