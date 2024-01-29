@@ -119,10 +119,7 @@ const Navigation = () => {
                         SIGN OUT
                       </Link>
                       <div className="navLinks2-container">
-                        <Link
-                          className="hover-underline-animation"
-                          to="/church-locations"
-                        >
+                        <Link className="hover-underline-animation" to="#">
                           CHURCHES IN THE AREA
                         </Link>
                         <Link

@@ -53,7 +53,7 @@ const SignUp = () => {
 
     // Alternatively, scroll to a specific position on the page
     // window.scrollTo(0, 500); // Scroll to y-coordinate 500
-  }, []); // The empty dependency array ensures that this effect runs only once after the initial render
+  }, []);
 
   return (
     <div

@@ -20,6 +20,7 @@ import AssetEdit from "./components/AssetEdit.js";
 import BlogArticle from "./components/BlogArticle";
 import UserSetlist from "./components/UserSetlist";
 import UserProfile from "./components/UserProfile";
+import ChurchLocate from "./components/ChurchLocate.js";
 
 function App() {
   const [user, setUser] = useState();
