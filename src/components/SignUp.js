@@ -68,7 +68,7 @@ const SignUp = () => {
     >
       <div className="form-grid">
         <div className="form-image">
-          <img src="/logo.png" />
+          <img src="/logo.png" alt="this is a logo" />
         </div>
         <div className="form-inputs">
           <form className="form-style" onSubmit={handleSubmit}>

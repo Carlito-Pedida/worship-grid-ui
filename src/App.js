@@ -20,7 +20,7 @@ import AssetEdit from "./components/AssetEdit.js";
 import BlogArticle from "./components/BlogArticle";
 import UserSetlist from "./components/UserSetlist";
 import UserProfile from "./components/UserProfile";
-import ChurchLocate from "./components/ChurchLocate.js";
+import LocateChurch from "./components/LocateChurch.js";
 
 function App() {
   const [user, setUser] = useState();
@@ -53,6 +53,7 @@ function App() {
                   path="/profile/:username"
                   element={<UserProfile user={user} />}
                 />
+                <Route path="/churchlocations" element={<LocateChurch />} />
                 <Route path="/merchandise" element={<Merchandise />} />
                 <Route path="/signout" element={<SignOut />} />
 

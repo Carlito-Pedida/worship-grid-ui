@@ -10,7 +10,7 @@ const MerchandiseItem = ({ name, price, image, description }) => (
         <Col key={idx}>
           <div>
             <h2>{name}</h2>
-            <img height={300} src={image} />
+            <img height={300} src={image} alt="" />
             <p className="mt-3">
               <strong>{description}</strong>
             </p>

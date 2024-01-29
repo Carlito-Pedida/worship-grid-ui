@@ -1,6 +1,6 @@
 import axios from "axios";
 import UserContext from "../contexts/UserContext";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const UserProvider = (props) => {
   const [loggedUser, setLoggedUser] = useState([]);
