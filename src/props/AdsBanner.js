@@ -1,8 +1,13 @@
 import React from "react";
 import "../styles/AdsBanner.css";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const AdsBanner = (props) => {
+  let navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/signup");
+  };
   const {
     header,
     subHeader,
@@ -47,7 +52,7 @@ const AdsBanner = (props) => {
           </span>
         </h4>
         <br />
-        <Button>{buttonText2}</Button>
+        <Button onClick={handleClick}>{buttonText2}</Button>
         <br />
       </div>
     </div>

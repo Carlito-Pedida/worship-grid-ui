@@ -29,7 +29,7 @@ const UserProfile = () => {
     return () => {
       isMounted = false;
     };
-  });
+  }, []);
 
   useEffect(() => {
     // Update the HTML title when the component mounts
