@@ -62,7 +62,7 @@ const Navigation = () => {
     return () => {
       isMounted = false;
     };
-  });
+  }, []);
 
   const [showSignInModal, setShowSignInModal] = useState(false);
 

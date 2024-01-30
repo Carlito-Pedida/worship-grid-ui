@@ -1,7 +1,9 @@
 import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SignOut() {
+  let navigate = useNavigate();
   const [setUser] = useState();
 
   useEffect(() => {
@@ -10,8 +12,8 @@ function SignOut() {
       const userToken = jwtDecode(jwt);
       setUser(userToken);
     } catch (ex) {}
-    window.location = "/";
-  });
+    window.location = "/assets";
+  }, []);
 }
 
 export default SignOut;
