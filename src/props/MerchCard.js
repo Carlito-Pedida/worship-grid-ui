@@ -45,9 +45,7 @@ const MerchCard = (props) => {
             <Button variant="secondary" onClick={handleClose}>
               Cancel
             </Button>
-            <Button variant="primary" onClick={""}>
-              Add to Cart
-            </Button>
+            <Button variant="primary">Add to Cart</Button>
           </Modal.Footer>
         </Modal>
       </>
