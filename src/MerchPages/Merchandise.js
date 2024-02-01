@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
+import { MerchList } from "../components/MerchList";
 
 const Merchandise = () => {
   return (
@@ -12,26 +13,13 @@ const Merchandise = () => {
           padding: "45px"
         }}
       >
-        <h1>Worship Grid Store</h1>
+        <h1 className="mb-5">Worship Grid Store</h1>
         <Row xs={1} md={3} className="g-4">
-          <Col align="center">
-            <h2>Item1</h2>
-          </Col>
-          <Col align="center">
-            <h2>Item2</h2>
-          </Col>
-          <Col align="center">
-            <h2>Item2</h2>
-          </Col>
-          <Col align="center">
-            <h2>Item3</h2>
-          </Col>
-          <Col align="center">
-            <h2>Item4</h2>
-          </Col>
-          <Col align="center">
-            <h2>Item5</h2>
-          </Col>
+          {MerchList.map((item, idx) => (
+            <Col align="center">
+              <h2>{item.item_name}</h2>
+            </Col>
+          ))}
         </Row>
       </div>
     </>
