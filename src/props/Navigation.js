@@ -4,7 +4,7 @@ import UserContext from "../contexts/UserContext";
 import SignIn from "../components/SignIn";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import "../styles/Navigation.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
@@ -181,6 +181,13 @@ const Navigation = () => {
                             size="xl"
                           />
                         </Link>
+                        <Link className="search-tool-animation">
+                          <FontAwesomeIcon
+                            className="search-tool-icon"
+                            icon={faCartShopping}
+                            size="xl"
+                          />
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -247,6 +254,13 @@ const Navigation = () => {
                         <FontAwesomeIcon
                           className="search-tool-icon"
                           icon={faSearch}
+                          size="xl"
+                        />
+                      </Link>
+                      <Link className="search-tool-animation">
+                        <FontAwesomeIcon
+                          className="search-tool-icon"
+                          icon={faCartShopping}
                           size="xl"
                         />
                       </Link>
