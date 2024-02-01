@@ -15,7 +15,7 @@ import Navigation from "./props/Navigation";
 import AboutInfo from "./components/AboutInfo";
 import Footer from "./components/Footer";
 import Academy from "./components/Academy";
-import Merchandise from "./components/Merchandise";
+import Merchandise from "./MerchPages/Merchandise.js";
 import AssetEdit from "./components/AssetEdit.js";
 import BlogArticle from "./components/BlogArticle";
 import UserSetlist from "./components/UserSetlist";
