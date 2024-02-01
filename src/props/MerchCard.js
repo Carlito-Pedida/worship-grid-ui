@@ -1,8 +1,21 @@
-import React, { useState } from "react";
-import { Button, Card, CardBody, Modal } from "react-bootstrap";
+import React, { useState, useContext } from "react";
+import { Button, Card, CardBody, Col, Form, Modal, Row } from "react-bootstrap";
+import CartContext from "../contexts/CartContext";
 
 const MerchCard = (props) => {
   const merch = props.merch;
+
+  const {
+    cartItems,
+    getItemQty,
+    addItemToCart,
+    removeItemFromCart,
+    deleteItemFromCart,
+    calculateTotal
+  } = useContext(CartContext);
+
+  const itemQty = getItemQty(merch.merch_id);
+  console.log(cartItems);
 
   const [show, setShow] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -26,7 +39,48 @@ const MerchCard = (props) => {
           />
           <Card.Text>{merch.description}</Card.Text>
           <Card.Text>{merch.price}</Card.Text>
-          <Button type="submit">Add to Cart</Button>
+          {itemQty > 0 ? (
+            <>
+              <Form as={Row}>
+                <Form.Label column="true" sm="6">
+                  Items in Cart: {itemQty}
+                </Form.Label>
+                <Col sm="6">
+                  <Button
+                    className="mx-2"
+                    variant="success"
+                    sm="6"
+                    onClick={() => addItemToCart(merch.merch_id)}
+                  >
+                    +
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    className="mx-2"
+                    sm="6"
+                    onClick={() => removeItemFromCart(merch.merch_id)}
+                  >
+                    -
+                  </Button>
+                </Col>
+              </Form>
+              <Button
+                className="my-4"
+                variant="danger"
+                onClick={() => deleteItemFromCart(merch.merch_id)}
+              >
+                Remove Item Cart
+              </Button>
+            </>
+          ) : (
+            <Button
+              variant="success"
+              type="submit"
+              onClick={() => addItemToCart(merch.merch_id)}
+            >
+              Add to Cart
+            </Button>
+          )}
         </CardBody>
       </Card>
       <>

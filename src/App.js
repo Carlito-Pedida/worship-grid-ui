@@ -25,6 +25,7 @@ import Rss from "./components/Rss.js";
 import Tutorials from "./components/Tutorials.js";
 import Success from "./MerchPages/Success.js";
 import Cancel from "./MerchPages/Cancel.js";
+import { CartProvider } from "./providers/CartProvider.js";
 
 function App() {
   const [user, setUser] = useState();
@@ -38,50 +39,55 @@ function App() {
   }, []);
 
   return (
-    <UserProvider>
-      <AssetProvider>
-        <ResponseProvider>
-          <div style={{ textAlign: "center" }}>
-            <BrowserRouter>
-              <Navigation user={user} />
-              <Routes>
-                <Route path="/" element={<Home />} index />
-                <Route path="/signup" element={<SignUp />} />
-                <Route path="/signin" element={<SignIn user={user} />} />
-                <Route path="/setlist" element={<UserSetlist user={user} />} />
-                <Route path="/academy" element={<Academy />} />
-                <Route path="setlist" element={<UserSetlist />} />
-                <Route path="/article" element={<BlogArticle />} />
-                <Route path="/assets" element={<AssetList />} />
-                <Route
-                  path="/profile/:username"
-                  element={<UserProfile user={user} />}
-                />
-                <Route path="/churchlocations" element={<LocateChurch />} />
-                <Route path="/merchandise" element={<Merchandise />} />
-                <Route path="/paysuccessful" element={<Success />} />
-                <Route path="/paycancel" element={<Cancel />} />
-                <Route path="/events" element={<Events />} />
-                <Route path="/rss" element={<Rss />} />
-                <Route path="/tutorials" element={<Tutorials />} />
-                <Route path="/signout" element={<SignOut />} />
+    <CartProvider>
+      <UserProvider>
+        <AssetProvider>
+          <ResponseProvider>
+            <div style={{ textAlign: "center" }}>
+              <BrowserRouter>
+                <Navigation user={user} />
+                <Routes>
+                  <Route path="/" element={<Home />} index />
+                  <Route path="/signup" element={<SignUp />} />
+                  <Route path="/signin" element={<SignIn user={user} />} />
+                  <Route
+                    path="/setlist"
+                    element={<UserSetlist user={user} />}
+                  />
+                  <Route path="/academy" element={<Academy />} />
+                  <Route path="setlist" element={<UserSetlist />} />
+                  <Route path="/article" element={<BlogArticle />} />
+                  <Route path="/assets" element={<AssetList />} />
+                  <Route
+                    path="/profile/:username"
+                    element={<UserProfile user={user} />}
+                  />
+                  <Route path="/churchlocations" element={<LocateChurch />} />
+                  <Route path="/merchandise" element={<Merchandise />} />
+                  <Route path="/paysuccessful" element={<Success />} />
+                  <Route path="/paycancel" element={<Cancel />} />
+                  <Route path="/events" element={<Events />} />
+                  <Route path="/rss" element={<Rss />} />
+                  <Route path="/tutorials" element={<Tutorials />} />
+                  <Route path="/signout" element={<SignOut />} />
 
-                <Route path="/create" element={<AssetNew />} />
-                <Route
-                  path="/asset/:asset_id/reply"
-                  element={<ResponseNew />}
-                />
-                <Route
-                  path="/asset/:asset_id/edit"
-                  element={<AssetEdit user={user} />}
-                />
-              </Routes>
-            </BrowserRouter>
-            <AboutInfo />
-          </div>
-        </ResponseProvider>
-      </AssetProvider>
-    </UserProvider>
+                  <Route path="/create" element={<AssetNew />} />
+                  <Route
+                    path="/asset/:asset_id/reply"
+                    element={<ResponseNew />}
+                  />
+                  <Route
+                    path="/asset/:asset_id/edit"
+                    element={<AssetEdit user={user} />}
+                  />
+                </Routes>
+              </BrowserRouter>
+              <AboutInfo />
+            </div>
+          </ResponseProvider>
+        </AssetProvider>
+      </UserProvider>
+    </CartProvider>
   );
 }
 
