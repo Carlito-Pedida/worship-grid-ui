@@ -1,12 +1,8 @@
-.about-container {
-  background-color: #292a29;
-}
-/* .about-info {
+.about-info {
+  margin-top: auto;
   background-color: #292a29;
   padding: 75;
-  margin-left: 20px;
-  display: flex;
-} */
+}
 
 .site-desc-container {
   padding: 75px;
@@ -64,4 +60,13 @@ li > a {
     #4f5bd5
   );
   border-radius: 10px;
+}
+.footer {
+  background-color: rgb(19, 31, 20);
+  padding-top: 35px;
+  padding-bottom: 20px;
+  justify-content: center;
+  color: rgb(149, 149, 149);
+  font-size: large;
+  margin-bottom: 0;
 }
