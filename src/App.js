@@ -13,7 +13,6 @@ import { jwtDecode } from "jwt-decode";
 import SignOut from "./components/SignOut";
 import Navigation from "./props/Navigation";
 import AboutInfo from "./components/AboutInfo";
-import Footer from "./components/Footer";
 import Academy from "./components/Academy";
 import Merchandise from "./MerchPages/Merchandise.js";
 import AssetEdit from "./components/AssetEdit.js";
@@ -61,7 +60,7 @@ function App() {
                 <Route path="/churchlocations" element={<LocateChurch />} />
                 <Route path="/merchandise" element={<Merchandise />} />
                 <Route path="/paysuccessful" element={<Success />} />
-                <Route path="/merchcancel" element={<Cancel />} />
+                <Route path="/paycancel" element={<Cancel />} />
                 <Route path="/events" element={<Events />} />
                 <Route path="/rss" element={<Rss />} />
                 <Route path="/tutorials" element={<Tutorials />} />
@@ -79,7 +78,6 @@ function App() {
               </Routes>
             </BrowserRouter>
             <AboutInfo />
-            {/* <Footer /> */}
           </div>
         </ResponseProvider>
       </AssetProvider>
