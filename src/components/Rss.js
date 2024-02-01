@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 const Rss = () => {
   useEffect(() => {
     // Update the HTML title when the component mounts
-    document.title = "Worship Grid - Events";
+    document.title = "Worship Grid - RSS";
 
     // Optionally, you can reset the title when the component unmounts
     //   return () => {
