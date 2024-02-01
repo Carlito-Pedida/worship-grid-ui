@@ -1,11 +1,5 @@
-.footer {
-  background-color: rgb(19, 31, 20);
-  padding-top: 35px;
-  padding-bottom: 20px;
+/* .foot-container {
   display: flex;
-  justify-content: center;
-  color: rgb(149, 149, 149);
-  font-size: large;
-  margin-bottom: 0;
-  overflow: hidden;
-}
+  flex-direction: column;
+  min-height: 100vh;
+} */

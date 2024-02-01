@@ -1,0 +1,33 @@
+.merch-banner {
+  border-radius: 10px;
+  padding: 45px;
+  background-color: rgba(25, 187, 103, 0.96);
+  color: white;
+}
+.merch-banner > h2 {
+  font-family: "Roboto Mono", monospace;
+  font-weight: bolder;
+}
+
+.merch-banner > p {
+  font-family: "Dosis", sans-serif;
+  font-size: 23px;
+  font-weight: 400;
+}
+.merch-banner > Button {
+  border-color: rgba(25, 187, 103, 0.96);
+  background-color: #2c5728;
+  padding: 10px 35px 10px 35px;
+  font-weight: 200;
+  font-size: 15px;
+}
+
+.merch-banner > Button:hover {
+  border: solid 1px;
+  border-color: black;
+  background-color: #ffffff;
+  padding: 10px 35px 10px 35px;
+  font-weight: 300;
+  font-size: 15px;
+  color: black;
+}
