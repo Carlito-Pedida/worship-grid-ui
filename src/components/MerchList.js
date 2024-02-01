@@ -5,14 +5,14 @@ const MerchList = [
     merch_id: "1",
     item_name: "T-Shirt",
     price: 19.99,
-    item_img: "",
+    item_img: "https://m.media-amazon.com/images/I/51zCzO-nx4L._AC_SL1024_.jpg",
     description: "Lorem ipsum dolor sit amet, ut labore et dolore magna aliqua."
   },
   {
     merch_id: "2",
     item_name: "Trucker Hat",
     price: 7.99,
-    item_img: "",
+    item_img: "https://m.media-amazon.com/images/I/911rtWKWF+L._AC_SL1500_.jpg",
     description: "Lorem ipsum dolor sit amet, ut labore et dolore magna aliqua."
   },
   {
