@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AdsBanner from "../props/AdsBanner";
 
 const Tutorials = () => {
   useEffect(() => {
