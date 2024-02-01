@@ -159,13 +159,19 @@ const Navigation = () => {
                         >
                           MERCHANDISE
                         </Link>
-                        <Link className="hover-underline-animation" to="#">
+                        <Link
+                          className="hover-underline-animation"
+                          to="/events"
+                        >
                           EVENTS
                         </Link>
-                        <Link className="hover-underline-animation" to="#">
+                        <Link className="hover-underline-animation" to="/rss">
                           RSS
                         </Link>
-                        <Link className="hover-underline-animation" to="#">
+                        <Link
+                          className="hover-underline-animation"
+                          to="tutorials"
+                        >
                           TUTORIALS
                         </Link>
                         <Link className="search-tool-animation">
@@ -225,16 +231,16 @@ const Navigation = () => {
                       >
                         MERCHANDISE
                       </Link>
-                      <Link
-                        className="hover-underline-animation"
-                        to="/merchandise"
-                      >
+                      <Link className="hover-underline-animation" to="/events">
                         EVENTS
                       </Link>
-                      <Link className="hover-underline-animation" to="#">
+                      <Link className="hover-underline-animation" to="rss">
                         RSS
                       </Link>
-                      <Link className="hover-underline-animation" to="#">
+                      <Link
+                        className="hover-underline-animation"
+                        to="tutorials"
+                      >
                         TUTORIALS
                       </Link>
                       <Link className="search-tool-animation">
