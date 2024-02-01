@@ -12,8 +12,8 @@ const Tutorials = () => {
   }, []);
   return (
     <AdsBanner
-      header="SOMETHING AWESOME COMING"
-      textFx="SOON!"
+      header="THIS IS THE PAGE FOR"
+      textFx="TUTORIALS!"
       subHeader="Check back next time for updates"
       buttonText2="LEARN MORE"
     />
