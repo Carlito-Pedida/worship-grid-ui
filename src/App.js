@@ -21,6 +21,9 @@ import BlogArticle from "./components/BlogArticle";
 import UserSetlist from "./components/UserSetlist";
 import UserProfile from "./components/UserProfile";
 import LocateChurch from "./components/LocateChurch.js";
+import Events from "./components/Events.js";
+import Rss from "./components/Rss.js";
+import Tutorials from "./components/Tutorials.js";
 
 function App() {
   const [user, setUser] = useState();
@@ -55,6 +58,9 @@ function App() {
                 />
                 <Route path="/churchlocations" element={<LocateChurch />} />
                 <Route path="/merchandise" element={<Merchandise />} />
+                <Route path="/events" element={<Events />} />
+                <Route path="/rss" element={<Rss />} />
+                <Route path="/tutorials" element={<Tutorials />} />
                 <Route path="/signout" element={<SignOut />} />
 
                 <Route path="/create" element={<AssetNew />} />

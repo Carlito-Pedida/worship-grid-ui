@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import AdsBanner from "../props/AdsBanner";
 
 const Rss = () => {
   useEffect(() => {
