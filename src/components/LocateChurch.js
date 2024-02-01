@@ -17,14 +17,14 @@ export default function LocateChurch() {
     <APIProvider apiKey={process.env.REACT_APP_WG_GOOGLE_MAPS_API_KEY}>
       <div
         style={{
-          height: "50vh",
+          height: "75vh",
           width: "100%"
         }}
       >
         React google Maps
         <Map
           center={position}
-          zoom={10}
+          zoom={14}
           mapId={process.env.REACT_APP_WG_GOOGLE_MAPS_MAP_ID}
         >
           <AdvancedMarker position={position} onClick={() => setOpenPin(true)}>

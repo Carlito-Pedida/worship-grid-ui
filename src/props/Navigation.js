@@ -4,9 +4,10 @@ import UserContext from "../contexts/UserContext";
 import SignIn from "../components/SignIn";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import "../styles/Navigation.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import MerchCart from "../MerchPages/MerchCart";
 
 const Navigation = () => {
   const [userLog, setUserLog] = useState([]);
@@ -75,6 +76,20 @@ const Navigation = () => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const [showCartModal, setShowCartModal] = useState(false);
+
+  const openCartModal = () => {
+    setShowCartModal(true);
+  };
+
+  const closeCartModal = () => {
+    setShowCartModal(false);
+  };
+
+  const handleSubmitCart = (e) => {
     e.preventDefault();
   };
 
@@ -181,6 +196,13 @@ const Navigation = () => {
                             size="xl"
                           />
                         </Link>
+                        <Link className="search-tool-animation">
+                          <FontAwesomeIcon
+                            className="search-tool-icon"
+                            icon={faCartShopping}
+                            size="xl"
+                          />
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -250,6 +272,17 @@ const Navigation = () => {
                           size="xl"
                         />
                       </Link>
+                      <Link
+                        className="search-tool-animation"
+                        to={openCartModal}
+                        onClick={openCartModal}
+                      >
+                        <FontAwesomeIcon
+                          className="search-tool-icon"
+                          icon={faCartShopping}
+                          size="xl"
+                        />
+                      </Link>
                     </div>
                   </div>
                 </React.Fragment>
@@ -265,6 +298,7 @@ const Navigation = () => {
           handleClose={closeSignInModal}
           handleSubmit={handleSubmit}
         />
+        <MerchCart show={showCartModal} handleClose={closeCartModal} hand />
       </div>
     );
   }
