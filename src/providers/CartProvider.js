@@ -1,7 +1,7 @@
 import axios from "axios";
 import CartContext from "../contexts/CartContext";
 import { useState } from "react";
-import { MerchList, getProductData } from "../components/MerchList";
+import { getProductData } from "../components/MerchList";
 
 export const CartProvider = (props) => {
   const [cartItems, setCartItems] = useState([]); // [{merch_id:}]
@@ -23,6 +23,7 @@ export const CartProvider = (props) => {
         ...cartItems,
         {
           merch_id: merch_id,
+
           qty: 1
         }
       ]);

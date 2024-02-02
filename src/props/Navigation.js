@@ -8,37 +8,16 @@ import { faSearch, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import "../styles/Navigation.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import MerchCart from "../MerchPages/MerchCart";
+import CartContext from "../contexts/CartContext";
 
 const Navigation = () => {
   const [userLog, setUserLog] = useState([]);
 
   let { getUserAssets } = useContext(UserContext);
 
-  // useEffect(() => {
-  //   let isMounted = true;
+  let { cartItems } = useContext(CartContext);
 
-  //   async function fetchData() {
-  //     try {
-  //       const result = await getUserAssets();
-  //       if (isMounted) {
-  //         setUserLog(result);
-  //       }
-  //     } catch (error) {
-  //       if (isMounted) {
-  //         if (error.response && error.response.status === 404) {
-  //           // Set userLog to an empty array or a default value
-  //           setUserLog([]);
-  //         }
-  //       }
-  //     }
-  //   }
-
-  //   fetchData();
-
-  //   return () => {
-  //     isMounted = false;
-  //   };
-  // });
+  const cartItemCounter = cartItems.reduce((sum, item) => sum + item.qty, 0);
 
   useEffect(() => {
     let isMounted = true;
@@ -201,7 +180,9 @@ const Navigation = () => {
                             className="search-tool-icon"
                             icon={faCartShopping}
                             size="xl"
-                          />
+                          >
+                            {cartItemCounter}
+                          </FontAwesomeIcon>
                         </Link>
                       </div>
                     </div>
@@ -272,17 +253,34 @@ const Navigation = () => {
                           size="xl"
                         />
                       </Link>
-                      <Link
-                        className="search-tool-animation"
-                        to={openCartModal}
-                        onClick={openCartModal}
-                      >
-                        <FontAwesomeIcon
-                          className="search-tool-icon"
-                          icon={faCartShopping}
-                          size="xl"
-                        />
-                      </Link>
+                      {cartItemCounter > 0 ? (
+                        <Link
+                          className="search-tool-animation"
+                          to={openCartModal}
+                          onClick={openCartModal}
+                        >
+                          <FontAwesomeIcon
+                            className="search-tool-icon"
+                            icon={faCartShopping}
+                            size="xl"
+                          />
+                          <span style={{ color: "orange", fontSize: "15px" }}>
+                            {cartItemCounter}
+                          </span>
+                        </Link>
+                      ) : (
+                        <Link
+                          className="search-tool-animation"
+                          to={openCartModal}
+                          onClick={openCartModal}
+                        >
+                          <FontAwesomeIcon
+                            className="search-tool-icon"
+                            icon={faCartShopping}
+                            size="xl"
+                          />
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </React.Fragment>
