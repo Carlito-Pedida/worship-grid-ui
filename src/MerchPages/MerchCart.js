@@ -9,7 +9,7 @@ const MerchCart = (props) => {
 
   let navigate = useNavigate();
 
-  let { cartItems } = useContext(CartContext);
+  let { cartItems, calculateTotal } = useContext(CartContext);
 
   const cartItemCounter = cartItems.reduce((sum, item) => sum + item.qty, 0);
 
@@ -57,12 +57,17 @@ const MerchCart = (props) => {
                 <>
                   <p>Items in your cart: </p>
                   {cartItems.map((currentItem, idx) => (
-                    <CartItems
-                      key={idx}
-                      qty={currentItem.qty}
-                      id={currentItem.merch_id}
-                    />
+                    <>
+                      <CartItems
+                        key={idx}
+                        merch_id={currentItem.merch_id}
+                        qty={currentItem.qty}
+                      />
+                    </>
                   ))}
+
+                  <h3>Grand Total: {calculateTotal().toFixed(2)}</h3>
+                  <br />
 
                   <Button
                     className="mb-3 w-100"

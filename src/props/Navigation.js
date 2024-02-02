@@ -296,7 +296,11 @@ const Navigation = () => {
           handleClose={closeSignInModal}
           handleSubmit={handleSubmit}
         />
-        <MerchCart show={showCartModal} handleClose={closeCartModal} hand />
+        <MerchCart
+          show={showCartModal}
+          handleClose={closeCartModal}
+          key={cartItems.merch_id}
+        />
       </div>
     );
   }
