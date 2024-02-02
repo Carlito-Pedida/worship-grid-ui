@@ -118,18 +118,21 @@ const MerchCard = (props) => {
                 >
                   Remove from Cart
                 </Button>
+                <Button variant="secondary" type="submit" onClick={handleClose}>
+                  Close
+                </Button>
               </>
             ) : (
               <>
-                <Button variant="secondary" type="submit" onClick={handleClose}>
-                  Cancel
-                </Button>
                 <Button
                   variant="success"
                   type="submit"
                   onClick={() => addItemToCart(merch.merch_id)}
                 >
                   Add to Cart
+                </Button>
+                <Button variant="secondary" type="submit" onClick={handleClose}>
+                  Close
                 </Button>
               </>
             )}
