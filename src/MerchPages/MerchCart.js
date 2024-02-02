@@ -55,7 +55,8 @@ const MerchCart = (props) => {
             >
               {cartItemCounter > 0 ? (
                 <>
-                  <p>Items in your cart: </p>
+                  <h4>Items in your cart: </h4>
+                  <hr></hr>
                   {cartItems.map((currentItem, idx) => (
                     <>
                       <CartItems
@@ -95,7 +96,7 @@ const MerchCart = (props) => {
               handleCancel();
             }}
           >
-            Cancel Transaction
+            Edit Items
           </Button>
         </Modal.Footer>
       </Modal>
