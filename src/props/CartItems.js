@@ -1,12 +1,13 @@
-import { Button } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import CartContext from "../contexts/CartContext";
 import { getProductData } from "../components/MerchList";
 import { useContext } from "react";
+import { Form } from "react-router-dom";
 
 function CartItems(props) {
   const { merch_id, qty } = props;
-  const { deleteItemFromCart } = useContext(CartContext);
   const itemData = getProductData(merch_id);
+  const { deleteItemFromCart } = useContext(CartContext);
 
   return (
     <>
@@ -17,6 +18,7 @@ function CartItems(props) {
       <p>Qty: {qty}</p>
 
       <h5>price: ${(qty * itemData.price).toFixed(2)}</h5>
+
       <Button size="sm" onClick={() => deleteItemFromCart(merch_id)}>
         Remove
       </Button>
