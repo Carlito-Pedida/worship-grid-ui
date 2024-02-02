@@ -70,7 +70,7 @@ const MerchList = [
 ];
 
 function getProductData(merch_id) {
-  let merchItemData = MerchList.find((item) => item.id === merch_id);
+  let merchItemData = MerchList.find((item) => item.merch_id === merch_id);
 
   if (merchItemData == undefined) {
     console.log("Item not found!");

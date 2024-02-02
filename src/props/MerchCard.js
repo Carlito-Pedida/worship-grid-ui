@@ -5,14 +5,8 @@ import CartContext from "../contexts/CartContext";
 const MerchCard = (props) => {
   const merch = props.merch;
 
-  const {
-    cartItems,
-    getItemQty,
-    addItemToCart,
-    removeItemFromCart,
-    deleteItemFromCart,
-    calculateTotal
-  } = useContext(CartContext);
+  const { getItemQty, addItemToCart, removeItemFromCart, deleteItemFromCart } =
+    useContext(CartContext);
 
   const itemQty = getItemQty(merch.merch_id);
 

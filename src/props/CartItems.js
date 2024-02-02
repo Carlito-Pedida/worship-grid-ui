@@ -4,18 +4,19 @@ import { getProductData } from "../components/MerchList";
 import { useContext } from "react";
 
 function CartItems(props) {
+  const { merch_id, qty } = props;
   const { deleteItemFromCart } = useContext(CartContext);
-  const merch_id = props.merch_id;
-  const qty = props.qty;
-  const itemData = getProductData(props.merch_id);
+  const itemData = getProductData(merch_id);
 
   return (
     <>
-      <img src={itemData.item_img} height={45} />
-      <h4>{itemData.item_name}</h4>
+      <div className="d-flex align-items-center">
+        <img className="pe-3" src={itemData.item_img} height={45} />
+        <h5>{itemData.item_name}</h5>
+      </div>
+      <p>Qty: {qty}</p>
 
-      <p>{qty} Total</p>
-      <p>${(qty * itemData.price).toFixed(2)}</p>
+      <h5>price: ${(qty * itemData.price).toFixed(2)}</h5>
       <Button size="sm" onClick={() => deleteItemFromCart(merch_id)}>
         Remove
       </Button>
