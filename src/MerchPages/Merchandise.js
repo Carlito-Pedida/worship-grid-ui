@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Button, Col, Container, Modal, Row } from "react-bootstrap";
+import React from "react";
+import { Col, Row } from "react-bootstrap";
 import { MerchList } from "../components/MerchList";
 import MerchCard from "../props/MerchCard";
 

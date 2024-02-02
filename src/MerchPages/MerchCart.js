@@ -1,18 +1,27 @@
-import React from "react";
-import { Button, Form, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+import { Button, Modal } from "react-bootstrap";
+import CartContext from "../contexts/CartContext";
+import CartItems from "../props/CartItems";
 
-const MerchCart = ({ show, handleClose }) => {
+const MerchCart = (props) => {
+  const { show, handleClose } = props;
+
   let navigate = useNavigate();
+
+  let { cartItems } = useContext(CartContext);
+
+  const cartItemCounter = cartItems.reduce((sum, item) => sum + item.qty, 0);
+
   const handleCart = () => {};
 
   const handleCancel = () => {
-    window.alert("Are you sure you want to cancel?");
     navigate("/merchandise");
   };
+  console.log(cartItems);
   return (
     <div>
-      <Modal show={show} onHide={handleClose} centered>
+      <Modal size="lg" show={show} onHide={handleClose} centered>
         <Modal.Header
           style={{ backgroundColor: "#366532" }}
           className="divider d-flex align-items-center"
@@ -44,36 +53,30 @@ const MerchCart = ({ show, handleClose }) => {
                 padding: "35px"
               }}
             >
-              <Form onSubmit={handleCart}>
-                {/* <Form.Group className="mb-3">
-                  <Form.Control
-                    type="text"
-                    placeholder="username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                  <Form.Control
-                    type="password"
-                    placeholder="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </Form.Group>
-                <div className="d-flex justify-content-center mb-4">
-                  <Form.Check
-                    type="checkbox"
-                    label="Remember me"
-                    checked={""}
-                    onChange={""}
-                  />
-                </div> */}
+              {cartItemCounter > 0 ? (
+                <>
+                  <p>Items in your cart: </p>
+                  {cartItems.map((currentItem, idx) => (
+                    <CartItems
+                      key={idx}
+                      qty={currentItem.qty}
+                      id={currentItem.merch_id}
+                    />
+                  ))}
 
-                <Button className="mb-3 w-100" variant="success" type="submit">
-                  Complete Checkout
-                </Button>
-              </Form>
+                  <Button
+                    className="mb-3 w-100"
+                    variant="success"
+                    type="submit"
+                  >
+                    Complete Checkout
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <h3>Your Cart is empty!</h3>
+                </>
+              )}
             </div>
           </div>
         </Modal.Body>
