@@ -9,14 +9,15 @@ const MerchCart = (props) => {
 
   let navigate = useNavigate();
 
-  let { cartItems, calculateTotal } = useContext(CartContext);
+  let { cartItems, calculateTotal, deleteItemFromCart } =
+    useContext(CartContext);
 
   const cartItemCounter = cartItems.reduce((sum, item) => sum + item.qty, 0);
 
   const handleCart = () => {};
 
   const handleCancel = () => {
-    navigate("/merchandise");
+    navigate("/paycancel");
   };
   console.log(cartItems);
   return (
@@ -93,10 +94,21 @@ const MerchCart = (props) => {
             variant="secondary"
             onClick={() => {
               handleClose();
-              handleCancel();
             }}
           >
             Edit Items
+          </Button>
+          <Button
+            type="submit"
+            className="m-2"
+            variant="secondary"
+            onClick={() => {
+              handleClose();
+              handleCancel();
+              deleteItemFromCart();
+            }}
+          >
+            Cancel
           </Button>
         </Modal.Footer>
       </Modal>

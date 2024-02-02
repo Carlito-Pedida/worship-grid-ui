@@ -1,4 +1,3 @@
-import axios from "axios";
 import CartContext from "../contexts/CartContext";
 import { useState } from "react";
 import { getProductData } from "../components/MerchList";

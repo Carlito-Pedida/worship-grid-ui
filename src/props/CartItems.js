@@ -1,8 +1,7 @@
-import { Button, Col, Row } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import CartContext from "../contexts/CartContext";
 import { getProductData } from "../components/MerchList";
 import { useContext } from "react";
-import { Form } from "react-router-dom";
 
 function CartItems(props) {
   const { merch_id, qty } = props;
