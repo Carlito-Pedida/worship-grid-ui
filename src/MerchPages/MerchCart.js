@@ -33,11 +33,13 @@ const MerchCart = (props) => {
   };
 
   const handleCancel = () => {
-    window.alert(`You will lose all items in your cart!`);
+    window.alert(
+      `You are about to clear your cart \n No going back from here!`
+    );
     clearCart();
     navigate("/paycanceled");
   };
-  console.log(cartItems);
+
   return (
     <div>
       <Modal size="lg" show={show} onHide={handleClose} centered>
@@ -77,13 +79,13 @@ const MerchCart = (props) => {
                   <h4>Items in your cart: </h4>
                   <hr></hr>
                   {cartItems.map((currentItem, idx) => (
-                    <>
+                    <div key={idx}>
                       <CartItems
                         key={idx}
                         merch_id={currentItem.merch_id}
                         qty={currentItem.qty}
                       />
-                    </>
+                    </div>
                   ))}
 
                   <h3>Grand Total: {calculateTotal().toFixed(2)}</h3>

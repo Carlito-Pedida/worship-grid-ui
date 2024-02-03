@@ -175,15 +175,35 @@ const Navigation = () => {
                             size="xl"
                           />
                         </Link>
-                        <Link className="search-tool-animation">
-                          <FontAwesomeIcon
-                            className="search-tool-icon"
-                            icon={faCartShopping}
-                            size="xl"
+
+                        {cartItemCounter > 0 ? (
+                          <Link
+                            className="search-tool-animation"
+                            to={openCartModal}
+                            onClick={openCartModal}
                           >
-                            {cartItemCounter}
-                          </FontAwesomeIcon>
-                        </Link>
+                            <FontAwesomeIcon
+                              className="search-tool-icon"
+                              icon={faCartShopping}
+                              size="xl"
+                            />
+                            <span style={{ color: "orange", fontSize: "15px" }}>
+                              {cartItemCounter}
+                            </span>
+                          </Link>
+                        ) : (
+                          <Link
+                            className="search-tool-animation"
+                            to={openCartModal}
+                            onClick={openCartModal}
+                          >
+                            <FontAwesomeIcon
+                              className="search-tool-icon"
+                              icon={faCartShopping}
+                              size="xl"
+                            />
+                          </Link>
+                        )}
                       </div>
                     </div>
                   </div>
