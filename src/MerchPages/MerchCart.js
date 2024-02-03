@@ -14,7 +14,23 @@ const MerchCart = (props) => {
 
   const cartItemCounter = cartItems.reduce((sum, item) => sum + item.qty, 0);
 
-  const handleCart = () => {};
+  const handleCheckout = async () => {
+    await fetch("http://localhost:5000/server/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ items: cartItems })
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        if (response.url) {
+          window.location.assign(response.url); // Forwarding user to Stripe
+        }
+      });
+  };
 
   const handleCancel = () => {
     navigate("/paycancel");
@@ -75,6 +91,7 @@ const MerchCart = (props) => {
                     className="mb-3 w-100"
                     variant="success"
                     type="submit"
+                    onClick={handleCheckout}
                   >
                     Complete Checkout
                   </Button>
