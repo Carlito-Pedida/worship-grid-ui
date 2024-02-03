@@ -57,6 +57,10 @@ export const CartProvider = (props) => {
     );
   }
 
+  function clearCart() {
+    setCartItems([]);
+  }
+
   function calculateTotal() {
     let totalCost = 0;
     cartItems.map((cartItem) => {
@@ -74,6 +78,7 @@ export const CartProvider = (props) => {
         addItemToCart,
         removeItemFromCart,
         deleteItemFromCart,
+        clearCart,
         calculateTotal
       }}
     >

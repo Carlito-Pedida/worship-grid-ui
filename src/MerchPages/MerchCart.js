@@ -9,7 +9,7 @@ const MerchCart = (props) => {
 
   let navigate = useNavigate();
 
-  let { cartItems, calculateTotal, deleteItemFromCart } =
+  let { cartItems, calculateTotal, deleteItemFromCart, clearCart } =
     useContext(CartContext);
 
   const cartItemCounter = cartItems.reduce((sum, item) => sum + item.qty, 0);
@@ -33,7 +33,9 @@ const MerchCart = (props) => {
   };
 
   const handleCancel = () => {
-    navigate("/paycancel");
+    window.alert(`You will lose all items in your cart!`);
+    clearCart();
+    navigate("/paycanceled");
   };
   console.log(cartItems);
   return (
@@ -93,7 +95,7 @@ const MerchCart = (props) => {
                     type="submit"
                     onClick={handleCheckout}
                   >
-                    Complete Checkout
+                    Proceed to Checkout
                   </Button>
                 </>
               ) : (
@@ -104,29 +106,47 @@ const MerchCart = (props) => {
             </div>
           </div>
         </Modal.Body>
+
         <Modal.Footer style={{ backgroundColor: "#366532" }}>
-          <Button
-            type="submit"
-            className="m-2"
-            variant="secondary"
-            onClick={() => {
-              handleClose();
-            }}
-          >
-            Edit Items
-          </Button>
-          <Button
-            type="submit"
-            className="m-2"
-            variant="secondary"
-            onClick={() => {
-              handleClose();
-              handleCancel();
-              deleteItemFromCart();
-            }}
-          >
-            Cancel
-          </Button>
+          {cartItemCounter > 0 ? (
+            <>
+              <Button
+                type="submit"
+                className="m-2"
+                variant="secondary"
+                onClick={() => {
+                  handleClose();
+                }}
+              >
+                Edit Items
+              </Button>
+              <Button
+                type="submit"
+                className="m-2"
+                variant="secondary"
+                onClick={() => {
+                  handleClose();
+                  handleCancel();
+                  deleteItemFromCart();
+                }}
+              >
+                Empty Cart
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button
+                type="submit"
+                className="m-2"
+                variant="secondary"
+                onClick={() => {
+                  handleClose();
+                }}
+              >
+                Close
+              </Button>
+            </>
+          )}
         </Modal.Footer>
       </Modal>
     </div>
