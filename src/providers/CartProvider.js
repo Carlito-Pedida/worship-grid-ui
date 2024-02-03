@@ -38,7 +38,7 @@ export const CartProvider = (props) => {
   function removeItemFromCart(merch_id) {
     const qty = getItemQty(merch_id);
 
-    if (qty == 1) {
+    if (qty === 1) {
       deleteItemFromCart(merch_id);
     } else {
       setCartItems(
@@ -52,7 +52,7 @@ export const CartProvider = (props) => {
   function deleteItemFromCart(merch_id) {
     setCartItems((cartItems) =>
       cartItems.filter((currentItem) => {
-        return currentItem.merch_id != merch_id;
+        return currentItem.merch_id !== merch_id;
       })
     );
   }
