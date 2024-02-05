@@ -1,19 +1,14 @@
 .rss-wrap {
-  margin-top: 45px;
   padding: 20px;
-  background-color: rgb(243, 245, 247);
+  background-color: rgba(71, 185, 67, 0.346);
   align-self: center;
-  background-color: rgb(243, 245, 247);
-
-  border: solid 3px;
-  border-color: rgba(124, 124, 213, 0.509);
-  padding: 20px;
 }
 .rss-bg {
-  border: solid 1px;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(97, 97, 97, 0.807);
   border-radius: 7px;
-  border-color: rgba(124, 124, 213, 0.616);
-  padding: 20px;
+  padding: 0px;
 }
 .container {
   display: flex;
@@ -21,18 +16,17 @@
   flex-wrap: wrap;
 }
 .rss {
-  background-color: #d7c4c4cc;
   border-radius: 5px;
   padding: 20px;
   box-shadow: rgb(73, 85, 98);
   color: rgb(74, 95, 112);
 }
 
-.latest h3 {
-  color: rgb(74, 95, 112);
+.latest h4 {
+  color: rgb(255, 255, 255);
 }
-.pop-feeds h3 {
-  color: rgb(74, 95, 112);
+.pop-feeds h4 {
+  color: rgb(255, 255, 255);
 }
 .title-link {
   text-decoration: none;
