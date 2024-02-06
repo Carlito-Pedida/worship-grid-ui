@@ -330,12 +330,12 @@ const Rss = () => {
           <div className="modal-wrap">
             <div className="modal-case">
               <Modal.Header closeButton>
-                <Modal.Title className="text-danger">
-                  You are about to leave the ETM website!
+                <Modal.Title className="text-white">
+                  You're about to navigate to a third-party website!
                 </Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <p style={{ color: "dimgray" }}>
+                <p style={{ color: "white" }}>
                   <u>Snippet:</u>
                 </p>
                 <Link
@@ -344,31 +344,36 @@ const Rss = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <p style={{ color: "black" }}>
+                  <p style={{ color: "white" }}>
                     {selectedArticle?.contentSnippet}
                   </p>
                 </Link>
+                <p className="mod-txt2">
+                  Author: {selectedArticle?.creator} | Published:{" "}
+                  {moment
+                    .parseZone(selectedArticle?.pubDate)
+                    .local()
+                    .format("LLLL")}{" "}
+                </p>
               </Modal.Body>
               <Modal.Footer>
                 <div className="mod-foot">
-                  <p className="mod-txt2">
-                    Author: {selectedArticle?.creator} | Published:{" "}
-                    {moment
-                      .parseZone(selectedArticle?.pubDate)
-                      .local()
-                      .format("LLLL")}{" "}
-                  </p>
-
-                  <div className="mt-4 me-4">
+                  <div>
                     <Button
-                      size="sm"
-                      variant="outline-primary"
+                      className="mx-2"
+                      variant="success"
                       href={selectedArticle?.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => setModalShow(false)}
                     >
                       Go To Article
+                    </Button>{" "}
+                    <Button
+                      variant="secondary"
+                      onClick={() => setModalShow(false)}
+                    >
+                      Close
                     </Button>{" "}
                   </div>
                 </div>

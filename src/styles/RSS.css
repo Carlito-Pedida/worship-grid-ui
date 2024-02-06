@@ -55,7 +55,7 @@
 .mod-txt2 {
   text-align: left;
   font-family: sans-serif;
-  color: rgb(116, 116, 116);
+  color: rgb(168, 168, 168);
 }
 .top-com {
   padding: 3px;
@@ -88,12 +88,14 @@
 }
 .modal-wrap {
   border: solid 3px;
-  border-color: rgb(124, 124, 213);
+  background-color: #366532;
+  border-color: rgb(255, 255, 255);
   padding: 20px;
 }
 .modal-case {
+  background-color: rgba(94, 94, 94, 0.873);
   border: solid 1px;
-  border-color: rgb(124, 124, 213);
+  border-color: rgb(255, 255, 255);
   padding: 20px;
 }
 .mod-title {
