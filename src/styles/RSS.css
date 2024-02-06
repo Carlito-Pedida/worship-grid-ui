@@ -1,33 +1,19 @@
 .rss-wrap {
-  padding: 20px;
-  background-color: rgba(71, 185, 67, 0.346);
-  align-self: center;
-}
-.rss-bg {
   display: flex;
   justify-content: center;
-  background-color: rgba(97, 97, 97, 0.807);
-  border-radius: 7px;
-  padding: 0px;
+
+  background-color: rgb(90, 116, 137);
+  padding: 35px;
 }
-.container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.rss-main {
+  background-color: rgb(74, 95, 112);
+  padding: 50px;
+  border-radius: 25px;
 }
-.rss {
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: rgb(73, 85, 98);
-  color: rgb(74, 95, 112);
+.rss-main h4 {
+  color: rgb(255, 255, 255);
 }
 
-.latest h4 {
-  color: rgb(255, 255, 255);
-}
-.pop-feeds h4 {
-  color: rgb(255, 255, 255);
-}
 .title-link {
   text-decoration: none;
   color: rgb(74, 95, 112);
@@ -36,12 +22,7 @@
   font-size: smaller;
   color: dimgray;
 }
-.read-more {
-  text-decoration: none;
-}
-.read-more:hover {
-  cursor: pointer;
-}
+
 .mod-txt1 {
   text-decoration: none;
 }
@@ -56,24 +37,6 @@
   text-align: left;
   font-family: sans-serif;
   color: rgb(168, 168, 168);
-}
-.top-com {
-  padding: 3px;
-}
-.top-com-link {
-  text-decoration: none;
-}
-.tc-img {
-  background-color: rgb(211, 212, 216);
-  vertical-align: middle;
-  margin: 2px;
-  border: solid 0.5px;
-  border-color: rgba(74, 95, 112, 0.956);
-  border-radius: 50px;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  margin-right: 10px;
 }
 
 .mod-foot {
@@ -100,4 +63,12 @@
 }
 .mod-title {
   border-color: rgb(124, 124, 213);
+}
+
+.rss-box {
+  background-color: rgba(0, 0, 0, 0.618);
+  border-radius: 25px;
+  padding: 40px 85px 40px 85px;
+  color: white;
+  margin: 25px;
 }
