@@ -22,6 +22,7 @@ const MerchCard = (props) => {
         <CardBody>
           <Card.Title>{merch.item_name}</Card.Title>
           <img
+            style={{ cursor: "pointer" }}
             alt="photo-here"
             onClick={() => {
               handleShow(true);
