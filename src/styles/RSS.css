@@ -5,6 +5,7 @@
   background-color: rgb(90, 116, 137);
   padding: 35px;
 }
+
 .rss-main {
   background-color: rgb(74, 95, 112);
   padding: 50px;
@@ -12,6 +13,11 @@
 }
 .rss-main h4 {
   color: rgb(255, 255, 255);
+}
+.divider {
+  background-color: rgba(0, 0, 0, 0.618);
+  padding: 10px;
+  border-radius: 15px;
 }
 
 .title-link {
