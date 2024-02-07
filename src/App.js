@@ -16,7 +16,6 @@ import AboutInfo from "./components/AboutInfo";
 import Academy from "./components/Academy";
 import Merchandise from "./MerchPages/Merchandise.js";
 import AssetEdit from "./components/AssetEdit.js";
-import BlogArticle from "./components/BlogArticle";
 import UserSetlist from "./components/UserSetlist";
 import UserProfile from "./components/UserProfile";
 import LocateChurch from "./components/LocateChurch.js";
@@ -26,6 +25,7 @@ import Tutorials from "./components/Tutorials.js";
 import Success from "./MerchPages/Success.js";
 import Cancel from "./MerchPages/Cancel.js";
 import { CartProvider } from "./providers/CartProvider.js";
+import NewSongRelease from "./components/NewSong.js";
 
 function App() {
   const [user, setUser] = useState();
@@ -56,7 +56,7 @@ function App() {
                   />
                   <Route path="/academy" element={<Academy />} />
                   <Route path="setlist" element={<UserSetlist />} />
-                  <Route path="/article" element={<BlogArticle />} />
+                  <Route path="/newsongrelease" element={<NewSongRelease />} />
                   <Route path="/assets" element={<AssetList />} />
                   <Route
                     path="/profile/:username"

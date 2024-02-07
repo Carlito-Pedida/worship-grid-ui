@@ -46,7 +46,7 @@ const SignIn = ({ show, handleClose }) => {
 
     signInUser(username, password)
       .then(() => {
-        window.location = "/assets";
+        window.location = "/";
       })
       .catch((error) => {
         console.log(error);
