@@ -41,3 +41,11 @@
   margin-left: auto;
   margin-right: auto;
 }
+.ads-link {
+  text-decoration: none;
+  color: white;
+}
+
+.ads-link:hover {
+  color: rgba(57, 167, 227, 0.96);
+}
