@@ -42,6 +42,7 @@ const Home = () => {
   const handleClick = () => {
     navigate(`/profile/${userLog.username}`);
   };
+
   return (
     <>
       <div>
@@ -56,10 +57,7 @@ const Home = () => {
       {userLog.user_id == params.user_id ? (
         <AdsBanner
           header={
-            <a
-              style={{ textDecoration: "none", color: "white" }}
-              href="/signup"
-            >
+            <a className="ads-link" href="/signup">
               GET THE ALL ACCESS
             </a>
           }
