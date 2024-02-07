@@ -56,20 +56,12 @@ const SignUp = () => {
   }, []);
 
   return (
-    <div
-      className="centered-container"
-      id="targetElementId"
-      style={{
-        backgroundColor: "rgb(51, 51, 51)",
-        margin: "50px",
-        borderRadius: "25px",
-        opacity: "95%"
-      }}
-    >
+    <div className="centered-container" id="targetElementId">
       <div className="form-grid">
         <div className="form-image">
           <img src="/logo.png" alt="this is a logo" />
         </div>
+
         <div className="form-inputs">
           <form className="form-style" onSubmit={handleSubmit}>
             <Stack gap={3} className="mx-auto">
@@ -152,7 +144,7 @@ const SignUp = () => {
                 type="text"
                 name="avatar"
                 value={avatar}
-                placeholder="Avatar"
+                placeholder="Image URL"
                 onChange={(e) => setAvatar(e.target.value)}
               />
               <Button variant="success" className="p-3">
