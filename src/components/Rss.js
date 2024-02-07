@@ -72,8 +72,21 @@ const Rss = (props) => {
   const [modalShow, setModalShow] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState(null);
 
+  const MAX_WORDS = 3; // Maximum number of words to display
+  const MAX_WORDS2 = 14; // Maximum number of words to display
+  const truncateWords = (title, maxWords) => {
+    // Split the title into an array of words
+    const words = title.split(" ");
+    // If the number of words is less than or equal to the maximum, return the original title
+    if (words.length <= maxWords) {
+      return title;
+    }
+    // Otherwise, truncate the title to the specified number of words and add an ellipsis
+    return words.slice(0, maxWords).join(" ") + "...";
+  };
+
   return (
-    <div className="rss-wrap">
+    <div className=" row rss-wrap">
       <div
         className="rss-main col-12 col-md-12 col-lg-9"
         style={{
@@ -106,12 +119,57 @@ const Rss = (props) => {
                   setModalShow(true);
                 }}
               >
-                Go to Article
+                Listen to Devo
               </Button>
-              <br />
             </div>
           ))}
         </div>
+      </div>
+      <div className="divider d-flex align-items-center my-4 mb-0">
+        <h4 style={{ color: "white" }} className="text-center mx-3 mb-0 ">
+          More Devotionals
+        </h4>
+      </div>
+      <div className="row">
+        <Row xs={1} md={4} className="g-4">
+          {articles.slice(1, 13).map((devo, id) => (
+            <Col key={id}>
+              <Card>
+                <Card.Header
+                  style={{
+                    backgroundColor: "rgba(0, 0, 0, 0.618)",
+                    color: "white"
+                  }}
+                >
+                  <Card.Title>
+                    {truncateWords(devo.title, MAX_WORDS)}
+                  </Card.Title>
+                </Card.Header>
+                <Card.Body>
+                  <Card.Text>
+                    {truncateWords(devo.contentSnippet, MAX_WORDS2)}
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer
+                  style={{
+                    backgroundColor: "rgba(0, 0, 0, 0.618)",
+                    color: "white"
+                  }}
+                >
+                  <Button
+                    variant="success"
+                    onClick={() => {
+                      setSelectedArticle(devo);
+                      setModalShow(true);
+                    }}
+                  >
+                    Listen to Devo
+                  </Button>
+                </Card.Footer>
+              </Card>
+            </Col>
+          ))}
+        </Row>
       </div>
 
       {/* Modal Action */}
@@ -161,7 +219,7 @@ const Rss = (props) => {
                       rel="noopener noreferrer"
                       onClick={() => setModalShow(false)}
                     >
-                      Go To Article
+                      Listen to Devo
                     </Button>{" "}
                     <Button
                       variant="secondary"
