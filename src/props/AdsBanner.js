@@ -4,10 +4,6 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const AdsBanner = (props) => {
-  let navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/signup");
-  };
   const {
     header,
     subHeader,
@@ -19,8 +15,11 @@ const AdsBanner = (props) => {
     bigText3,
     bigText4,
     linkedText,
+    linkedTextUser,
     textFx,
-    buttonText2
+    button1,
+    buttonText2,
+    buttonText3
   } = props;
 
   return (
@@ -29,17 +28,14 @@ const AdsBanner = (props) => {
         <h1 className="all-access">
           {header} <span className="textFx">{textFx}</span>
         </h1>
-
         <h3>{subHeader}</h3>
-        <br />
-        <h6>
+        <p>
           {smallText1}
           <br />
           {smallText2}
           <br />
           {smallText3}
-        </h6>
-        <br />
+        </p>
         <h3>{bigText1}</h3>
         <h4>
           {bigText2}{" "}
@@ -48,12 +44,14 @@ const AdsBanner = (props) => {
             <a style={{ textDecoration: "none" }} href="/signup">
               <strong>{linkedText}</strong>
             </a>{" "}
+            <a style={{ textDecoration: "none" }} href="/setlist">
+              <strong>{linkedTextUser}</strong>
+            </a>{" "}
             {bigText4}
           </span>
         </h4>
         <br />
-        <Button onClick={handleClick}>{buttonText2}</Button>
-        <br />
+        <div>{button1}</div>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import SignIn from "../components/SignIn";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import "../styles/Navigation.css";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 import MerchCart from "../MerchPages/MerchCart";
 import CartContext from "../contexts/CartContext";
 
@@ -90,8 +90,8 @@ const Navigation = () => {
                       MY SETLIST
                     </Link>
 
-                    <Link className="nav-links" to="/article">
-                      BLOG
+                    <Link className="nav-links" to="/newsongrelease">
+                      NEW SONG RELEASE
                     </Link>
 
                     <Link type="link" to="/" className="brand m-2 p-2">
@@ -188,17 +188,7 @@ const Navigation = () => {
                           </span>
                         </Link>
                       ) : (
-                        <Link
-                          className="search-tool-animation"
-                          to={openCartModal}
-                          onClick={openCartModal}
-                        >
-                          <FontAwesomeIcon
-                            className="search-tool-icon"
-                            icon={faCartShopping}
-                            size="xl"
-                          />
-                        </Link>
+                        <></>
                       )}
                     </div>
                   </div>
@@ -282,17 +272,7 @@ const Navigation = () => {
                         </span>
                       </Link>
                     ) : (
-                      <Link
-                        className="search-tool-animation"
-                        to={openCartModal}
-                        onClick={openCartModal}
-                      >
-                        <FontAwesomeIcon
-                          className="search-tool-icon"
-                          icon={faCartShopping}
-                          size="xl"
-                        />
-                      </Link>
+                      <></>
                     )}
                   </div>
                 </div>

@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 
-const BlogArticle = () => {
+const NewSongRelease = () => {
   useEffect(() => {
     // Update the HTML title when the component mounts
     document.title = "Worship Grid > Article";
   }, []);
-  return <div>BlogArticle</div>;
+  return <div>New Song RELEASE!</div>;
 };
 
-export default BlogArticle;
+export default NewSongRelease;

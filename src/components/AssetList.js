@@ -128,7 +128,7 @@ const AssetList = () => {
                     <NewsBanner
                       title="JOIN THE CONVERSATION!"
                       subTitle1="See what's latest in the worship community in your area!"
-                      buttonText="GET ACCESS!"
+                      buttonText="JOIN THE CONVERSATION!"
                     />{" "}
                   </div>
                 ) : (
