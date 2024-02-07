@@ -133,7 +133,7 @@ const Rss = (props) => {
                   style={{
                     backgroundColor: "black",
                     color: "white",
-                    opacity: "85%"
+                    opacity: "73%"
                   }}
                 >
                   <Card.Title>
