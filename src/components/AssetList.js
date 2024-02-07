@@ -5,8 +5,8 @@ import NewsBanner from "../props/NewsBanner";
 import moment from "moment";
 import AssetEdit from "./AssetEdit";
 import { Button, Modal } from "react-bootstrap";
-import "../styles/AssetList.css";
 import UserContext from "../contexts/UserContext";
+import "../styles/AssetList.css";
 
 const AssetList = () => {
   let params = useParams();

@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import "../styles/Home.css";
 import { Button, Col, Row, Stack } from "react-bootstrap";
 import ReactPlayer from "react-player";
 import NewsBanner from "../props/NewsBanner";
 import AdsBanner from "../props/AdsBanner";
 import UserContext from "../contexts/UserContext";
 import { useNavigate, useParams } from "react-router-dom";
+import "../styles/Home.css";
 
 const Home = () => {
   let params = useParams();
@@ -50,7 +50,7 @@ const Home = () => {
           title="New Song Alert!"
           subTitle1="John Smith released a new single titled 'Be With You'"
           subTitle2="Sign up and get access to all the stems with the ALL ACCESS PASS!"
-          buttonText="LEARN MORE"
+          buttonText="CHECK OUT NEW SONG RELEASE"
         />{" "}
       </div>
 
@@ -80,7 +80,7 @@ const Home = () => {
       ) : (
         <>
           <AdsBanner
-            header="Welcome Back"
+            header="Hello,"
             textFx={userLog.first_name + "!"}
             subHeader="What would you like to do today?"
             smallText2={
