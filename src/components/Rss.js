@@ -60,13 +60,7 @@ const Rss = (props) => {
   }, []);
 
   useEffect(() => {
-    // Update the HTML title when the component mounts
-    document.title = "Worship Grid - RSS";
-
-    // Optionally, you can reset the title when the component unmounts
-    //   return () => {
-    //     document.title = "Worship Grid";
-    //   };
+    document.title = "Worship Grid - DEVO";
   }, []);
 
   const [modalShow, setModalShow] = useState(false);
@@ -137,8 +131,9 @@ const Rss = (props) => {
               <Card>
                 <Card.Header
                   style={{
-                    backgroundColor: "rgba(0, 0, 0, 0.618)",
-                    color: "white"
+                    backgroundColor: "black",
+                    color: "white",
+                    opacity: "73%"
                   }}
                 >
                   <Card.Title>
@@ -152,7 +147,7 @@ const Rss = (props) => {
                 </Card.Body>
                 <Card.Footer
                   style={{
-                    backgroundColor: "rgba(0, 0, 0, 0.618)",
+                    backgroundColor: "",
                     color: "white"
                   }}
                 >
