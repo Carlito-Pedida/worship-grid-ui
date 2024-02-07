@@ -156,7 +156,7 @@ const Navigation = () => {
                         EVENTS
                       </Link>
                       <Link className="hover-underline-animation" to="/rss">
-                        RSS
+                        DEVO
                       </Link>
                       <Link
                         className="hover-underline-animation"
@@ -254,7 +254,7 @@ const Navigation = () => {
                       EVENTS
                     </Link>
                     <Link className="hover-underline-animation" to="rss">
-                      RSS
+                      DEVO
                     </Link>
                     <Link className="hover-underline-animation" to="tutorials">
                       TUTORIALS
