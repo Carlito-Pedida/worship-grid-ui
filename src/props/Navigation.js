@@ -2,13 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 import SignIn from "../components/SignIn";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import "../styles/Navigation.css";
 import { Nav, Navbar } from "react-bootstrap";
 import MerchCart from "../MerchPages/MerchCart";
 import CartContext from "../contexts/CartContext";
+import "../styles/Navigation.css";
 
 const Navigation = () => {
   const [userLog, setUserLog] = useState([]);

@@ -1,5 +1,3 @@
-import React from "react";
-
 const MerchList = [
   {
     merch_id: "price_1OfVERAMxlRLSrsxQu49vmof",

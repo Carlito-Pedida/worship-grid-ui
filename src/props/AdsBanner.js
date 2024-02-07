@@ -1,7 +1,5 @@
 import React from "react";
 import "../styles/AdsBanner.css";
-import { Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 
 const AdsBanner = (props) => {
   const {

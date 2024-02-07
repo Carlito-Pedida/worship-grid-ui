@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { Loader } from "@googlemaps/js-api-loader";
 import {
   APIProvider,
   Map,

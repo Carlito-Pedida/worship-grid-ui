@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
-import "../styles/SignUp.css";
 import { Button, Stack } from "react-bootstrap";
+import "../styles/SignUp.css";
 
 const SignUp = () => {
   const [first_name, setFirst_Name] = useState("");
