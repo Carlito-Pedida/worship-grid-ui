@@ -30,7 +30,7 @@ const Navigation = () => {
       } catch (error) {
         if (isMounted) {
           if (error.response && error.response.status === 404) {
-            console.clear();
+            // console.clear();
           }
         }
       }
@@ -108,7 +108,7 @@ const Navigation = () => {
 
                     <Link
                       className="nav-links"
-                      to={`/profile/${userLog.username}`}
+                      to={`/profile/${userLog.user_id}/${userLog.username}`}
                     >
                       HELLO,{" "}
                       <strong style={{ textTransform: "uppercase" }}>

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 export const UserProvider = (props) => {
   const [loggedUser, setLoggedUser] = useState([]);
   const baseUrl = "http://localhost:5000/server/users/";
+  console.log(loggedUser);
 
   useEffect(() => {
     async function fetchData() {
@@ -15,7 +16,7 @@ export const UserProvider = (props) => {
 
   function getAllUserAssets() {
     return axios
-      .get("http://localhost:5000/server/assets/")
+      .get(`http://localhost:5000/server/assets/`)
       .then((response) => setLoggedUser(response.data))
       .catch((error) => console.error("Error fetching user assets:", error));
   }
@@ -64,20 +65,19 @@ export const UserProvider = (props) => {
       Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
     };
 
-    return axios
-      .post(`${baseUrl}${user_id}`, user_id, { headers })
-      .then((response) => {
-        return new Promise((resolve) => resolve(response.data));
-      });
+    return axios.get(`${baseUrl}${user_id}`, { headers }).then((response) => {
+      return new Promise((resolve) => resolve(response.data));
+    });
   }
 
   function getUserAssets(user_id) {
-    const url = "http://localhost:5000/server/users/assets/";
+    const url = "http://localhost:5000/server/users/asset/";
     let headers = {
       Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
     };
 
     return axios.get(url + user_id, { headers }).then((response) => {
+      // console.log(response.data);
       return new Promise((resolve) => resolve(response.data));
     });
   }

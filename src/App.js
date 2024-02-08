@@ -59,7 +59,7 @@ function App() {
                   <Route path="/newsongrelease" element={<NewSongRelease />} />
                   <Route path="/assets" element={<AssetList />} />
                   <Route
-                    path="/profile/:username"
+                    path="/profile/:user_id/:username"
                     element={<UserProfile user={user} />}
                   />
                   <Route path="/churchlocations" element={<LocateChurch />} />
