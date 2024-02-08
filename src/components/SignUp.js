@@ -35,7 +35,7 @@ const SignUp = () => {
       avatar
     )
       .then(() => {
-        navigate("/signin");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -147,7 +147,7 @@ const SignUp = () => {
                 placeholder="Image URL"
                 onChange={(e) => setAvatar(e.target.value)}
               />
-              <Button variant="success" className="p-3">
+              <Button type="submit" variant="success" className="p-3">
                 Sign Up
               </Button>
             </Stack>

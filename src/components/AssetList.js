@@ -21,7 +21,7 @@ const AssetList = () => {
 
     async function fetchData() {
       try {
-        const result = await getUserAssets();
+        const result = await getUserAssets(params.user_id);
         if (isMounted) {
           setUserLog(result);
         }
