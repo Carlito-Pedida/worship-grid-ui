@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import AssetContext from "../contexts/AssetContext";
 import { useNavigate } from "react-router-dom";
+import { Button, Stack } from "react-bootstrap";
 
 const AssetNew = () => {
   const navigate = useNavigate();
@@ -43,28 +44,31 @@ const AssetNew = () => {
     >
       <div>
         <form onSubmit={handleSubmit}>
-          <span>Write a Message </span>
-          <input
-            type="text"
-            name="message"
-            value={newAsset.message}
-            onChange={handleChange}
-          />
-          <span>Upload Photo </span>
-          <input
-            type="text"
-            name="imageLink"
-            value={newAsset.imageLink}
-            onChange={handleChange}
-          />
-          <span>Upload Video </span>
-          <input
-            type="text"
-            name="videoLink"
-            value={newAsset.videoLink}
-            onChange={handleChange}
-          />
-          <button>Submit</button>
+          <Stack>
+            <span>Write a Message </span>
+            <input
+              type="text"
+              name="message"
+              value={newAsset.message}
+              onChange={handleChange}
+            />
+            <span>Upload Photo </span>
+            <input
+              type="text"
+              name="imageLink"
+              value={newAsset.imageLink}
+              onChange={handleChange}
+            />
+            <span>Upload Video </span>
+            <input
+              type="text"
+              name="videoLink"
+              value={newAsset.videoLink}
+              onChange={handleChange}
+            />
+            <br />
+            <Button type="submit">Submit</Button>
+          </Stack>
         </form>
       </div>
     </div>
