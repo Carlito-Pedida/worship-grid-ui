@@ -23,7 +23,7 @@ const AssetNew = () => {
     event.preventDefault();
     createUserAsset(newAsset)
       .then(() => {
-        navigate("/assets");
+        window.location();
       })
       .catch((error) => {
         console.log(error);
@@ -35,7 +35,7 @@ const AssetNew = () => {
     <div
       style={{
         backgroundColor: "rgb(51, 51, 51)",
-        padding: "100px",
+        padding: "30px",
         margin: "50px",
         borderRadius: "25px",
         color: "white",
