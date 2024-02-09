@@ -5,7 +5,7 @@ import Comment from "./Comment";
 import "../styles/UserProfTop.css";
 import "../styles/Comment.css";
 import AssetNew from "../components/AssetNew";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 import AssetContext from "../contexts/AssetContext";
 
@@ -15,6 +15,7 @@ const comments = {
 };
 
 function UserProfData(props) {
+  let navigate = useNavigate();
   let {
     userImage,
     firstName,
@@ -59,11 +60,32 @@ function UserProfData(props) {
     fetchData();
   }, [getOneUser, params.user_id]);
 
+  function handleDelete(asset_id) {
+    const confirmDelete = window.confirm("Are you sure?");
+    if (confirmDelete) {
+      deleteUserAsset(asset_id)
+        .then(() => {
+          navigate("/assets");
+        })
+        .catch((error) => {
+          console.log(error);
+          window.alert("You need to sign in to perform this operation");
+          navigate("/assets");
+        });
+    }
+  }
+
+  const [show, setShow] = useState(false);
+  const [selectedAsset, setSelectedAsset] = useState(null);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div className="gradient-custom-2" style={{ backgroundColor: "#9de2ff" }}>
       <Container className="py-5 h-100">
         <Row className="justify-content-center align-items-center h-100">
-          <Col>
+          <Col lg="9" xl="7">
             <Card>
               <div
                 className="rounded-top text-white d-flex flex-row"
@@ -81,7 +103,19 @@ function UserProfData(props) {
                     style={{ width: "150px", height: "150px", zIndex: "1" }}
                     roundedCircle
                   />
+                  <Button
+                    outline
+                    color="dark"
+                    style={{
+                      height: "36px",
+                      overflow: "visible",
+                      marginTop: "18px"
+                    }}
+                  >
+                    Edit profile
+                  </Button>
                 </div>
+
                 <div className="ms-3" style={{ marginTop: "130px" }}>
                   <h5 tag="h5">
                     {firstName} {lastName}
@@ -93,16 +127,8 @@ function UserProfData(props) {
                 className="p-4 text-black"
                 style={{ backgroundColor: "#f8f9fa" }}
               >
-                <div className="d-flex justify-content-end text-center py-1">
-                  <div>
-                    <Button
-                      outline
-                      color="dark"
-                      style={{ height: "36px", overflow: "visible" }}
-                    >
-                      Edit profile
-                    </Button>
-                  </div>
+                <div className="d-flex justify-content-start text-center">
+                  <div></div>
                 </div>
               </div>
               <Card.Body className="text-black p-4">
@@ -124,60 +150,162 @@ function UserProfData(props) {
                 <Row>
                   <Col className="mb-2">
                     <div>
-                      <Comment
+                      {/* <Comment
                         handleInsertNode={handleInsertNode}
                         handleEditNode={handleEditNode}
                         handleDeleteNode={handleDeleteNode}
                         comment={commentsData}
-                      />
+                      /> */}
 
                       <AssetNew />
                     </div>
                   </Col>
                 </Row>
-                <div className="user-profile">
-                  <div className="container user-assets">
-                    {asset.map((a, id) => {
-                      return (
-                        <Card key={id} className="text-center">
-                          <div>
-                            {userLog && a.user_id == userLog.user_id ? (
-                              <>
-                                <Card.Header>
-                                  {a.UserDatum.first_name}
-                                </Card.Header>
-                                <Card.Body>
-                                  <Card.Text>{a.message}</Card.Text>
-                                  {a.UserResponses &&
-                                  a.UserResponses.length > 0 ? (
-                                    <div>
-                                      {a.UserResponses.map((r, idx) => (
-                                        <div key={idx}>
-                                          <cite>
-                                            <img
-                                              src={r.UserDatum.avatar}
-                                              height={45}
-                                            />
-                                            {r.UserDatum.username}
-                                            {r.reply}
-                                          </cite>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  ) : (
-                                    <>No Reply yet</>
-                                  )}
-                                </Card.Body>
-                              </>
-                            ) : (
-                              <></>
-                            )}
-                          </div>
-                        </Card>
-                      );
-                    })}
-                  </div>
-                </div>
+                {asset.map((a, id) => {
+                  return (
+                    <div key={id} style={{ border: "solid" }}>
+                      <div>
+                        {userLog && a.user_id == userLog.user_id ? (
+                          <>
+                            <div>
+                              <img
+                                src={a.UserDatum.avatar}
+                                height={47}
+                                style={{ borderRadius: "50%" }}
+                              />
+                              {a.UserDatum.first_name} {a.UserDatum.last_name}
+                              {a.message}
+                            </div>
+                            <div className="d-flex justify-content-center">
+                              <Link
+                                style={{
+                                  color: "orange",
+                                  textDecoration: "none",
+                                  fontWeight: "bold",
+                                  fontSize: "20px"
+                                }}
+                                className="p-3"
+                                to={`/asset/${a.asset_id}/reply`}
+                              >
+                                Reply
+                              </Link>
+                              <br />
+                              <Link
+                                style={{
+                                  color: "lightblue",
+                                  textDecoration: "none",
+                                  fontWeight: "bold",
+                                  fontSize: "20px"
+                                }}
+                                className="p-3"
+                                to={"#"}
+                                onClick={() => {
+                                  handleShow(true);
+                                  setSelectedAsset(a);
+                                }}
+                              >
+                                Edit
+                              </Link>
+                              <br />
+                              <Link
+                                style={{
+                                  color: "red",
+                                  textDecoration: "none",
+                                  fontWeight: "bold",
+                                  fontSize: "20px"
+                                }}
+                                className="p-3"
+                                to={"#"}
+                                onClick={handleDelete.bind(
+                                  this,
+                                  a.asset_id,
+                                  a.UserDatum.user_id
+                                )}
+                              >
+                                Delete
+                              </Link>
+                              <br />
+                            </div>
+                            <div>
+                              {a.UserResponses && a.UserResponses.length > 0 ? (
+                                <div>
+                                  {a.UserResponses.map((r, idx) => (
+                                    <>
+                                      <div key={idx}>
+                                        <img
+                                          src={r.UserDatum.avatar}
+                                          height={47}
+                                          width={47}
+                                          style={{ borderRadius: "50%" }}
+                                        />
+                                        {r.UserDatum.username}
+                                        {r.reply}
+                                      </div>
+                                      <div className="d-flex justify-content-center">
+                                        <Link
+                                          style={{
+                                            color: "orange",
+                                            textDecoration: "none",
+                                            fontWeight: "bold",
+                                            fontSize: "20px"
+                                          }}
+                                          className="p-3"
+                                          to={`/asset/${a.asset_id}/reply`}
+                                        >
+                                          Reply
+                                        </Link>
+                                        <br />
+                                        <Link
+                                          style={{
+                                            color: "lightblue",
+                                            textDecoration: "none",
+                                            fontWeight: "bold",
+                                            fontSize: "20px"
+                                          }}
+                                          className="p-3"
+                                          to={"#"}
+                                          onClick={() => {
+                                            handleShow(true);
+                                            setSelectedAsset(r);
+                                          }}
+                                        >
+                                          Edit
+                                        </Link>
+                                        <br />
+                                        <Link
+                                          style={{
+                                            color: "red",
+                                            textDecoration: "none",
+                                            fontWeight: "bold",
+                                            fontSize: "20px"
+                                          }}
+                                          className="p-3"
+                                          to={"#"}
+                                          onClick={handleDelete.bind(
+                                            this,
+                                            r.response_id,
+                                            r.UserDatum.user_id
+                                          )}
+                                        >
+                                          Delete
+                                        </Link>
+                                        <br />
+                                      </div>
+                                    </>
+                                  ))}
+                                </div>
+                              ) : (
+                                <>No Reply yet</>
+                              )}
+                            </div>
+                          </>
+                        ) : (
+                          <></>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
               </Card.Body>
             </Card>
           </Col>
