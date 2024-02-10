@@ -40,7 +40,7 @@ const Home = () => {
 
   let navigate = useNavigate();
   const handleClick = () => {
-    navigate(`/profile/${userLog.username}`);
+    navigate(`/profile/${userLog.user_id}/${userLog.username}`);
   };
 
   return (

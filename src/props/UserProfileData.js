@@ -8,6 +8,7 @@ import AssetNew from "../components/AssetNew";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 import AssetContext from "../contexts/AssetContext";
+import { FaTrashAlt, FaRegEdit } from "react-icons/fa";
 
 const comments = {
   id: 1,
@@ -103,24 +104,27 @@ function UserProfData(props) {
                     style={{ width: "150px", height: "150px", zIndex: "1" }}
                     roundedCircle
                   />
-                  <Button
+                  <Link
                     outline
                     color="dark"
                     style={{
                       height: "36px",
                       overflow: "visible",
-                      marginTop: "18px"
+                      zIndex: "1",
+                      textDecoration: "none"
                     }}
                   >
-                    Edit profile
-                  </Button>
+                    <FaRegEdit size={25} color="grey" />
+                  </Link>
                 </div>
-
-                <div className="ms-3" style={{ marginTop: "130px" }}>
-                  <h5 tag="h5">
-                    {firstName} {lastName}
-                  </h5>
-                  <Card.Text>@{username}</Card.Text>
+                <div className="justify-content-between">
+                  <div className="ms-3" style={{ marginTop: "130px" }}>
+                    <h5 tag="h5">
+                      {firstName} {lastName}
+                    </h5>
+                    <h5>@{username}</h5>
+                  </div>
+                  <div></div>
                 </div>
               </div>
               <div
@@ -150,13 +154,6 @@ function UserProfData(props) {
                 <Row>
                   <Col className="mb-2">
                     <div>
-                      {/* <Comment
-                        handleInsertNode={handleInsertNode}
-                        handleEditNode={handleEditNode}
-                        handleDeleteNode={handleDeleteNode}
-                        comment={commentsData}
-                      /> */}
-
                       <AssetNew />
                     </div>
                   </Col>
@@ -171,6 +168,7 @@ function UserProfData(props) {
                               <img
                                 src={a.UserDatum.avatar}
                                 height={47}
+                                width={47}
                                 style={{ borderRadius: "50%" }}
                               />
                               {a.UserDatum.first_name} {a.UserDatum.last_name}

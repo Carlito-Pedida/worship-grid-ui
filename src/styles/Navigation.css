@@ -1,7 +1,4 @@
 .navi {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: auto;
 }
 .nav-links {
@@ -24,7 +21,7 @@
   border-top: 2px gray;
 }
 
-.navLinks2-container {
+.navLinks2 {
   border-top: 1px solid rgb(175, 175, 175);
   border-bottom: 1px solid rgb(175, 175, 175);
   margin-top: 5px;

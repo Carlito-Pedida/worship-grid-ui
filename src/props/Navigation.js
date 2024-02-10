@@ -135,10 +135,7 @@ const Navigation = () => {
                       />
                     </span>
 
-                    <Link className="nav-links" to="/signout">
-                      SIGN OUT
-                    </Link>
-                    <div className="navLinks2-container">
+                    <div className="navLinks2">
                       <Link
                         className="hover-underline-animation"
                         to="churchlocations"
@@ -189,6 +186,9 @@ const Navigation = () => {
                       ) : (
                         <></>
                       )}
+                      <Link className="nav-links" to="/signout">
+                        SIGN OUT
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -226,7 +226,7 @@ const Navigation = () => {
                       CONVERSATIONS
                     </Link>
                   </div>
-                  <div className="navLinks2-container">
+                  <div className="navLinks2">
                     <Link
                       className="hover-underline-animation"
                       to="churchlocations"
