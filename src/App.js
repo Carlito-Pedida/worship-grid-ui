@@ -25,7 +25,7 @@ import Tutorials from "./components/Tutorials.js";
 import Success from "./MerchPages/Success.js";
 import Cancel from "./MerchPages/Cancel.js";
 import { CartProvider } from "./providers/CartProvider.js";
-import NewSongRelease from "./components/NewSong.js";
+import FeaturedMusic from "./components/FeaturedMusic.js";
 
 function App() {
   const [user, setUser] = useState();
@@ -56,7 +56,7 @@ function App() {
                   />
                   <Route path="/academy" element={<Academy />} />
                   <Route path="setlist" element={<UserSetlist />} />
-                  <Route path="/newsongrelease" element={<NewSongRelease />} />
+                  <Route path="/featuredmusic" element={<FeaturedMusic />} />
                   <Route path="/assets" element={<AssetList />} />
                   <Route
                     path="/profile/:user_id/:username"
