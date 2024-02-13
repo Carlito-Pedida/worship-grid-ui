@@ -89,8 +89,8 @@ const Navigation = () => {
                       MY SETLIST
                     </Link>
 
-                    <Link className="nav-links" to="/newsongrelease">
-                      NEW SONG RELEASE
+                    <Link className="nav-links" to="/featuredmusic">
+                      FEATURED MUSIC
                     </Link>
 
                     <Link type="link" to="/" className="brand m-2 p-2">
