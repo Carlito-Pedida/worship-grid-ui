@@ -4,7 +4,7 @@ import UserContext from "../contexts/UserContext";
 import SignIn from "../components/SignIn";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { Nav, Navbar } from "react-bootstrap";
+import { Nav, Navbar, Col } from "react-bootstrap";
 import MerchCart from "../MerchPages/MerchCart";
 import CartContext from "../contexts/CartContext";
 import "../styles/Navigation.css";
@@ -81,61 +81,62 @@ const Navigation = () => {
               <React.Fragment>
                 <div>
                   <div>
-                    <Link className="nav-links" to="/academy">
-                      WORSHIP GRID ACADEMY
-                    </Link>
+                    <div className="row nav-top">
+                      <Col className="nav-top-left">
+                        <Link className="nav-links" to="/setlist">
+                          MY SETLIST
+                        </Link>
 
-                    <Link className="nav-links" to="/setlist">
-                      MY SETLIST
-                    </Link>
+                        <Link className="nav-links" to="/featuredmusic">
+                          MY MUSIC
+                        </Link>
+                      </Col>
+                      <Col className="nav-top-center">
+                        <Link type="link" to="/" className="brand m-2 p-2">
+                          <img
+                            className="brand-image"
+                            src="/logo-2.png"
+                            alt=""
+                            height={55}
+                          />
+                        </Link>
+                      </Col>
+                      <Col className="nav-top-right">
+                        <Link
+                          className="nav-links"
+                          to={`/profile/${userLog.user_id}/${userLog.username}`}
+                        >
+                          HELLO,{" "}
+                          <strong style={{ textTransform: "uppercase" }}>
+                            {first_name}!
+                          </strong>
+                        </Link>
 
-                    <Link className="nav-links" to="/featuredmusic">
-                      FEATURED MUSIC
-                    </Link>
+                        <Link>
+                          <img
+                            style={{
+                              borderRadius: "50%",
+                              border: "solid 5px",
 
-                    <Link type="link" to="/" className="brand m-2 p-2">
-                      <img
-                        className="brand-image"
-                        src="/logo-2.png"
-                        alt=""
-                        height={55}
-                      />
-                    </Link>
-
-                    <Link className="nav-links" to="/assets">
-                      CONVERSATIONS
-                    </Link>
-
-                    <Link
-                      className="nav-links"
-                      to={`/profile/${userLog.user_id}/${userLog.username}`}
-                    >
-                      HELLO,{" "}
-                      <strong style={{ textTransform: "uppercase" }}>
-                        {first_name}!
-                      </strong>
-                    </Link>
-
-                    <span>
-                      <img
-                        style={{
-                          borderRadius: "50%",
-                          border: "solid 5px",
-
-                          borderColor: "white",
-                          marginLeft: "5px",
-                          marginRight: "5px"
-                        }}
-                        src={avatar}
-                        size="40"
-                        round="true"
-                        height={65}
-                        width={65}
-                        alt=""
-                      />
-                    </span>
+                              borderColor: "white",
+                              marginLeft: "5px",
+                              marginRight: "5px"
+                            }}
+                            src={avatar}
+                            size="40"
+                            round="true"
+                            height={65}
+                            width={65}
+                            alt=""
+                          />
+                        </Link>
+                      </Col>
+                    </div>
 
                     <div className="navLinks2">
+                      <Link className="nav-links" to="/assets">
+                        CONVERSATIONS
+                      </Link>
                       <Link
                         className="hover-underline-animation"
                         to="churchlocations"
@@ -148,17 +149,11 @@ const Navigation = () => {
                       >
                         MERCHANDISE
                       </Link>
-                      <Link className="hover-underline-animation" to="/events">
-                        EVENTS
-                      </Link>
                       <Link className="hover-underline-animation" to="/rss">
                         DEVO
                       </Link>
-                      <Link
-                        className="hover-underline-animation"
-                        to="tutorials"
-                      >
-                        TUTORIALS
+                      <Link className="hover-underline-animation" to="/academy">
+                        WORSHIP GRID ACADEMY
                       </Link>
                       <Link className="search-tool-animation">
                         <FontAwesomeIcon
@@ -198,9 +193,6 @@ const Navigation = () => {
               <React.Fragment>
                 <div>
                   <div>
-                    <Link className="nav-links" to="academy">
-                      WORSHIP GRID ACADEMY
-                    </Link>
                     <Link className="nav-links" to="/signup">
                       GET ACCESS
                     </Link>
@@ -221,12 +213,11 @@ const Navigation = () => {
                     >
                       MY ACCOUNT
                     </Link>
-
+                  </div>
+                  <div className="navLinks2">
                     <Link className="nav-links" to={"/assets"}>
                       CONVERSATIONS
                     </Link>
-                  </div>
-                  <div className="navLinks2">
                     <Link
                       className="hover-underline-animation"
                       to="churchlocations"
@@ -239,14 +230,11 @@ const Navigation = () => {
                     >
                       MERCHANDISE
                     </Link>
-                    <Link className="hover-underline-animation" to="/events">
-                      EVENTS
-                    </Link>
                     <Link className="hover-underline-animation" to="rss">
                       DEVO
                     </Link>
-                    <Link className="hover-underline-animation" to="tutorials">
-                      TUTORIALS
+                    <Link className="hover-underline-animation" to="/academy">
+                      WORSHIP GRID ACADEMY
                     </Link>
                     <Link className="search-tool-animation">
                       <FontAwesomeIcon

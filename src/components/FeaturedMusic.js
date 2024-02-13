@@ -56,6 +56,7 @@ const FeaturedMusic = () => {
       <Card className="mx-3">
         <Card.Body>
           <AudioPlayer
+            className="audioplayer"
             src="/beWithYou.m4a"
             onPlay={(e) => console.log("onPlay")}
             // other props here
