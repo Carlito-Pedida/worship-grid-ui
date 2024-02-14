@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../contexts/UserContext";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import AssetContext from "../contexts/AssetContext";
+import { useParams } from "react-router-dom";
 import moment from "moment";
 import "../styles/UserProfile.css";
 import {
@@ -24,14 +23,11 @@ import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 
 const UserProfile = () => {
-  const bgBanner = ["/"];
   const practiceStatus = 60;
   let params = useParams();
-  let navigate = useNavigate();
   const [userLog, setUserLog] = useState([]);
 
   let { getOneUser } = useContext(UserContext);
-  let { deleteUserAsset, asset } = useContext(AssetContext);
 
   useEffect(() => {
     async function fetchData() {
