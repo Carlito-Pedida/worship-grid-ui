@@ -84,13 +84,13 @@ const Home = () => {
             textFx={userLog.first_name + "!"}
             subHeader="What would you like to do today?"
             smallText2={
-              <h3>
+              <p>
                 Check{" "}
                 <a style={{ textDecoration: "none" }} href="/assets">
                   HERE
                 </a>{" "}
                 to see what's new on the wire!
-              </h3>
+              </p>
             }
             bigText3="Click"
             linkedTextUser="HERE"

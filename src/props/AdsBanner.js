@@ -27,13 +27,13 @@ const AdsBanner = (props) => {
           {header} <span className="textFx">{textFx}</span>
         </h1>
         <h3>{subHeader}</h3>
-        <p>
+        <div>
           {smallText1}
           <br />
           {smallText2}
           <br />
           {smallText3}
-        </p>
+        </div>
         <h3>{bigText1}</h3>
         <h4>
           {bigText2}{" "}

@@ -26,6 +26,7 @@ import { CartProvider } from "./providers/CartProvider.js";
 import FeaturedMusic from "./components/FeaturedMusic.js";
 import PrivateRoutes from "./components/PrivateRoutes.js";
 import { jwtDecode } from "jwt-decode";
+import EditProfile from "./components/EditProfile.js";
 
 function App() {
   // const [user, setUser] = useState();
@@ -68,6 +69,10 @@ function App() {
                     <Route
                       path="/profile/:user_id/:username"
                       element={<UserProfile />}
+                    />
+                    <Route
+                      path="/profile/:user_id/edit"
+                      element={<EditProfile />}
                     />
                   </Route>
                   <Route path="/assets" element={<AssetList />} />

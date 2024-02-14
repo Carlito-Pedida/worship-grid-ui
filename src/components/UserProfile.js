@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../contexts/UserContext";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import moment from "moment";
 import "../styles/UserProfile.css";
 import {
@@ -73,9 +73,15 @@ const UserProfile = () => {
                   </h4>
 
                   <div className="d-flex justify-content-center mb-2">
-                    <Button variant="success" outline className="ms-1">
+                    <Link
+                      variant="success"
+                      outline
+                      type="button"
+                      className="ms-1"
+                      to={`/profile/${userLog.user_id}/edit`}
+                    >
                       Edit Profile
-                    </Button>
+                    </Link>
                   </div>
                 </Card.Body>
               </Card>
