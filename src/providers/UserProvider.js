@@ -70,6 +70,20 @@ export const UserProvider = (props) => {
     });
   }
 
+  function updateUserData(user) {
+    let headers = {
+      Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
+    };
+
+    return axios
+      .put(baseUrl + user.user_id, user, { headers })
+      .then((response) => {
+        console.log(response.data);
+        getAllUserAssets();
+        return new Promise((resolve) => resolve(response.data));
+      });
+  }
+
   function getUserAssets(user_id) {
     const url = "http://localhost:5000/server/users/asset/";
     let headers = {
@@ -90,7 +104,8 @@ export const UserProvider = (props) => {
         getUserAssets,
         signupUser,
         signInUser,
-        getOneUser
+        getOneUser,
+        updateUserData
       }}
     >
       {props.children}
