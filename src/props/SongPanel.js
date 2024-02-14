@@ -12,7 +12,7 @@ const SongPanel = ({ tabs }) => {
     <div className="tab-case">
       <div className="tab-header">
         {tabs.map((tab, index) => (
-          <div>
+          <div key={index}>
             <div
               key={index}
               className={`tab ${activeTab === index ? "active" : ""}`}
