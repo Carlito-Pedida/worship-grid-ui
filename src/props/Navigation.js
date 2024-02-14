@@ -87,7 +87,7 @@ const Navigation = () => {
                           MY SETLIST
                         </Link>
 
-                        <Link className="nav-links" to="/featuredmusic">
+                        <Link className="nav-links" to="/featured_music">
                           MY MUSIC
                         </Link>
                       </Col>
@@ -139,7 +139,7 @@ const Navigation = () => {
                       </Link>
                       <Link
                         className="hover-underline-animation"
-                        to="churchlocations"
+                        to="church_locations"
                       >
                         CHURCHES IN THE AREA
                       </Link>
@@ -149,7 +149,10 @@ const Navigation = () => {
                       >
                         MERCHANDISE
                       </Link>
-                      <Link className="hover-underline-animation" to="/rss">
+                      <Link
+                        className="hover-underline-animation"
+                        to="/daily_devotionals"
+                      >
                         DEVO
                       </Link>
                       <Link className="hover-underline-animation" to="/academy">
@@ -220,7 +223,7 @@ const Navigation = () => {
                     </Link>
                     <Link
                       className="hover-underline-animation"
-                      to="churchlocations"
+                      to="church_locations"
                     >
                       CHURCHES IN THE AREA
                     </Link>
@@ -230,7 +233,10 @@ const Navigation = () => {
                     >
                       MERCHANDISE
                     </Link>
-                    <Link className="hover-underline-animation" to="rss">
+                    <Link
+                      className="hover-underline-animation"
+                      to="daily_devotionals"
+                    >
                       DEVO
                     </Link>
                     <Link className="hover-underline-animation" to="/academy">

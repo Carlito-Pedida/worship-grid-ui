@@ -9,7 +9,6 @@ import { UserProvider } from "./providers/UserProvider";
 import { AssetProvider } from "./providers/AssetProvider";
 import { ResponseProvider } from "./providers/ResponseProvider";
 import ResponseNew from "./components/ResponseNew";
-import { jwtDecode } from "jwt-decode";
 import SignOut from "./components/SignOut";
 import Navigation from "./props/Navigation";
 import AboutInfo from "./components/AboutInfo";
@@ -25,6 +24,8 @@ import Success from "./MerchPages/Success.js";
 import Cancel from "./MerchPages/Cancel.js";
 import { CartProvider } from "./providers/CartProvider.js";
 import FeaturedMusic from "./components/FeaturedMusic.js";
+import PrivateRoutes from "./components/PrivateRoutes.js";
+import { jwtDecode } from "jwt-decode";
 
 function App() {
   // const [user, setUser] = useState();
@@ -45,34 +46,36 @@ function App() {
             <div style={{ textAlign: "center" }}>
               <BrowserRouter>
                 <Navigation />
-
                 <Routes>
                   <Route path="/" element={<Home />} index />
                   <Route path="/signup" element={<SignUp />} />
                   <Route path="/signin" element={<SignIn />} />
-                  <Route path="/setlist" element={<UserSetlist />} />
-                  <Route path="/academy" element={<Academy />} />
-                  <Route path="/:user_id/setlist" element={<UserSetlist />} />
-                  <Route path="/featuredmusic" element={<FeaturedMusic />} />
+                  <Route element={<PrivateRoutes />}>
+                    <Route path="/setlist" element={<UserSetlist />} />
+                    <Route path="/academy" element={<Academy />} />
+                    <Route path="/:user_id/setlist" element={<UserSetlist />} />
+                    <Route path="/featured_music" element={<FeaturedMusic />} />
+                    <Route path="/daily_devotionals" element={<Rss />} />
+                    <Route path="/create" element={<AssetNew />} />
+                    <Route
+                      path="/asset/:asset_id/reply"
+                      element={<ResponseNew />}
+                    />
+                    <Route
+                      path="/asset/:asset_id/edit"
+                      element={<AssetEdit />}
+                    />
+                    <Route
+                      path="/profile/:user_id/:username"
+                      element={<UserProfile />}
+                    />
+                  </Route>
                   <Route path="/assets" element={<AssetList />} />
-                  <Route
-                    path="/profile/:user_id/:username"
-                    element={<UserProfile />}
-                  />
-                  <Route path="/churchlocations" element={<LocateChurch />} />
+                  <Route path="/church_locations" element={<LocateChurch />} />
                   <Route path="/merchandise" element={<Merchandise />} />
                   <Route path="/paysuccessful" element={<Success />} />
                   <Route path="/paycanceled" element={<Cancel />} />
-                  <Route path="/events" element={<Events />} />
-                  <Route path="/rss" element={<Rss />} />
                   <Route path="/signout" element={<SignOut />} />
-
-                  <Route path="/create" element={<AssetNew />} />
-                  <Route
-                    path="/asset/:asset_id/reply"
-                    element={<ResponseNew />}
-                  />
-                  <Route path="/asset/:asset_id/edit" element={<AssetEdit />} />
                 </Routes>
               </BrowserRouter>
               <AboutInfo />
