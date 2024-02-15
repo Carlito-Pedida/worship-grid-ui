@@ -1,26 +1,24 @@
 import React, { useEffect } from "react";
-import AdsBanner from "../props/AdsBanner";
+import ReactPlayer from "react-player";
+import "../styles/Academy.css";
 
 const Academy = () => {
   useEffect(() => {
-    // Update the HTML title when the component mounts
     document.title = "Worship Grid - Academy";
-
-    // Optionally, you can reset the title when the component unmounts
-    //   return () => {
-    //     document.title = "Worship Grid";
-    //   };
   }, []);
   return (
-    <>
-      <div> {/* <UserImage /> */}</div>
-      <AdsBanner
-        header="SOMETHING AWESOME COMING"
-        textFx="SOON!"
-        subHeader="Check back next time for updates"
-        buttonText2="LEARN MORE"
-      />
-    </>
+    <div className="academy-body">
+      <div className="player-wrapper">
+        <ReactPlayer
+          url={[
+            "https://www.youtube.com/watch?v=LXb3EKWsInQ",
+            "https://www.youtube.com/watch?v=oUFJJNQGwhk",
+            "https://www.youtube.com/watch?v=jNgP6d9HraI"
+          ]}
+          className="react-player"
+        />
+      </div>
+    </div>
   );
 };
 

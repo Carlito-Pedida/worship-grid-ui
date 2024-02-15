@@ -1,15 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 import SongPanel from "../props/SongPanel";
 import { useParams } from "react-router-dom";
+import iThankGodB from "../PDFs/iThankGodB.pdf";
+import ISpeakJesusD from "../PDFs/ISpeakJesusD.pdf";
+import blessedAssuranceD from "../PDFs/blessedAssuranceD.pdf";
 
 const UserSetlist = () => {
   const tabs = [
-    { title: "I Thank God", key: "G", content: "/I-Thank-God-B.pdf" },
-    { title: "I Speak Jesus", key: "D", content: "/I-Speak-Jesus-D.pdf" },
+    { title: "I Thank God", key: "G", content: iThankGodB },
+    { title: "I Speak Jesus", key: "D", content: ISpeakJesusD },
     {
       title: "Blessed Assurance",
       key: "D",
-      content: "/blessed-assurance-chords-D.pdf"
+      content: blessedAssuranceD
     }
   ];
   useEffect(() => {
