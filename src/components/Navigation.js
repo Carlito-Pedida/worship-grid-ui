@@ -235,9 +235,7 @@ const Navigation = () => {
                     >
                       DEVO
                     </Link>
-                    <Link className="hover-underline-animation" to="/academy">
-                      WORSHIP GRID ACADEMY
-                    </Link>
+
                     <Link className="search-tool-animation">
                       <FontAwesomeIcon
                         className="search-tool-icon"

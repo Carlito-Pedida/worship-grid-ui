@@ -21,6 +21,7 @@ import {
 } from "react-icons/fa6";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
+import banner1 from "../BannerBgs/banner1.png";
 
 const UserProfile = () => {
   const practiceStatus = 60;
@@ -50,10 +51,10 @@ const UserProfile = () => {
                 <Card.Body
                   className="text-center"
                   style={{
-                    backgroundImage: `url("/1.png")`,
-                    backgroundPosition: "top",
+                    backgroundImage: `url(${banner1})`,
+                    backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
-                    backgroundSize: " auto",
+                    backgroundSize: "cover",
                     backgrounAttachment: "fixed"
                   }}
                 >
