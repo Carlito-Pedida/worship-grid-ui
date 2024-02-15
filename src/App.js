@@ -10,7 +10,6 @@ import { AssetProvider } from "./providers/AssetProvider";
 import { ResponseProvider } from "./providers/ResponseProvider";
 import ResponseNew from "./components/ResponseNew";
 import SignOut from "./components/SignOut";
-import Navigation from "./props/Navigation";
 import AboutInfo from "./components/AboutInfo";
 import Academy from "./components/Academy";
 import Merchandise from "./MerchPages/Merchandise.js";
@@ -27,6 +26,7 @@ import FeaturedMusic from "./components/FeaturedMusic.js";
 import PrivateRoutes from "./components/PrivateRoutes.js";
 import { jwtDecode } from "jwt-decode";
 import EditProfile from "./components/EditProfile.js";
+import Navigation from "./components/Navigation.js";
 
 function App() {
   // const [user, setUser] = useState();

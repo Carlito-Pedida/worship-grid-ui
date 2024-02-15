@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
-import SignIn from "../components/SignIn";
+import SignIn from "./SignIn";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { Nav, Navbar, Col } from "react-bootstrap";
@@ -112,24 +112,20 @@ const Navigation = () => {
                           </strong>
                         </Link>
 
-                        <Link>
-                          <img
-                            style={{
-                              borderRadius: "50%",
-                              border: "solid 5px",
-
-                              borderColor: "white",
-                              marginLeft: "5px",
-                              marginRight: "5px"
-                            }}
-                            src={avatar}
-                            size="40"
-                            round="true"
-                            height={65}
-                            width={65}
-                            alt=""
-                          />
-                        </Link>
+                        <img
+                          style={{
+                            borderRadius: "50%",
+                            border: "solid 3px white",
+                            marginLeft: "5px",
+                            marginRight: "5px"
+                          }}
+                          src={avatar}
+                          size="40"
+                          round="true"
+                          height={45}
+                          width={45}
+                          alt=""
+                        />
                       </Col>
                     </div>
 

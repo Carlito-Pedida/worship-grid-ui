@@ -96,6 +96,16 @@ export const UserProvider = (props) => {
     });
   }
 
+  function deleteUserData(user_id) {
+    let headers = {
+      Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
+    };
+    return axios.delete(baseUrl + user_id, { headers }).then((response) => {
+      getAllUserAssets();
+      return new Promise((resolve) => resolve(response.data));
+    });
+  }
+
   return (
     <UserContext.Provider
       value={{
@@ -105,7 +115,8 @@ export const UserProvider = (props) => {
         signupUser,
         signInUser,
         getOneUser,
-        updateUserData
+        updateUserData,
+        deleteUserData
       }}
     >
       {props.children}

@@ -35,12 +35,15 @@ const EditProfile = () => {
     avatar
   } = updateProfile;
 
-  let { updateUserData, getOneUser } = useContext(UserContext);
+  let { updateUserData, getUserAssets, deleteUserData } =
+    useContext(UserContext);
 
   useEffect(() => {
     if (user_id === undefined) return;
     async function fetch() {
-      await getOneUser(user_id).then((response) => setUpdateProfile(response));
+      await getUserAssets(user_id).then((response) =>
+        setUpdateProfile(response)
+      );
     }
     fetch();
   }, []);
@@ -62,13 +65,32 @@ const EditProfile = () => {
         if (!updateProfile.ok) {
           alert("Your Profile has been updated!");
         }
+
         navigate(`/profile/${params.user_id}/${username}`);
+        window.location.reload();
       })
       .catch((error) => {
         console.error("There was an error!", error);
         alert("Profile edit unsuccesful");
         navigate(`/profile/${params.user_id}/${username}`);
       });
+  }
+
+  function handleDeleteUser(user_id) {
+    const confirmDelete = window.confirm(
+      "This operation cannot be undone!\nAre you sure want to delete your profile?"
+    );
+    if (!confirmDelete.ok) {
+      deleteUserData(user_id)
+        .then(() => {
+          navigate("/");
+        })
+        .catch((error) => {
+          console.log(error);
+          window.alert("You need to sign in to perform this operation");
+          navigate(-1);
+        });
+    }
   }
 
   useEffect(() => {
@@ -178,18 +200,19 @@ const EditProfile = () => {
                 placeholder="Image URL"
                 onChange={handleChange}
               />
-              <Button type="submit" variant="success" className="p-3">
-                Finish Update
-              </Button>
-              <Button
-                onClick={() => navigate(-1)}
-                variant="secondary"
-                className=" mb-3 p-3"
-              >
-                Cancel
-              </Button>
+              <div className="d-flex justify-content-evenly">
+                <Button type="submit" variant="success">
+                  Finish Update
+                </Button>
+                <Button onClick={() => navigate(-1)} variant="secondary">
+                  Cancel
+                </Button>
+              </div>
             </Stack>
           </form>
+          <Button onClick={handleDeleteUser} variant="danger" className="m-3">
+            Delete User
+          </Button>
         </div>
       </div>
     </div>
