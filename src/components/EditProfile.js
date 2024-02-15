@@ -65,7 +65,9 @@ const EditProfile = () => {
         if (!updateProfile.ok) {
           alert("Your Profile has been updated!");
         }
+
         navigate(`/profile/${params.user_id}/${username}`);
+        window.location.reload();
       })
       .catch((error) => {
         console.error("There was an error!", error);

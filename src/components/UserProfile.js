@@ -57,8 +57,7 @@ const UserProfile = () => {
                     backgrounAttachment: "fixed"
                   }}
                 >
-                  <UserImage />
-                  {/* <Image
+                  <Image
                     src={userLog.avatar}
                     alt="avatar"
                     className="rounded-circle"
@@ -68,7 +67,7 @@ const UserProfile = () => {
                       border: "solid 5px white"
                     }}
                     fluid
-                  /> */}
+                  />
                   <h4 style={{ color: "white" }} className="mb-1 p-2">
                     @{userLog.username}
                   </h4>

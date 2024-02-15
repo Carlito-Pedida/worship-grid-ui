@@ -12,12 +12,15 @@ const Academy = () => {
     //   };
   }, []);
   return (
-    <AdsBanner
-      header="SOMETHING AWESOME COMING"
-      textFx="SOON!"
-      subHeader="Check back next time for updates"
-      buttonText2="LEARN MORE"
-    />
+    <>
+      <div> {/* <UserImage /> */}</div>
+      <AdsBanner
+        header="SOMETHING AWESOME COMING"
+        textFx="SOON!"
+        subHeader="Check back next time for updates"
+        buttonText2="LEARN MORE"
+      />
+    </>
   );
 };
 
