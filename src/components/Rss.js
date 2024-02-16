@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Button, Card, Col, Modal, Row } from "react-bootstrap";
-
 import moment from "moment";
 import { Link } from "react-router-dom";
 import "../styles/RSS.css";

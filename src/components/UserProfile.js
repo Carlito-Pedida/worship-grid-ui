@@ -2,6 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../contexts/UserContext";
 import { Link, useParams } from "react-router-dom";
 import moment from "moment";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSearch,
+  faCartShopping,
+  faEdit
+} from "@fortawesome/free-solid-svg-icons";
 import "../styles/UserProfile.css";
 import {
   Button,
@@ -81,7 +87,12 @@ const UserProfile = () => {
                       className="ms-1"
                       to={`/profile/${userLog.user_id}/edit`}
                     >
-                      Edit Profile
+                      <FontAwesomeIcon
+                        className="search-tool-icon"
+                        icon={faEdit}
+                        size="xl"
+                        color="green"
+                      />
                     </Link>
                   </div>
                 </Card.Body>
