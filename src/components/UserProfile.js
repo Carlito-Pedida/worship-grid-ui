@@ -3,11 +3,7 @@ import UserContext from "../contexts/UserContext";
 import { Link, useParams } from "react-router-dom";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSearch,
-  faCartShopping,
-  faEdit
-} from "@fortawesome/free-solid-svg-icons";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import "../styles/UserProfile.css";
 import {
   Button,
