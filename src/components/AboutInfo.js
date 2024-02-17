@@ -6,7 +6,6 @@ import {
   FaInstagram,
   FaSquareYoutube
 } from "react-icons/fa6";
-import { Container } from "react-bootstrap";
 
 const AboutInfo = () => {
   return (

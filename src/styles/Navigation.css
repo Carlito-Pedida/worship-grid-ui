@@ -1,7 +1,4 @@
 .navi {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: auto;
 }
 .nav-links {
@@ -23,8 +20,23 @@
   background-color: #2c5728;
   border-top: 2px gray;
 }
+.nav-top {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+.nav-top-left {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.nav-top-right {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
 
-.navLinks2-container {
+.navLinks2 {
   border-top: 1px solid rgb(175, 175, 175);
   border-bottom: 1px solid rgb(175, 175, 175);
   margin-top: 5px;

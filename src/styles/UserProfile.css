@@ -1,0 +1,87 @@
+.profile {
+  background-color: #000000f3;
+}
+.social {
+  text-decoration: none;
+  background-image: linear-gradient(
+    to right,
+    #54b3d6,
+    #54b3d6 50%,
+    #4e4e4e 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+.social:before {
+  content: "";
+  background: #54b3d6;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+}
+.social:hover {
+  color: #fff;
+  background-position: 0;
+}
+.social:hover::before {
+  width: 100%;
+}
+
+.songList {
+  text-decoration: none;
+  background-image: linear-gradient(
+    to right,
+    #54b3d6,
+    #54b3d6 50%,
+    #4e4e4e 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+.songList:before {
+  content: "";
+  background: #54b3d6;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+}
+.songList:hover {
+  color: #fff;
+  background-position: 0;
+}
+.songList:hover::before {
+  width: 100%;
+}
+
+.profile-data {
+  border: 2px;
+  border-radius: 10px;
+  background-color: #55805367;
+}
+.user-assets {
+  margin: auto;
+  color: white;
+  border: solid #2c5728 10px;
+  border-radius: 10px;
+  background-color: rgb(121, 209, 233);
+}

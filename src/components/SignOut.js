@@ -12,7 +12,7 @@ function SignOut() {
       const userToken = jwtDecode(jwt);
       setUser(userToken);
     } catch (ex) {}
-    window.location = "/assets";
+    window.location = "/";
   }, []);
 }
 

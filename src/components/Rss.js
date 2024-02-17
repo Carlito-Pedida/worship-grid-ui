@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Button, Card, Col, Modal, Row } from "react-bootstrap";
-
 import moment from "moment";
 import { Link } from "react-router-dom";
 import "../styles/RSS.css";
 
-const Rss = (props) => {
+const Rss = () => {
   const [articles, setArticles] = useState([]);
-  console.log(articles);
 
   useEffect(() => {
     const fetchRssFeeds = async () => {

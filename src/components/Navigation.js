@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
-import SignIn from "../components/SignIn";
-
+import SignIn from "./SignIn";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import "../styles/Navigation.css";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Nav, Navbar, Col } from "react-bootstrap";
 import MerchCart from "../MerchPages/MerchCart";
 import CartContext from "../contexts/CartContext";
+import "../styles/Navigation.css";
 
 const Navigation = () => {
   const [userLog, setUserLog] = useState([]);
@@ -31,7 +30,7 @@ const Navigation = () => {
       } catch (error) {
         if (isMounted) {
           if (error.response && error.response.status === 404) {
-            console.clear();
+            // console.clear();
           }
         }
       }
@@ -82,67 +81,61 @@ const Navigation = () => {
               <React.Fragment>
                 <div>
                   <div>
-                    <Link className="nav-links" to="/academy">
-                      WORSHIP GRID ACADEMY
-                    </Link>
+                    <div className="row nav-top">
+                      <Col className="nav-top-left">
+                        <Link className="nav-links" to="/setlist">
+                          MY SETLIST
+                        </Link>
 
-                    <Link className="nav-links" to="/setlist">
-                      MY SETLIST
-                    </Link>
+                        <Link className="nav-links" to="/featured_music">
+                          MY MUSIC
+                        </Link>
+                      </Col>
+                      <Col className="nav-top-center">
+                        <Link type="link" to="/" className="brand m-2 p-2">
+                          <img
+                            className="brand-image"
+                            src="/logo-2.png"
+                            alt=""
+                            height={55}
+                          />
+                        </Link>
+                      </Col>
+                      <Col className="nav-top-right">
+                        <Link
+                          className="nav-links"
+                          to={`/profile/${userLog.user_id}/${userLog.username}`}
+                        >
+                          HELLO,{" "}
+                          <strong style={{ textTransform: "uppercase" }}>
+                            {first_name}!
+                          </strong>
+                        </Link>
 
-                    <Link className="nav-links" to="/article">
-                      BLOG
-                    </Link>
+                        <img
+                          style={{
+                            borderRadius: "50%",
+                            border: "solid 3px white",
+                            marginLeft: "5px",
+                            marginRight: "5px"
+                          }}
+                          src={avatar}
+                          size="40"
+                          round="true"
+                          height={45}
+                          width={45}
+                          alt=""
+                        />
+                      </Col>
+                    </div>
 
-                    <Link type="link" to="/" className="brand m-2 p-2">
-                      <img
-                        className="brand-image"
-                        src="/logo-2.png"
-                        alt=""
-                        height={55}
-                      />
-                    </Link>
-
-                    <Link className="nav-links" to="/assets">
-                      CONVERSATIONS
-                    </Link>
-
-                    <Link
-                      className="nav-links"
-                      to={`/profile/${userLog.username}`}
-                    >
-                      HELLO,{" "}
-                      <strong style={{ textTransform: "uppercase" }}>
-                        {first_name}!
-                      </strong>
-                    </Link>
-
-                    <span>
-                      <img
-                        style={{
-                          borderRadius: "50%",
-                          border: "solid 5px",
-
-                          borderColor: "white",
-                          marginLeft: "5px",
-                          marginRight: "5px"
-                        }}
-                        src={avatar}
-                        size="40"
-                        round="true"
-                        height={65}
-                        width={65}
-                        alt=""
-                      />
-                    </span>
-
-                    <Link className="nav-links" to="/signout">
-                      SIGN OUT
-                    </Link>
-                    <div className="navLinks2-container">
+                    <div className="navLinks2">
+                      <Link className="hover-underline-animation" to="/assets">
+                        MESSAGE BOARD
+                      </Link>
                       <Link
                         className="hover-underline-animation"
-                        to="churchlocations"
+                        to="church_locations"
                       >
                         CHURCHES IN THE AREA
                       </Link>
@@ -152,17 +145,14 @@ const Navigation = () => {
                       >
                         MERCHANDISE
                       </Link>
-                      <Link className="hover-underline-animation" to="/events">
-                        EVENTS
-                      </Link>
-                      <Link className="hover-underline-animation" to="/rss">
-                        DEVO
-                      </Link>
                       <Link
                         className="hover-underline-animation"
-                        to="tutorials"
+                        to="/daily_devotionals"
                       >
-                        TUTORIALS
+                        DEVO
+                      </Link>
+                      <Link className="hover-underline-animation" to="/academy">
+                        WORSHIP GRID ACADEMY
                       </Link>
                       <Link className="search-tool-animation">
                         <FontAwesomeIcon
@@ -188,18 +178,11 @@ const Navigation = () => {
                           </span>
                         </Link>
                       ) : (
-                        <Link
-                          className="search-tool-animation"
-                          to={openCartModal}
-                          onClick={openCartModal}
-                        >
-                          <FontAwesomeIcon
-                            className="search-tool-icon"
-                            icon={faCartShopping}
-                            size="xl"
-                          />
-                        </Link>
+                        <></>
                       )}
+                      <Link className="hover-underline-animation" to="/signout">
+                        SIGN OUT
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -209,9 +192,6 @@ const Navigation = () => {
               <React.Fragment>
                 <div>
                   <div>
-                    <Link className="nav-links" to="academy">
-                      WORSHIP GRID ACADEMY
-                    </Link>
                     <Link className="nav-links" to="/signup">
                       GET ACCESS
                     </Link>
@@ -232,15 +212,14 @@ const Navigation = () => {
                     >
                       MY ACCOUNT
                     </Link>
-
-                    <Link className="nav-links" to={"/assets"}>
-                      CONVERSATIONS
-                    </Link>
                   </div>
-                  <div className="navLinks2-container">
+                  <div className="navLinks2">
+                    <Link className="hover-underline-animation" to={"/assets"}>
+                      MESSAGE BOARD
+                    </Link>
                     <Link
                       className="hover-underline-animation"
-                      to="churchlocations"
+                      to="church_locations"
                     >
                       CHURCHES IN THE AREA
                     </Link>
@@ -250,15 +229,13 @@ const Navigation = () => {
                     >
                       MERCHANDISE
                     </Link>
-                    <Link className="hover-underline-animation" to="/events">
-                      EVENTS
-                    </Link>
-                    <Link className="hover-underline-animation" to="rss">
+                    <Link
+                      className="hover-underline-animation"
+                      to="daily_devotionals"
+                    >
                       DEVO
                     </Link>
-                    <Link className="hover-underline-animation" to="tutorials">
-                      TUTORIALS
-                    </Link>
+
                     <Link className="search-tool-animation">
                       <FontAwesomeIcon
                         className="search-tool-icon"
@@ -282,17 +259,7 @@ const Navigation = () => {
                         </span>
                       </Link>
                     ) : (
-                      <Link
-                        className="search-tool-animation"
-                        to={openCartModal}
-                        onClick={openCartModal}
-                      >
-                        <FontAwesomeIcon
-                          className="search-tool-icon"
-                          icon={faCartShopping}
-                          size="xl"
-                        />
-                      </Link>
+                      <></>
                     )}
                   </div>
                 </div>
