@@ -27,6 +27,8 @@ import PrivateRoutes from "./components/PrivateRoutes.js";
 import { jwtDecode } from "jwt-decode";
 import EditProfile from "./components/EditProfile.js";
 import Navigation from "./components/Navigation.js";
+import UserLocation from "./components/UserLocation.js";
+import ChurchLocation from "./components/ChurchLocation.js";
 
 function App() {
   // const [user, setUser] = useState();
@@ -76,7 +78,9 @@ function App() {
                     />
                   </Route>
                   <Route path="/assets" element={<AssetList />} />
+                  <Route path="/userlocal" element={<UserLocation />} />
                   <Route path="/church_locations" element={<LocateChurch />} />
+                  <Route path="/locate_churches" element={<ChurchLocation />} />
                   <Route path="/merchandise" element={<Merchandise />} />
                   <Route path="/paysuccessful" element={<Success />} />
                   <Route path="/paycanceled" element={<Cancel />} />
