@@ -131,7 +131,7 @@ const Navigation = () => {
 
                     <div className="navLinks2">
                       <Link className="hover-underline-animation" to="/assets">
-                        CONVERSATIONS
+                        MESSAGE BOARD
                       </Link>
                       <Link
                         className="hover-underline-animation"
@@ -215,7 +215,7 @@ const Navigation = () => {
                   </div>
                   <div className="navLinks2">
                     <Link className="hover-underline-animation" to={"/assets"}>
-                      CONVERSATIONS
+                      MESSAGE BOARD
                     </Link>
                     <Link
                       className="hover-underline-animation"

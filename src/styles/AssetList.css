@@ -5,3 +5,37 @@
   height: 1px;
   background: white;
 }
+.message-head {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+.message-date {
+  text-align: start;
+}
+
+.share-input {
+  border: solid 3px;
+  border-color: #2c5728;
+  border-radius: 40px;
+  height: 55px;
+  background-color: rgb(221, 221, 221);
+  width: auto;
+  color: rgb(50, 50, 50);
+  font-size: medium;
+  font-style: italic;
+}
+
+.reply-card {
+  display: flex;
+
+  margin: 20px;
+}
+.reply-text {
+  text-align: left;
+  border-radius: 20px;
+  background-color: rgb(71, 71, 71);
+  padding: 15px;
+  color: white;
+  width: 100%;
+}

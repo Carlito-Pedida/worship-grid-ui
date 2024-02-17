@@ -4,9 +4,18 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import NewsBanner from "../props/NewsBanner";
 import moment from "moment";
 import AssetEdit from "./AssetEdit";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Card, CardFooter, CardHeader, Modal } from "react-bootstrap";
 import UserContext from "../contexts/UserContext";
 import "../styles/AssetList.css";
+import AssetNew from "./AssetNew";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faDeleteLeft,
+  faEdit,
+  faReply,
+  faTrashAlt,
+  faTrashCan
+} from "@fortawesome/free-solid-svg-icons";
 
 const AssetList = () => {
   let params = useParams();
@@ -138,13 +147,13 @@ const AssetList = () => {
                 <div
                   style={{
                     // border: "solid #2c5728 10px",
-                    backgroundColor: "dimgrey",
-                    opacity: "90%"
+                    backgroundColor: "dimgrey"
                   }}
                 >
                   <div style={{ color: "white" }}>
-                    <h1>Asset List</h1>
-                    <Link to="/create">Create New Asset</Link>
+                    <h1>Message Board</h1>
+                    {/* <Link to="/create">Create New Asset</Link> */}
+                    <AssetNew />
 
                     <div>
                       {asset
@@ -172,114 +181,154 @@ const AssetList = () => {
                             >
                               <div
                                 style={{
-                                  color: "white"
+                                  color: "black"
                                 }}
                               >
-                                <span>
-                                  <img
-                                    alt=""
+                                <Card style={{ borderRadius: "5px" }}>
+                                  <Card.Header className="message-head">
+                                    <div>
+                                      <img
+                                        alt=""
+                                        style={{
+                                          borderRadius: "50%"
+                                        }}
+                                        src={a.UserDatum.avatar}
+                                        size="40"
+                                        round="true"
+                                        height={47}
+                                        width={47}
+                                      />
+                                    </div>
+                                    <div className="message-date">
+                                      {a.UserDatum.first_name}{" "}
+                                      {a.UserDatum.last_name}
+                                      <div>
+                                        {moment
+                                          .parseZone(a.createdAt)
+                                          .local()
+                                          .fromNow(true)}{" "}
+                                        ago...
+                                      </div>
+                                    </div>
+                                  </Card.Header>
+                                  <Card.Body
                                     style={{
-                                      borderRadius: "50%",
-                                      border: "solid 5px",
-
-                                      borderColor: "white",
-                                      marginLeft: "5px",
-                                      marginRight: "5px"
+                                      backgroundColor: "gray",
+                                      textAlign: "center",
+                                      alignItems: "center",
+                                      paddingTop: "50px",
+                                      paddingBottom: "50px",
+                                      paddingLeft: "30px",
+                                      paddingRight: "30px",
+                                      color: "white"
                                     }}
-                                    src={a.UserDatum.avatar}
-                                    size="40"
-                                    round="true"
-                                    height={65}
-                                    width={65}
-                                  />
-                                </span>
+                                  >
+                                    <div>
+                                      <h6>{a.message}</h6>
+                                    </div>
+                                  </Card.Body>
+                                  <Card.Footer>
+                                    <hr />
+                                    <div className="d-flex justify-content-center">
+                                      <Link
+                                        style={{
+                                          color: "orange",
+                                          textDecoration: "none",
+                                          fontWeight: "bold",
+                                          fontSize: "20px"
+                                        }}
+                                        className="mx-3"
+                                        to={`/asset/${a.asset_id}/reply`}
+                                      >
+                                        <FontAwesomeIcon
+                                          className="search-tool-icon"
+                                          icon={faReply}
+                                          size="sm"
+                                          color="green"
+                                        />
+                                      </Link>
+                                      <br />
+                                      <Link
+                                        style={{
+                                          textDecoration: "none",
+                                          fontWeight: "bold",
+                                          fontSize: "20px"
+                                        }}
+                                        className="mx-3"
+                                        to={"#"}
+                                        onClick={() => {
+                                          handleShow(true);
+                                          setSelectedAsset(a);
+                                        }}
+                                      >
+                                        <FontAwesomeIcon
+                                          className="search-tool-icon"
+                                          icon={faEdit}
+                                          size="sm"
+                                          color="gray"
+                                        />
+                                      </Link>
+                                      <br />
+                                      <Link
+                                        style={{
+                                          color: "red",
+                                          textDecoration: "none",
+                                          fontWeight: "bold",
+                                          fontSize: "20px"
+                                        }}
+                                        className="mx-3"
+                                        to={"#"}
+                                        onClick={handleDelete.bind(
+                                          this,
+                                          a.asset_id,
+                                          a.UserDatum.user_id
+                                        )}
+                                      >
+                                        <FontAwesomeIcon
+                                          className="search-tool-icon"
+                                          icon={faTrashAlt}
+                                          size="sm"
+                                          color="red"
+                                        />
+                                      </Link>
 
-                                <h2 style={{ color: "white" }}>
-                                  {a.UserDatum.first_name} |{" "}
-                                  {a.UserDatum.last_name}
-                                </h2>
-
-                                <p>{a.message}</p>
-                                <p>{a.imageLink}</p>
-                                <p>{a.videoLink}</p>
+                                      <br />
+                                    </div>
+                                    <hr />
+                                  </Card.Footer>
+                                </Card>
 
                                 {a.UserResponses &&
                                 a.UserResponses.length > 0 ? (
                                   <div key={a.UserResponses.responses_id}>
                                     {a.UserResponses.map((r, i) => (
-                                      <div
-                                        style={{
-                                          backgroundColor: "dimgray",
-                                          padding: "2px",
-                                          borderRadius: "15px",
-                                          color: "white",
-                                          marginTop: "5px"
-                                        }}
-                                        key={i}
-                                      >
-                                        <p>
-                                          <strong>
-                                            {r.UserDatum.username}
-                                          </strong>
-                                        </p>
-                                        <p>{r.reply}</p>
-                                        <p>{r.reactions}</p>
+                                      <div className="reply-card" key={i}>
+                                        <div>
+                                          <img
+                                            alt=""
+                                            style={{
+                                              borderRadius: "50%"
+                                            }}
+                                            src={r.UserDatum.avatar}
+                                            size="40"
+                                            round="true"
+                                            height={40}
+                                            width={40}
+                                          />
+                                        </div>
+                                        <div className="reply-text">
+                                          {r.UserDatum.first_name}{" "}
+                                          {r.UserDatum.last_name}
+                                          <div>
+                                            {r.reply} {r.reactions}
+                                          </div>
+                                        </div>
                                       </div>
                                     ))}
                                   </div>
                                 ) : (
                                   <>No replies yet!</>
                                 )}
-                              </div>
-                              <div className="d-flex justify-content-center">
-                                <Link
-                                  style={{
-                                    color: "orange",
-                                    textDecoration: "none",
-                                    fontWeight: "bold",
-                                    fontSize: "20px"
-                                  }}
-                                  className="p-3"
-                                  to={`/asset/${a.asset_id}/reply`}
-                                >
-                                  Reply
-                                </Link>
-                                <br />
-                                <Link
-                                  style={{
-                                    color: "lightblue",
-                                    textDecoration: "none",
-                                    fontWeight: "bold",
-                                    fontSize: "20px"
-                                  }}
-                                  className="p-3"
-                                  to={"#"}
-                                  onClick={() => {
-                                    handleShow(true);
-                                    setSelectedAsset(a);
-                                  }}
-                                >
-                                  Edit
-                                </Link>
-                                <br />
-                                <Link
-                                  style={{
-                                    color: "red",
-                                    textDecoration: "none",
-                                    fontWeight: "bold",
-                                    fontSize: "20px"
-                                  }}
-                                  className="p-3"
-                                  to={"#"}
-                                  onClick={handleDelete.bind(
-                                    this,
-                                    a.asset_id,
-                                    a.UserDatum.user_id
-                                  )}
-                                >
-                                  Delete
-                                </Link>
-                                <br />
                               </div>
                             </div>
                           );
