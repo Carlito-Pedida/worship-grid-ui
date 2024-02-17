@@ -6,7 +6,12 @@
   background: white;
 }
 .message-board {
-  background-color: #596e57;
+  background-color: #000000df;
+}
+.message-frame {
+  border: 2px;
+  border-radius: 10px;
+  background-color: #45664374;
 }
 .message-head {
   display: flex;

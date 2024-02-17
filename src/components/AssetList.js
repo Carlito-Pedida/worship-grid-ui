@@ -144,8 +144,11 @@ const AssetList = () => {
                   <></>
                 )}
 
-                <div className="message-board">
-                  <div className="pt-3 pb-3" style={{ color: "white" }}>
+                <div className="message-board p-5">
+                  <div
+                    className="message-frame container pt-3 pb-3"
+                    style={{ color: "white" }}
+                  >
                     <h1>Message Board</h1>
                     {userLog.user_id === params.user_id ? (
                       <></>
