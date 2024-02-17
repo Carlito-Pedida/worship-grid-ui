@@ -70,7 +70,7 @@ const AssetNew = () => {
       navigate("/assets");
     } catch (error) {
       console.log(error);
-      window.alert("You need to sign in to create assets!");
+      window.alert("You need to sign in to post a message!");
       setIsUpdating(false); // Set updating status to false on error
     }
   }
@@ -104,7 +104,7 @@ const AssetNew = () => {
             type="text"
             name="message"
             value={message}
-            placeholder={`...What do you have in mind ${userLog.first_name}?`}
+            placeholder={`...What's on your mind, ${userLog.first_name}?`}
             onChange={handleChange}
             onKeyDown={(e) => {
               if (e.key === "Enter") {

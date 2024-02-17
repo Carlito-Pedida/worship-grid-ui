@@ -144,16 +144,16 @@ const AssetList = () => {
                   <></>
                 )}
 
-                <div
-                  style={{
-                    // border: "solid #2c5728 10px",
-                    backgroundColor: "dimgrey"
-                  }}
-                >
-                  <div style={{ color: "white" }}>
+                <div className="message-board">
+                  <div className="pt-3 pb-3" style={{ color: "white" }}>
                     <h1>Message Board</h1>
-                    {/* <Link to="/create">Create New Asset</Link> */}
-                    <AssetNew />
+                    {userLog.user_id === params.user_id ? (
+                      <></>
+                    ) : (
+                      <>
+                        <AssetNew />
+                      </>
+                    )}
 
                     <div>
                       {asset
@@ -166,15 +166,15 @@ const AssetList = () => {
                           return (
                             <div
                               style={{
-                                border: "solid #2c5728 10px",
-                                backgroundColor: "dimgrey",
+                                border: "solid #b7b7b7 3px",
+                                backgroundColor: "#767676",
 
-                                padding: "20px",
+                                padding: "40px",
                                 borderRadius: "10px",
                                 margin: "auto",
                                 marginTop: "10px",
                                 // marginBottom: "10px",
-                                width: "50%",
+                                width: "65%",
                                 position: "relative"
                               }}
                               key={i}
@@ -184,7 +184,12 @@ const AssetList = () => {
                                   color: "black"
                                 }}
                               >
-                                <Card style={{ borderRadius: "5px" }}>
+                                <Card
+                                  className="message-card"
+                                  style={{
+                                    borderRadius: "5px"
+                                  }}
+                                >
                                   <Card.Header className="message-head">
                                     <div>
                                       <img
@@ -239,6 +244,7 @@ const AssetList = () => {
                                         }}
                                         className="mx-3"
                                         to={`/asset/${a.asset_id}/reply`}
+                                        title="Reply Button"
                                       >
                                         <FontAwesomeIcon
                                           className="search-tool-icon"
@@ -260,6 +266,7 @@ const AssetList = () => {
                                           handleShow(true);
                                           setSelectedAsset(a);
                                         }}
+                                        title="Edit Button"
                                       >
                                         <FontAwesomeIcon
                                           className="search-tool-icon"
@@ -283,6 +290,7 @@ const AssetList = () => {
                                           a.asset_id,
                                           a.UserDatum.user_id
                                         )}
+                                        title="Delete Button"
                                       >
                                         <FontAwesomeIcon
                                           className="search-tool-icon"
@@ -316,7 +324,12 @@ const AssetList = () => {
                                             width={40}
                                           />
                                         </div>
-                                        <div className="reply-text">
+                                        <div
+                                          style={{
+                                            boxShadow: "2px 3px #b7b7b7"
+                                          }}
+                                          className="reply-text"
+                                        >
                                           {r.UserDatum.first_name}{" "}
                                           {r.UserDatum.last_name}
                                           <div>

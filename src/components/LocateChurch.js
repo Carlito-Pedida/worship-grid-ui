@@ -27,7 +27,7 @@ function LocateChurch() {
     }
 
     // Alternatively, scroll to a specific position on the page
-    window.scrollTo(0, 65); // Scroll to y-coordinate 500
+    window.scrollTo(0, 85); // Scroll to y-coordinate 500
   }, []);
 
   return (
