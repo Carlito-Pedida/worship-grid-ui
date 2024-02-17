@@ -76,22 +76,22 @@ const EditProfile = () => {
       });
   }
 
-  function handleDeleteUser(user_id) {
-    const confirmDelete = window.confirm(
-      "This operation cannot be undone!\nAre you sure want to delete your profile?"
-    );
-    if (!confirmDelete.ok) {
-      deleteUserData(user_id)
-        .then(() => {
-          navigate("/");
-        })
-        .catch((error) => {
-          console.log(error);
-          window.alert("You need to sign in to perform this operation");
-          navigate(-1);
-        });
-    }
-  }
+  // function handleDeleteUser(user_id) {
+  //   const confirmDelete = window.confirm(
+  //     "This operation cannot be undone!\nAre you sure want to delete your profile?"
+  //   );
+  //   if (!confirmDelete.ok) {
+  //     deleteUserData(user_id)
+  //       .then(() => {
+  //         navigate("/");
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //         window.alert("You need to sign in to perform this operation");
+  //         navigate(-1);
+  //       });
+  //   }
+  // }
 
   useEffect(() => {
     document.title = "Worship Grid > Edit Profile";
@@ -210,9 +210,9 @@ const EditProfile = () => {
               </div>
             </Stack>
           </form>
-          <Button onClick={handleDeleteUser} variant="danger" className="m-3">
+          {/* <Button onClick={handleDeleteUser} variant="danger" className="m-3">
             Delete User
-          </Button>
+          </Button> */}
         </div>
       </div>
     </div>
