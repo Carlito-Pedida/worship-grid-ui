@@ -62,7 +62,7 @@ const Home = () => {
             </a>
           }
           textFx="PASS"
-          subHeader="Every resource you need to make to create a condusive practice
+          subHeader="Every resource you need to create a condusive and interactive practice
         environment."
           smallText1="Browse through all the music and practice resources to get you
         hyped up and performance ready on your weekly gig."
@@ -113,7 +113,7 @@ const Home = () => {
         </>
       )}
 
-      <div className="featured-vids">
+      {/* <div className="featured-vids">
         <Stack>
           <div className="vids-container">
             <Row>
@@ -189,7 +189,7 @@ const Home = () => {
             </Row>
           </div>
         </Stack>
-      </div>
+      </div> */}
     </>
   );
 };

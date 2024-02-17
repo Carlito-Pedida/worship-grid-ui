@@ -55,6 +55,7 @@ export const UserProvider = (props) => {
 
     return axios.post(`${baseUrl}signin`, user).then((response) => {
       localStorage.setItem("loggedUserToken", response.data.token);
+      console.log(response.data);
       return new Promise((resolve) => resolve(response.data));
     });
   }
@@ -84,7 +85,7 @@ export const UserProvider = (props) => {
   }
 
   function getUserAssets(user_id) {
-    const url = "http://localhost:5000/server/users/asset/";
+    const url = "http://localhost:5000/server/users/assets/";
     let headers = {
       Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
     };
