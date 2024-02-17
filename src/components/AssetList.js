@@ -146,7 +146,7 @@ const AssetList = () => {
 
                 <div className="message-board p-5">
                   <div
-                    className="message-frame container pt-3 pb-3"
+                    className="message-frame cont pt-3 pb-3"
                     style={{ color: "white" }}
                   >
                     <h1>Message Board</h1>

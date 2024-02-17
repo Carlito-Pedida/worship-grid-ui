@@ -9,6 +9,7 @@ import {
 } from "@vis.gl/react-google-maps";
 import { Card, Form, ListGroup } from "react-bootstrap";
 import "../styles/LocateChurch.css";
+import { Loader } from "@googlemaps/js-api-loader";
 
 function LocateChurch() {
   const [openPin, setOpenPin] = useState(false);

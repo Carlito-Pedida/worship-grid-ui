@@ -91,7 +91,6 @@ export const UserProvider = (props) => {
     };
 
     return axios.get(url + user_id, { headers }).then((response) => {
-      // console.log(response.data);
       return new Promise((resolve) => resolve(response.data));
     });
   }

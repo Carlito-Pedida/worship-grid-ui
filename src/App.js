@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
@@ -17,18 +17,15 @@ import AssetEdit from "./components/AssetEdit.js";
 import UserSetlist from "./components/UserSetlist";
 import UserProfile from "./components/UserProfile";
 import LocateChurch from "./components/LocateChurch.js";
-import Events from "./components/Events.js";
 import Rss from "./components/Rss.js";
 import Success from "./MerchPages/Success.js";
 import Cancel from "./MerchPages/Cancel.js";
 import { CartProvider } from "./providers/CartProvider.js";
 import FeaturedMusic from "./components/FeaturedMusic.js";
 import PrivateRoutes from "./components/PrivateRoutes.js";
-import { jwtDecode } from "jwt-decode";
 import EditProfile from "./components/EditProfile.js";
 import Navigation from "./components/Navigation.js";
 import UserLocation from "./components/UserLocation.js";
-import ChurchLocation from "./components/ChurchLocation.js";
 
 function App() {
   // const [user, setUser] = useState();
@@ -80,7 +77,6 @@ function App() {
                   <Route path="/assets" element={<AssetList />} />
                   <Route path="/userlocal" element={<UserLocation />} />
                   <Route path="/church_locations" element={<LocateChurch />} />
-                  <Route path="/locate_churches" element={<ChurchLocation />} />
                   <Route path="/merchandise" element={<Merchandise />} />
                   <Route path="/paysuccessful" element={<Success />} />
                   <Route path="/paycanceled" element={<Cancel />} />
