@@ -1,6 +1,7 @@
 import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import SpinnerOverlay from "../props/SpinnerOverlay";
 
 function SignOut() {
   let navigate = useNavigate();

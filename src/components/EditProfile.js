@@ -35,8 +35,7 @@ const EditProfile = () => {
     avatar
   } = updateProfile;
 
-  let { updateUserData, getUserAssets, deleteUserData } =
-    useContext(UserContext);
+  let { updateUserData, getUserAssets } = useContext(UserContext);
 
   useEffect(() => {
     if (user_id === undefined) return;

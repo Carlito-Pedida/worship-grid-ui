@@ -28,16 +28,6 @@ import Navigation from "./components/Navigation.js";
 import UserLocation from "./components/UserLocation.js";
 
 function App() {
-  // const [user, setUser] = useState();
-
-  // useEffect(() => {
-  //   try {
-  //     const jwt = localStorage.getItem("loggedUserToken");
-  //     const userToken = jwtDecode(jwt);
-  //     setUser(userToken);
-  //   } catch (ex) {}
-  // }, []);
-
   return (
     <CartProvider>
       <UserProvider>

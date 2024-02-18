@@ -4,18 +4,12 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import NewsBanner from "../props/NewsBanner";
 import moment from "moment";
 import AssetEdit from "./AssetEdit";
-import { Button, Card, CardFooter, CardHeader, Modal } from "react-bootstrap";
+import { Button, Card, Modal } from "react-bootstrap";
 import UserContext from "../contexts/UserContext";
 import "../styles/AssetList.css";
 import AssetNew from "./AssetNew";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faDeleteLeft,
-  faEdit,
-  faReply,
-  faTrashAlt,
-  faTrashCan
-} from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faReply, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 const AssetList = () => {
   let params = useParams();
