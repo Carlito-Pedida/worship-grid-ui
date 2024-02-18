@@ -9,6 +9,7 @@ import {
 } from "@vis.gl/react-google-maps";
 import { Card, Form, ListGroup } from "react-bootstrap";
 import "../styles/LocateChurch.css";
+import { Loader } from "@googlemaps/js-api-loader";
 
 function LocateChurch() {
   const [openPin, setOpenPin] = useState(false);
@@ -27,7 +28,7 @@ function LocateChurch() {
     }
 
     // Alternatively, scroll to a specific position on the page
-    window.scrollTo(0, 65); // Scroll to y-coordinate 500
+    window.scrollTo(0, 85); // Scroll to y-coordinate 500
   }, []);
 
   return (

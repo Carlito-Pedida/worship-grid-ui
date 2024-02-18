@@ -1,15 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Button, Col, Row, Stack } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import ReactPlayer from "react-player";
 import NewsBanner from "../props/NewsBanner";
 import AdsBanner from "../props/AdsBanner";
 import UserContext from "../contexts/UserContext";
 import { useNavigate, useParams } from "react-router-dom";
 import "../styles/Home.css";
+import SpinnerOverlay from "../props/SpinnerOverlay";
 
 const Home = () => {
   let params = useParams();
   const [userLog, setUserLog] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   let { getUserAssets } = useContext(UserContext);
 
@@ -17,15 +19,18 @@ const Home = () => {
     let isMounted = true;
 
     async function fetchData() {
+      setIsLoading(true);
       try {
         const result = await getUserAssets();
         if (isMounted) {
           setUserLog(result);
         }
+        setIsLoading(false);
       } catch (error) {
         if (isMounted) {
           if (error.response && error.response.status === 404) {
-            // console.clear();
+            console.clear();
+            setIsLoading(false);
           }
         }
       }
@@ -62,7 +67,7 @@ const Home = () => {
             </a>
           }
           textFx="PASS"
-          subHeader="Every resource you need to make to create a condusive practice
+          subHeader="Every resource you need to create a condusive and interactive practice
         environment."
           smallText1="Browse through all the music and practice resources to get you
         hyped up and performance ready on your weekly gig."
@@ -113,7 +118,7 @@ const Home = () => {
         </>
       )}
 
-      <div className="featured-vids">
+      {/* <div className="featured-vids">
         <Stack>
           <div className="vids-container">
             <Row>
@@ -189,7 +194,8 @@ const Home = () => {
             </Row>
           </div>
         </Stack>
-      </div>
+      </div> */}
+      <SpinnerOverlay loading={isLoading} />
     </>
   );
 };

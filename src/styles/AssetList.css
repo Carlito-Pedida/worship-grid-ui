@@ -5,6 +5,14 @@
   height: 1px;
   background: white;
 }
+.message-board {
+  background-color: #000000df;
+}
+.message-frame {
+  border: 2px;
+  border-radius: 10px;
+  background-color: #45664374;
+}
 .message-head {
   display: flex;
   flex-direction: row;
@@ -13,12 +21,15 @@
 .message-date {
   text-align: start;
 }
+.message-card {
+  box-shadow: 2px 3px #b7b7b7;
+}
 
 .share-input {
   border: solid 3px;
-  border-color: #2c5728;
-  border-radius: 40px;
-  height: 55px;
+  border-color: #b7b7b7;
+  border-radius: 25px;
+  height: 65px;
   background-color: rgb(221, 221, 221);
   width: auto;
   color: rgb(50, 50, 50);
@@ -28,7 +39,7 @@
 
 .reply-card {
   display: flex;
-
+  column-gap: 5px;
   margin: 20px;
 }
 .reply-text {

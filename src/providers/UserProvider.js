@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 export const UserProvider = (props) => {
   const [loggedUser, setLoggedUser] = useState([]);
   const baseUrl = "http://localhost:5000/server/users/";
-  console.log(loggedUser);
 
   useEffect(() => {
     async function fetchData() {
@@ -78,20 +77,18 @@ export const UserProvider = (props) => {
     return axios
       .put(baseUrl + user.user_id, user, { headers })
       .then((response) => {
-        console.log(response.data);
         getAllUserAssets();
         return new Promise((resolve) => resolve(response.data));
       });
   }
 
   function getUserAssets(user_id) {
-    const url = "http://localhost:5000/server/users/asset/";
+    const url = "http://localhost:5000/server/users/assets/";
     let headers = {
       Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
     };
 
     return axios.get(url + user_id, { headers }).then((response) => {
-      // console.log(response.data);
       return new Promise((resolve) => resolve(response.data));
     });
   }
