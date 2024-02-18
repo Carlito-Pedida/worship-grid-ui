@@ -55,7 +55,6 @@ export const UserProvider = (props) => {
 
     return axios.post(`${baseUrl}signin`, user).then((response) => {
       localStorage.setItem("loggedUserToken", response.data.token);
-      console.log(response.data);
       return new Promise((resolve) => resolve(response.data));
     });
   }
@@ -78,7 +77,6 @@ export const UserProvider = (props) => {
     return axios
       .put(baseUrl + user.user_id, user, { headers })
       .then((response) => {
-        console.log(response.data);
         getAllUserAssets();
         return new Promise((resolve) => resolve(response.data));
       });

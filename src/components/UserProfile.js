@@ -169,14 +169,12 @@ const UserProfile = () => {
             <Col lg="4">
               <Card className="mb-4 p-2" style={{ color: "#4e4e4e" }}>
                 <Card.Body>
-                  <Card.Text className="mb-4">
-                    <h4>
-                      <span className="text-primary font-italic me-1">
-                        Practice
-                      </span>{" "}
-                      Progress
-                    </h4>
-                  </Card.Text>
+                  <h4 className="mb-4">
+                    <span className="text-primary font-italic me-1">
+                      Practice
+                    </span>{" "}
+                    Progress
+                  </h4>
                   <Card.Text className="songList mb-1">
                     Here In Your House
                   </Card.Text>
