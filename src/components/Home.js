@@ -48,6 +48,10 @@ const Home = () => {
     navigate(`/profile/${userLog.user_id}/${userLog.username}`);
   };
 
+  useEffect(() => {
+    document.title = "Worship Grid > Home";
+  }, []);
+
   return (
     <>
       <div>

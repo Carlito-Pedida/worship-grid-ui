@@ -30,7 +30,7 @@ const Navigation = () => {
       } catch (error) {
         if (isMounted) {
           if (error.response && error.response.status === 404) {
-            // console.clear();
+            console.clear();
           }
         }
       }

@@ -46,7 +46,7 @@ const SignIn = ({ show, handleClose }) => {
 
     signInUser(username, password)
       .then(() => {
-        window.location = "/";
+        window.location.reload("/");
       })
       .catch((error) => {
         console.log(error);
