@@ -1,20 +1,23 @@
-import { jwtDecode } from "jwt-decode";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import SpinnerOverlay from "../props/SpinnerOverlay";
+import { jwtDecode } from "jwt-decode"; // corrected import
 
 function SignOut() {
-  let navigate = useNavigate();
-  const [setUser] = useState();
-
+  const navigate = useNavigate(); // using useNavigate hook
   useEffect(() => {
     try {
-      const jwt = localStorage.removeItem("loggedUserToken");
-      const userToken = jwtDecode(jwt);
-      setUser(userToken);
-    } catch (ex) {}
-    window.location = "/";
-  }, []);
+      const jwt = localStorage.getItem("loggedUserToken"); // retrieve JWT token
+      localStorage.removeItem("loggedUserToken"); // remove the token
+      if (jwt) {
+        const userToken = jwtDecode(jwt);
+        // setUser(userToken); // no need to set user state here
+        navigate("/"); // navigate to home page
+        window.location.reload();
+      }
+    } catch (ex) {
+      console.error("Error during sign out:", ex); // handle errors properly
+    }
+  }, []); // add navigate to the dependency array
 }
 
 export default SignOut;

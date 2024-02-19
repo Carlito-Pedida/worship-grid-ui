@@ -96,6 +96,12 @@ const EditProfile = () => {
     document.title = "Worship Grid > Edit Profile";
   }, []);
 
+  const hashPlaceholder = (text) => {
+    const hash = crypto.createHash("sha256");
+    hash.update(text);
+    return hash.digest("hex");
+  };
+
   return (
     <div className="centered-container" id="targetElementId">
       <div className="form-grid">
@@ -129,7 +135,7 @@ const EditProfile = () => {
                   type="password"
                   name="password"
                   value={password}
-                  placeholder="Password"
+                  placeholder="&#x2022;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;"
                   onChange={handleChange}
                 />
               </div>
