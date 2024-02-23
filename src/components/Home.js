@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-import ReactPlayer from "react-player";
 import NewsBanner from "../props/NewsBanner";
 import AdsBanner from "../props/AdsBanner";
 import UserContext from "../contexts/UserContext";
