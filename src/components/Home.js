@@ -25,12 +25,12 @@ const Home = () => {
         if (isMounted) {
           setUserLog(result);
         }
-        setIsLoading(true);
+        setIsLoading(false);
       } catch (error) {
         if (isMounted) {
           if (error.response && error.response.status === 404) {
             console.clear();
-            setIsLoading(true);
+            setIsLoading(false);
           }
         }
       }
