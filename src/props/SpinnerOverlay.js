@@ -7,7 +7,9 @@ const SpinnerOverlay = ({ loading }) => {
     loading && (
       <div className="spinner-overlay">
         <div className="spinner-container">
-          <div className="spinner" role="status"></div>
+          <div className="spinner-outer">
+            <div className="spinner" role="status"></div>
+          </div>
         </div>
       </div>
     )
