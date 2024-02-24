@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ResponseContext from "../contexts/ResponseContext";
 import "emoji-picker-element";
+import { Button, Modal, Stack } from "react-bootstrap";
 
 const ResponseNew = () => {
   let params = useParams();
@@ -40,6 +41,10 @@ const ResponseNew = () => {
         window.alert("You need to sign in to create assets!");
       });
   }
+  const [show, setShow] = useState(true);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div
@@ -55,29 +60,62 @@ const ResponseNew = () => {
         // position: "relative"
       }}
     >
-      <form onSubmit={handleSubmit}>
-        <span>Reply </span>
-        <input
-          type="text"
-          name="reply"
-          value={newResponse.reply}
-          onChange={handleChange}
-        />
-        <span>Reactions </span>
-        <select
-          name="reactions"
-          value={newResponse.reactions}
-          onChange={handleChange}
+      <Modal className="p-3" centered show={show} onHide={handleClose}>
+        <Modal.Header
+          style={{ backgroundColor: "#366532" }}
+          className="divider d-flex align-items-center"
         >
-          <option>select-reaction</option>
-          <option value="👍">👍</option>
-          <option value="❤️">❤️</option>
-          <option value="😄">😄</option>
-          {/* Add more emoji options as needed */}
-        </select>
+          <Modal.Title
+            style={{ color: "white" }}
+            className="text-center mx-3 mb-0"
+          >
+            New Reply
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body
+          style={{
+            backgroundColor: "#366532",
+            color: "white",
+            padding: "50px"
+          }}
+        >
+          <form onSubmit={handleSubmit}>
+            <Stack>
+              <span>Reply</span>
+              <textarea
+                className="my-3"
+                type="text"
+                name="reply"
+                value={newResponse.reply}
+                onChange={handleChange}
+              />
+              <span>Reactions </span>
+              <select
+                style={{ height: "50px" }}
+                className="my-3"
+                name="reactions"
+                value={newResponse.reactions}
+                onChange={handleChange}
+              >
+                <option>select-reaction</option>
+                <option value="👍">👍</option>
+                <option value="❤️">❤️</option>
+                <option value="😄">😄</option>
+                {/* Add more emoji options as needed */}
+              </select>
 
-        <button>Submit</button>
-      </form>
+              <Button type="submit" className="my-3">
+                Submit
+              </Button>
+            </Stack>
+          </form>
+        </Modal.Body>
+        <Modal.Footer style={{ backgroundColor: "#366532" }}>
+          <Button variant="secondary" onClick={() => navigate(-1)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
