@@ -133,12 +133,7 @@ const Navigation = () => {
                       <Link className="hover-underline-animation" to="/assets">
                         MESSAGE BOARD
                       </Link>
-                      <Link
-                        className="hover-underline-animation"
-                        to="church_locations"
-                      >
-                        CHURCHES IN THE AREA
-                      </Link>
+
                       <Link
                         className="hover-underline-animation"
                         to="/merchandise"
@@ -217,12 +212,7 @@ const Navigation = () => {
                     <Link className="hover-underline-animation" to={"/assets"}>
                       MESSAGE BOARD
                     </Link>
-                    <Link
-                      className="hover-underline-animation"
-                      to="church_locations"
-                    >
-                      CHURCHES IN THE AREA
-                    </Link>
+
                     <Link
                       className="hover-underline-animation"
                       to="/merchandise"
@@ -231,9 +221,12 @@ const Navigation = () => {
                     </Link>
                     <Link
                       className="hover-underline-animation"
-                      to="daily_devotionals"
+                      to="/daily_devotionals"
                     >
                       DEVO
+                    </Link>
+                    <Link className="hover-underline-animation" to="/academy">
+                      WORSHIP GRID ACADEMY
                     </Link>
 
                     <Link className="search-tool-animation">
