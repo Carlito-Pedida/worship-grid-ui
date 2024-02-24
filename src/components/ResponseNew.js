@@ -75,40 +75,54 @@ const ResponseNew = () => {
         <Modal.Body
           style={{
             backgroundColor: "#366532",
-            color: "white",
-            padding: "50px"
+            color: "white"
           }}
         >
-          <form onSubmit={handleSubmit}>
-            <Stack>
-              <span>Reply</span>
-              <textarea
-                className="my-3"
-                type="text"
-                name="reply"
-                value={newResponse.reply}
-                onChange={handleChange}
-              />
-              <span>Reactions </span>
-              <select
-                style={{ height: "50px" }}
-                className="my-3"
-                name="reactions"
-                value={newResponse.reactions}
-                onChange={handleChange}
-              >
-                <option>select-reaction</option>
-                <option value="👍">👍</option>
-                <option value="❤️">❤️</option>
-                <option value="😄">😄</option>
-                {/* Add more emoji options as needed */}
-              </select>
+          <div
+            className="p-4"
+            style={{
+              backgroundColor: "grey",
+              color: "white"
+            }}
+          >
+            <form
+              className="edit-form p-5"
+              style={{
+                backgroundColor: "rgb(100, 100, 100)",
+                borderRadius: "8px"
+              }}
+              onSubmit={handleSubmit}
+            >
+              <Stack>
+                <span>Reply</span>
+                <textarea
+                  className="my-3"
+                  type="text"
+                  name="reply"
+                  value={newResponse.reply}
+                  onChange={handleChange}
+                />
+                <span>Reactions </span>
+                <select
+                  style={{ height: "50px" }}
+                  className="my-3"
+                  name="reactions"
+                  value={newResponse.reactions}
+                  onChange={handleChange}
+                >
+                  <option>select-reaction</option>
+                  <option value="👍">👍</option>
+                  <option value="❤️">❤️</option>
+                  <option value="😄">😄</option>
+                  {/* Add more emoji options as needed */}
+                </select>
 
-              <Button type="submit" className="my-3">
-                Submit
-              </Button>
-            </Stack>
-          </form>
+                <Button type="submit" className="my-3">
+                  Submit
+                </Button>
+              </Stack>
+            </form>
+          </div>
         </Modal.Body>
         <Modal.Footer style={{ backgroundColor: "#366532" }}>
           <Button variant="secondary" onClick={() => navigate(-1)}>
