@@ -18,11 +18,47 @@ export const ResponseProvider = (props) => {
       return new Promise((resolve) => resolve(response.data));
     });
   }
+  function getOneUserResponse(response_id) {
+    return axios.get(baseUrl + response_id).then((response) => {
+      getAllUserAssets();
+
+      return new Promise((resolve) => resolve(response.data));
+    });
+  }
+
+  function updateUserResponse(response, response_id, asset_id, user_id) {
+    let headers = {
+      Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
+    };
+    return axios
+      .put(
+        baseUrl + response.response_id,
+        { ...response, response_id, asset_id, user_id },
+        { headers }
+      )
+      .then((response) => {
+        getAllUserAssets();
+        return new Promise((resolve) => resolve(response.data));
+      });
+  }
+
+  function deleteUserResponse(response_id, user_id) {
+    let headers = {
+      Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
+    };
+    return axios.delete(baseUrl + response_id, { headers }).then((response) => {
+      getAllUserAssets();
+      return new Promise((resolve) => resolve(response.data));
+    });
+  }
 
   return (
     <ResponseContext.Provider
       value={{
-        createUserReply
+        createUserReply,
+        getOneUserResponse,
+        updateUserResponse,
+        deleteUserResponse
       }}
     >
       {props.children}

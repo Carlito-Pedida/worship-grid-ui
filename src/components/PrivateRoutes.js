@@ -29,7 +29,9 @@ const PrivateRoutes = () => {
         <AdsBanner
           header="THIS PAGE IS"
           textFx="RESTRICTED!"
-          subHeader="You need to SIGN IN to access this area!"
+          subHeader1="You need to"
+          subHeaderLink="SIGN IN"
+          subHeader2="to access this area!"
           button1={
             <Button onClick={handleClick}>SIGN UP FOR FULL ACCESS</Button>
           }

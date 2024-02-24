@@ -39,7 +39,7 @@ const NewsBanner = (props) => {
 
   const handleClick = () => {
     if (userLog.user_id) {
-      navigate("/newsongrelease");
+      navigate("/featured_music");
     } else {
       window.alert("You need to sign in to your account!");
       navigate(openSignInModal());

@@ -10,6 +10,8 @@ import "../styles/AssetList.css";
 import AssetNew from "./AssetNew";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faReply, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import ResponseContext from "../contexts/ResponseContext";
+import ResponseEdit from "./ResponseEdit";
 
 const AssetList = () => {
   let params = useParams();
@@ -96,6 +98,55 @@ const AssetList = () => {
     }
   }
 
+  let [updatedResponse, setUpdatedResponse] = useState({});
+
+  let { deleteUserResponse, updateUserResponse, getOneUserResponse } =
+    useContext(ResponseContext);
+
+  let response_id = params.response_id;
+
+  useEffect(() => {
+    if (response_id === undefined) return;
+
+    async function fetch() {
+      const userReply = await getOneUserResponse(response_id);
+      setUpdatedResponse(userReply);
+    }
+    fetch();
+  }, [response_id]);
+
+  function handleSubmitResponse(event) {
+    event.preventDefault();
+
+    updateUserResponse(updatedResponse, params.response_id)
+      .then(() => {
+        if (!updatedResponse.ok) {
+          alert("Update Successful!");
+        }
+        navigate("/assets");
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+        alert("You are not authorized to perform this action!");
+        navigate("/assets");
+      });
+  }
+
+  function handleDeleteResponse(response_id) {
+    const confirmDelete = window.confirm("Are you sure?");
+    if (confirmDelete) {
+      deleteUserResponse(response_id)
+        .then(() => {
+          navigate("/assets");
+        })
+        .catch((error) => {
+          console.log(error);
+          window.alert("You need to sign in to perform this operation");
+          navigate("/assets");
+        });
+    }
+  }
+
   useEffect(() => {
     // Update the HTML title when the component mounts
     document.title = "Worship Grid > Convo";
@@ -109,14 +160,30 @@ const AssetList = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [showResponseEdit, setShowResponseEdit] = useState(false);
+  const [selectedResponse, setSelectedResponse] = useState(null);
+
+  const handleCloseResponse = () => setShowResponseEdit(false);
+  const handleShowResponse = () => setShowResponseEdit(true);
+
   const handleEdit = (asset) => {
     setUpdatedAsset(asset);
+    handleShow();
+  };
+
+  const handleEditResponse = (response) => {
+    setUpdatedResponse(response);
     handleShow();
   };
 
   const handleEditAssetChange = (updatedAsset) => {
     // Update the state in AssetList
     setUpdatedAsset(updatedAsset);
+  };
+
+  const handleEditResponseChange = (updatedResponse) => {
+    // Update the state in AssetList
+    setUpdatedResponse(updatedResponse);
   };
 
   return (
@@ -160,6 +227,7 @@ const AssetList = () => {
                             moment(a.createdAt).valueOf()
                         )
                         .map((a, i) => {
+                          console.log(a);
                           return (
                             <div
                               style={{
@@ -305,7 +373,7 @@ const AssetList = () => {
 
                                 {a.UserResponses &&
                                 a.UserResponses.length > 0 ? (
-                                  <div key={a.UserResponses.responses_id}>
+                                  <div key={a.UserResponses.response_id}>
                                     {a.UserResponses.map((r, i) => (
                                       <div className="reply-card" key={i}>
                                         <div>
@@ -332,6 +400,34 @@ const AssetList = () => {
                                           <div>
                                             {r.reply} {r.reactions}
                                           </div>
+                                          {userLog &&
+                                          r.UserDatum.user_id ==
+                                            userLog.user_id ? (
+                                            <>
+                                              <Link
+                                                to={"#"}
+                                                onClick={() => {
+                                                  handleShowResponse(true);
+                                                  setSelectedResponse(r);
+                                                }}
+                                                title="Edit Button"
+                                              >
+                                                Edit
+                                              </Link>{" "}
+                                              <Link
+                                                to="#"
+                                                onClick={handleDeleteResponse.bind(
+                                                  this,
+                                                  r.response_id,
+                                                  r.UserDatum.user_id
+                                                )}
+                                              >
+                                                Delete
+                                              </Link>
+                                            </>
+                                          ) : (
+                                            <></>
+                                          )}
                                         </div>
                                       </div>
                                     ))}
@@ -375,6 +471,34 @@ const AssetList = () => {
           </Modal.Body>
           <Modal.Footer style={{ backgroundColor: "#366532" }}>
             <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
+      <div>
+        <Modal centered show={showResponseEdit} onHide={handleCloseResponse}>
+          <Modal.Header
+            style={{ backgroundColor: "#366532" }}
+            className="divider d-flex align-items-center"
+          >
+            <Modal.Title
+              style={{ color: "white" }}
+              className="text-center mx-3 mb-0"
+            >
+              Edit Response
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body style={{ backgroundColor: "#366532" }}>
+            <ResponseEdit
+              response={selectedResponse}
+              handleClose={handleCloseResponse}
+              handleSubmit={handleSubmitResponse}
+              onAssetUpdate={handleEditResponseChange}
+            />
+          </Modal.Body>
+          <Modal.Footer style={{ backgroundColor: "#366532" }}>
+            <Button variant="secondary" onClick={handleCloseResponse}>
               Close
             </Button>
           </Modal.Footer>
