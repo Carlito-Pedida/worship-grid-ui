@@ -52,7 +52,7 @@ const ResponseEdit = ({
                   }}
                 >
                   <Stack>
-                    <p>Edit Message</p>
+                    <p>Edit Reply</p>
                     <textarea
                       className="mb-3"
                       name="reply"
@@ -60,8 +60,10 @@ const ResponseEdit = ({
                       onChange={handleChange}
                       placeholder="Message Edit"
                     />
-                    <span>Reactions </span>
+                    <span>Reactions</span>
                     <select
+                      style={{ height: "50px" }}
+                      className="my-2"
                       name="reactions"
                       value={reactions}
                       onChange={handleChange}
@@ -76,7 +78,7 @@ const ResponseEdit = ({
                     <Button
                       onClick={handleClose}
                       type="submit"
-                      className="mb-3"
+                      className="my-3"
                       variant="success"
                     >
                       Save Changes
