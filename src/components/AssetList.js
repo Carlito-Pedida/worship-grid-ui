@@ -405,6 +405,22 @@ const AssetList = () => {
                                             userLog.user_id ? (
                                             <>
                                               <Link
+                                                style={{
+                                                  textDecoration: "none",
+                                                  color: "gray",
+                                                  fontSize: "15px"
+                                                }}
+                                                to={`/asset/${a.asset_id}/reply`}
+                                                title="Reply Button"
+                                              >
+                                                Reply
+                                              </Link>{" "}
+                                              <Link
+                                                style={{
+                                                  textDecoration: "none",
+                                                  color: "gray",
+                                                  fontSize: "15px"
+                                                }}
                                                 to={"#"}
                                                 onClick={() => {
                                                   handleShowResponse(true);
@@ -415,6 +431,11 @@ const AssetList = () => {
                                                 Edit
                                               </Link>{" "}
                                               <Link
+                                                style={{
+                                                  textDecoration: "none",
+                                                  color: "gray",
+                                                  fontSize: "15px"
+                                                }}
                                                 to="#"
                                                 onClick={handleDeleteResponse.bind(
                                                   this,
