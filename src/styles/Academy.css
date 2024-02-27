@@ -17,10 +17,16 @@
   padding: 20px;
   background-color: rgb(48, 70, 52);
 }
+#video-tabs {
+  display: flex;
+}
 .tab {
   color: rgb(139, 139, 139);
   opacity: 60%;
   margin: 5px;
+  display: flex;
+  padding: 10px 15px;
+  cursor: pointer;
 }
 .tab.active {
   color: white;
