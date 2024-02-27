@@ -98,7 +98,10 @@ const AssetList = () => {
     }
   }
 
-  let [updatedResponse, setUpdatedResponse] = useState({});
+  let [updatedResponse, setUpdatedResponse] = useState({
+    parent_id: params.asset_id, // Include parent_id field with the ID of the parent message
+    response_id: ""
+  });
 
   let { deleteUserResponse, updateUserResponse, getOneUserResponse } =
     useContext(ResponseContext);
@@ -115,8 +118,31 @@ const AssetList = () => {
     fetch();
   }, [response_id]);
 
+  // function handleSubmitResponse(event) {
+  //   event.preventDefault();
+
+  //   updateUserResponse(updatedResponse, params.response_id)
+  //     .then(() => {
+  //       if (!updatedResponse.ok) {
+  //         alert("Update Successful!");
+  //       }
+  //       navigate("/assets");
+  //     })
+  //     .catch((error) => {
+  //       console.error("There was an error!", error);
+  //       alert("You are not authorized to perform this action!");
+  //       navigate("/assets");
+  //     });
+  // }
+
   function handleSubmitResponse(event) {
     event.preventDefault();
+
+    // Set the parent_id field before updating or creating the response
+    setUpdatedResponse((prevState) => ({
+      ...prevState,
+      parent_id: params.asset_id // Set parent_id to the ID of the parent message
+    }));
 
     updateUserResponse(updatedResponse, params.response_id)
       .then(() => {
@@ -131,7 +157,6 @@ const AssetList = () => {
         navigate("/assets");
       });
   }
-
   function handleDeleteResponse(response_id) {
     const confirmDelete = window.confirm("Are you sure?");
     if (confirmDelete) {

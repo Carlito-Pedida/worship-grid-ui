@@ -37,10 +37,15 @@
     rgb(51, 51, 51)
   );
 }
-.vids-container {
-  margin-left: auto;
-  margin-right: auto;
+.vid-case {
+  background-color: #434343f6;
+  padding: 100px;
 }
+.vids-container {
+  display: flex;
+  justify-content: center;
+}
+
 .ads-link {
   text-decoration: none;
   color: white;

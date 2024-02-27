@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import NewsBanner from "../props/NewsBanner";
 import AdsBanner from "../props/AdsBanner";
 import UserContext from "../contexts/UserContext";
 import { useNavigate, useParams } from "react-router-dom";
 import "../styles/Home.css";
 import SpinnerOverlay from "../props/SpinnerOverlay";
+import ReactPlayer from "react-player";
 
 const Home = () => {
   let params = useParams();
@@ -50,6 +51,13 @@ const Home = () => {
   useEffect(() => {
     document.title = "Worship Grid > Home";
   }, []);
+
+  const videos = [
+    "http://youtu.be/Mi_QNN3aiD4?si=S_dwR0__rfbRG8Md",
+    "http://www.youtube.com/watch?v=4ZlPtapuJNs",
+    "http://www.youtube.com/watch?v=xy_px_mi0jQ",
+    "http://www.youtube.com/watch?v=8IXWSipYYXc"
+  ];
 
   return (
     <>
@@ -120,84 +128,28 @@ const Home = () => {
           />
         </>
       )}
+      <div className="vid-case">
+        <div style={{ color: "white", marginBottom: "50px" }}>
+          <h1>Featured Videos</h1>
+        </div>
 
-      {/* <div className="featured-vids">
-        <Stack>
-          <div className="vids-container">
-            <Row>
-              <Col style={{ justifyContent: "center", marginTop: "20px" }}>
-                <h1 className="mt-5">FEATURED VIDEOS</h1>
-              </Col>
-            </Row>
-            <Row style={{ margin: "25px" }}>
-              <Col className="m-3">
+        <Row xs={1} md={2} className="g-4">
+          {videos.map((vids, idx) => (
+            <Col key={idx}>
+              <div className="vids-container">
                 <ReactPlayer
-                  className="player m-"
+                  className="react-player"
                   playing={false}
                   loop={true}
-                  url={`https://youtu.be/Mi_QNN3aiD4?si=S_dwR0__rfbRG8Md`}
+                  url={vids}
                   controls
-                  height={400}
-                  width={560}
                 />
-                <p className="mt-3">
-                  {" "}
-                  This is a where the description of the video goes.
-                </p>
-              </Col>
+              </div>
+            </Col>
+          ))}
+        </Row>
+      </div>
 
-              <Col className="m-3">
-                <ReactPlayer
-                  className="player"
-                  playing={false}
-                  loop={true}
-                  url={`https://www.youtube.com/watch?v=4ZlPtapuJNs`}
-                  controls
-                  height={400}
-                  width={560}
-                />
-                <p className="mt-3">
-                  {" "}
-                  This is a where the description of the video goes.
-                </p>
-              </Col>
-            </Row>
-
-            <Row className="row" style={{ margin: "30px" }}>
-              <Col className="m-3">
-                <ReactPlayer
-                  className="player"
-                  playing={false}
-                  loop={true}
-                  url={`https://www.youtube.com/watch?v=xy_px_mi0jQ`}
-                  controls
-                  height={400}
-                  width={560}
-                />
-                <p className="mt-3">
-                  {" "}
-                  This is a where the description of the video goes.
-                </p>
-              </Col>
-              <Col className="m-3">
-                <ReactPlayer
-                  className="player"
-                  playing={false}
-                  loop={true}
-                  url={`https://www.youtube.com/watch?v=8IXWSipYYXc`}
-                  controls
-                  height={400}
-                  width={560}
-                />
-                <p className="mt-3">
-                  {" "}
-                  This is a where the description of the video goes.
-                </p>
-              </Col>
-            </Row>
-          </div>
-        </Stack>
-      </div> */}
       <SpinnerOverlay loading={isLoading} />
     </>
   );
