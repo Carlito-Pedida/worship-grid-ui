@@ -41,10 +41,10 @@ const Academy = () => {
       artist: "Planetshakers"
     },
     {
-      url: "http://www.youtube.com/watch?v=aiBcROu0bRw",
+      url: "https://www.youtube.com/watch?v=XXClK5VZQls",
       title: "We Raise | Guitar 2 Tutorial",
       thumbnail:
-        "http://i.ytimg.com/vi/XXClK5VZQls/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCor2VVe1I43zxezPt6m3rc-aYtTQ",
+        "https://i.ytimg.com/vi/XXClK5VZQls/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCor2VVe1I43zxezPt6m3rc-aYtTQ",
       artist: "Planetshakers"
     },
     {
@@ -83,6 +83,7 @@ const Academy = () => {
                 />{" "}
                 <div className="ps-2 tab-titles">
                   {video.title}
+                  <br></br>
                   {video.artist}
                 </div>
               </div>
@@ -96,14 +97,19 @@ const Academy = () => {
         <Row xs={1} md={4} className="g-4">
           {Array.from({ length: 12 }).map((_, idx) => (
             <Col key={idx}>
-              <Card style={{ borderRadius: "0px" }}>
+              <Card style={{ borderRadius: "0px", borderStyle: "none" }}>
                 <Card.Img
                   style={{ borderRadius: "0px" }}
                   variant="top"
                   src="http://i.ytimg.com/vi/aiBcROu0bRw/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCDcB58v7r3OkTCN2bC7my3g-YCkA"
                   height={200}
                 />
-                <Card.Body>
+                <Card.Body
+                  style={{
+                    backgroundColor: "rgb(48, 70, 52)",
+                    color: "white"
+                  }}
+                >
                   <Card.Title>Video Tutorial Title</Card.Title>
                   <Card.Text>
                     This is the description of the video tutorial
