@@ -9,13 +9,13 @@ const SongPanel = ({ tabs }) => {
   };
 
   return (
-    <div className="tab-case">
-      <div className="tab-header">
+    <div className="songtab-case">
+      <div className="songtab-header">
         {tabs.map((tab, index) => (
           <div key={index}>
             <div
               key={index}
-              className={`tab ${activeTab === index ? "active" : ""}`}
+              className={`songtab ${activeTab === index ? "active" : ""}`}
               onClick={() => handleClick(index)}
             >
               {tab.title}
@@ -24,7 +24,7 @@ const SongPanel = ({ tabs }) => {
           </div>
         ))}
       </div>
-      <div className="tab-content">
+      <div className="songtab-content">
         <iframe className="songIframe" src={tabs[activeTab].content} />
       </div>
     </div>

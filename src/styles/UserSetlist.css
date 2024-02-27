@@ -1,5 +1,5 @@
 /* Styles for the tab component */
-.tab-case {
+.songtab-case {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -7,11 +7,11 @@
   background-color: white;
 }
 
-.tab-header {
+.songtab-header {
   display: flex;
   flex-direction: column;
 }
-.tab-title {
+.songtab-title {
   display: flex;
   flex-direction: row;
 }
@@ -26,7 +26,7 @@
   color: white;
 }
 
-.tab {
+.songtab {
   display: flex;
   flex-direction: row;
   padding: 10px 15px;
@@ -38,16 +38,16 @@
   width: 350px;
 }
 
-.tab:last-child {
+.songtab:last-child {
   border-right: 1px solid #ccc;
 }
 
-.tab.active {
+.songtab.active {
   background-color: #fff;
   border-right: 0;
 }
 
-.tab-content {
+.songtab-content {
   padding: 20px;
   border: 1px solid #ccc;
   border-left: 0;
