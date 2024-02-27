@@ -7,6 +7,7 @@ import { faSearch, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { Nav, Navbar, Col } from "react-bootstrap";
 import MerchCart from "../MerchPages/MerchCart";
 import CartContext from "../contexts/CartContext";
+import SearchModal from "./SearchModal";
 import "../styles/Navigation.css";
 
 const Navigation = () => {
@@ -69,6 +70,19 @@ const Navigation = () => {
 
   const handleSubmitCart = (e) => {
     e.preventDefault();
+  };
+
+  // State to manage the visibility of the search modal
+  const [showSearchModal, setShowSearchModal] = useState(false);
+
+  // Function to open the search modal
+  const openSearchModal = () => {
+    setShowSearchModal(true);
+  };
+
+  // Function to close the search modal
+  const closeSearchModal = () => {
+    setShowSearchModal(false);
   };
 
   function whoIsLoggedIn() {
@@ -149,7 +163,10 @@ const Navigation = () => {
                       <Link className="hover-underline-animation" to="/academy">
                         WORSHIP GRID ACADEMY
                       </Link>
-                      <Link className="search-tool-animation">
+                      <Link
+                        className="search-tool-animation"
+                        onClick={openSearchModal}
+                      >
                         <FontAwesomeIcon
                           className="search-tool-icon"
                           icon={faSearch}
@@ -229,7 +246,10 @@ const Navigation = () => {
                       WORSHIP GRID ACADEMY
                     </Link>
 
-                    <Link className="search-tool-animation">
+                    <Link
+                      className="search-tool-animation"
+                      onClick={openSearchModal}
+                    >
                       <FontAwesomeIcon
                         className="search-tool-icon"
                         icon={faSearch}
@@ -274,6 +294,7 @@ const Navigation = () => {
           handleClose={closeCartModal}
           key={cartItems.merch_id}
         />
+        <SearchModal show={showSearchModal} handleClose={closeSearchModal} />
       </div>
     );
   }
