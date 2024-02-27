@@ -17,16 +17,22 @@
   padding: 20px;
   background-color: rgb(48, 70, 52);
 }
-#video-tabs {
-  background-color: black;
-  color: rgb(197, 197, 197);
-  border-style: none;
+.tab {
+  color: rgb(139, 139, 139);
+  opacity: 60%;
   margin: 5px;
 }
-.tab:active {
-  background-color: rgb(87, 87, 87);
-  color: rgb(158, 158, 158);
+.tab.active {
+  color: white;
+  opacity: 100%;
 }
+
+.tab:hover {
+  color: rgb(207, 207, 207);
+  opacity: 100%;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
 .tab-titles {
   text-align: left;
 }
