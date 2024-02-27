@@ -2,6 +2,7 @@
 import ReactPlayer from "react-player";
 import "../styles/Academy.css";
 import { useState } from "react";
+import { Card, Col, Row } from "react-bootstrap";
 
 const Academy = () => {
   const [selectedVideoIndex, setSelectedVideoIndex] = useState(0);
@@ -68,6 +69,7 @@ const Academy = () => {
           <div>
             {videoList.map((video, index) => (
               <div
+                style={{ backgroundColor: "black", borderStyle: "none" }}
                 id="video-tabs"
                 key={index}
                 className={index === selectedVideoIndex ? "tab active" : "tab"}
@@ -87,6 +89,30 @@ const Academy = () => {
             ))}
           </div>
         </div>
+      </div>
+
+      <div className="p-5">
+        <h2 className="academy-title">Other Tutorials</h2>
+        <Row xs={1} md={4} className="g-4">
+          {Array.from({ length: 12 }).map((_, idx) => (
+            <Col key={idx}>
+              <Card style={{ borderRadius: "0px" }}>
+                <Card.Img
+                  style={{ borderRadius: "0px" }}
+                  variant="top"
+                  src="http://i.ytimg.com/vi/aiBcROu0bRw/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCDcB58v7r3OkTCN2bC7my3g-YCkA"
+                  height={200}
+                />
+                <Card.Body>
+                  <Card.Title>Video Tutorial Title</Card.Title>
+                  <Card.Text>
+                    This is the description of the video tutorial
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
       </div>
     </div>
   );
