@@ -3,6 +3,7 @@ import ReactPlayer from "react-player";
 import "../styles/Academy.css";
 import { useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Academy = () => {
   const [selectedVideoIndex, setSelectedVideoIndex] = useState(0);
@@ -110,9 +111,17 @@ const Academy = () => {
                     color: "white"
                   }}
                 >
-                  <Card.Title>Video Tutorial Title</Card.Title>
+                  <Card.Title>
+                    <Link
+                      style={{ textDecoration: "none", color: "white" }}
+                      to="#"
+                    >
+                      Video Tutorial Title (5 videos)
+                    </Link>
+                  </Card.Title>
                   <Card.Text>
-                    This is the description of the video tutorial
+                    This is the description of the video tutorial. This can be
+                    multiple levels of texts.
                   </Card.Text>
                 </Card.Body>
               </Card>

@@ -166,7 +166,7 @@ const AssetList = () => {
         })
         .catch((error) => {
           console.log(error);
-          window.alert("You need to sign in to perform this operation");
+          window.alert("You are not alllowed to perform this operation");
           navigate("/assets");
         });
     }
@@ -399,7 +399,11 @@ const AssetList = () => {
                                 {a.UserResponses &&
                                 a.UserResponses.length > 0 ? (
                                   <div key={a.UserResponses.response_id}>
-                                    {a.UserResponses.map((r, i) => (
+                                    {a.UserResponses.sort(
+                                      (b, a) =>
+                                        moment(b.createdAt).valueOf() -
+                                        moment(a.createdAt).valueOf()
+                                    ).map((r, i) => (
                                       <div className="reply-card" key={i}>
                                         <div>
                                           <img
@@ -426,8 +430,8 @@ const AssetList = () => {
                                             {r.reply} {r.reactions}
                                           </div>
                                           {userLog &&
-                                          r.UserDatum.user_id ==
-                                            userLog.user_id ? (
+                                          r.UserDatum.user_id &&
+                                          userLog.user_id ? (
                                             <>
                                               <Link
                                                 style={{
