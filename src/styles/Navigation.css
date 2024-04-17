@@ -27,12 +27,12 @@
 }
 .nav-top-left {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }
 .nav-top-right {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -59,20 +59,7 @@
   padding-left: 10px;
   padding-right: 10px;
 }
-/* 
-.search-tool-animation:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  transform: scaleX(10);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  color: white;
-  background-color: #c0e5d1;
-  transform-origin: bottom center;
-  transition: transform 0.25s ease-out;
-} */
+
 .search-tool-animation:hover {
   background-color: #3e8e41;
   border-radius: 50%;
