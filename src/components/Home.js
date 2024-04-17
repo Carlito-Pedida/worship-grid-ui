@@ -19,7 +19,7 @@ const Home = () => {
     let isMounted = true;
 
     async function fetchData() {
-      setIsLoading(true);
+      setIsLoading(false);
       try {
         const result = await getUserAssets();
         if (isMounted) {
@@ -41,7 +41,7 @@ const Home = () => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  });
 
   let navigate = useNavigate();
   const handleClick = () => {
@@ -70,7 +70,7 @@ const Home = () => {
         />{" "}
       </div>
 
-      {userLog.user_id == params.user_id ? (
+      {userLog.user_id === params.user_id ? (
         <AdsBanner
           header={
             <a className="ads-link" href="/signup">
