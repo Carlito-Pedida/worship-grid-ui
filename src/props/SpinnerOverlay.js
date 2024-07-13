@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/SpinnerOverlay.css";
-import { Spinner } from "react-bootstrap";
 
 const SpinnerOverlay = ({ loading }) => {
   return (

@@ -320,6 +320,22 @@ const AssetList = () => {
                                   >
                                     <div>
                                       <h6>{a.message}</h6>
+                                      <div
+                                        style={{
+                                          width: "100%",
+                                          height: "auto",
+                                          overflow: "hidden"
+                                        }}
+                                      >
+                                        <img
+                                          src={a.imageLink}
+                                          style={{
+                                            width: "50%",
+                                            height: "auto"
+                                          }}
+                                          alt="Image"
+                                        />
+                                      </div>
                                     </div>
                                   </Card.Body>
                                   <Card.Footer>
