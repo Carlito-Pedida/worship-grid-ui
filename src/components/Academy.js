@@ -1,4 +1,3 @@
-// import React, { useState } from "react";
 import ReactPlayer from "react-player";
 import "../styles/Academy.css";
 import { useState } from "react";
