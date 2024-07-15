@@ -327,14 +327,16 @@ const AssetList = () => {
                                           overflow: "hidden"
                                         }}
                                       >
-                                        <img
-                                          src={a.imageLink}
-                                          style={{
-                                            width: "50%",
-                                            height: "auto"
-                                          }}
-                                          alt="Image"
-                                        />
+                                        {a.imageLink ? (
+                                          <img
+                                            src={a.imageLink}
+                                            style={{
+                                              width: "50%",
+                                              height: "auto"
+                                            }}
+                                            alt="Image"
+                                          />
+                                        ) : null}
                                       </div>
                                     </div>
                                   </Card.Body>

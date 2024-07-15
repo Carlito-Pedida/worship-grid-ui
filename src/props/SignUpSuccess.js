@@ -1,7 +1,6 @@
 import { Container } from "react-bootstrap";
 import React from "react";
 import AdsBanner from "./AdsBanner";
-import SignIn from "../components/SignIn";
 
 const SignUpSuccess = () => {
   return (
