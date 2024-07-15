@@ -4,7 +4,7 @@ import { useContext } from "react";
 import AssetContext from "../contexts/AssetContext";
 
 export const ResponseProvider = (props) => {
-  const baseUrl = "http://localhost:5000/server/responses/";
+  const baseUrl = "https://worship-grid-api.vercel.app/server/responses/";
 
   const { getAllUserAssets } = useContext(AssetContext);
 
