@@ -4,7 +4,8 @@ import AssetContext from "../contexts/AssetContext";
 
 export const AssetProvider = (props) => {
   const [asset, setAsset] = useState([]);
-  const baseUrl = "http://localhost:5000/server/assets/";
+  const baseUrl =
+    "https://vercel.com/carlito-pedidas-projects/worship-grid-api/server/assets/";
 
   useEffect(() => {
     async function fetchData() {
@@ -34,7 +35,8 @@ export const AssetProvider = (props) => {
   }
 
   function getOneUserAsset(asset_id) {
-    let url = "http://localhost:5000/server/assets/asset/";
+    let url =
+      "https://vercel.com/carlito-pedidas-projects/worship-grid-api/server/assets/asset/";
     return axios.get(url + asset_id).then((response) => {
       getAllUserAssets();
       return new Promise((resolve) => resolve(response.data));
@@ -42,7 +44,8 @@ export const AssetProvider = (props) => {
   }
 
   function updateUserAsset(updatedAsset, user_id) {
-    let url = "http://localhost:5000/server/assets/asset/";
+    let url =
+      "https://vercel.com/carlito-pedidas-projects/worship-grid-api/server/assets/asset/";
     let headers = {
       Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
     };
