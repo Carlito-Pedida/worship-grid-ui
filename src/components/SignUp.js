@@ -65,7 +65,7 @@ const SignUp = () => {
       avatar
     )
       .then(() => {
-        navigate("/");
+        navigate("/signupsuccessful");
       })
       .catch((error) => {
         console.log(error);
