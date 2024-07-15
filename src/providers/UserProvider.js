@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 
 export const UserProvider = (props) => {
   const [loggedUser, setLoggedUser] = useState([]);
-  const baseUrl =
-    "https://vercel.com/carlito-pedidas-projects/worship-grid-api/server/users/";
+  const baseUrl = "https://worship-grid-api.vercel.app/server/users/";
 
   useEffect(() => {
     async function fetchData() {
@@ -16,9 +15,7 @@ export const UserProvider = (props) => {
 
   function getAllUserAssets() {
     return axios
-      .get(
-        `https://vercel.com/carlito-pedidas-projects/worship-grid-api/server/assets/`
-      )
+      .get(`https://worship-grid-api.vercel.app/server/assets/`)
       .then((response) => setLoggedUser(response.data))
       .catch((error) => console.error("Error fetching user assets:", error));
   }
@@ -86,8 +83,7 @@ export const UserProvider = (props) => {
   }
 
   function getUserAssets(user_id) {
-    const url =
-      "https://vercel.com/carlito-pedidas-projects/worship-grid-api/server/users/assets/";
+    const url = "https://worship-grid-api.vercel.app/server/users/assets/";
     let headers = {
       Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
     };
