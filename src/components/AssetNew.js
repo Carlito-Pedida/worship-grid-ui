@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import AssetContext from "../contexts/AssetContext";
 import { useNavigate, useParams } from "react-router-dom";
-import { Spinner } from "react-bootstrap";
+import { Container, Spinner } from "react-bootstrap";
 import UserContext from "../contexts/UserContext";
 
 const AssetNew = () => {
@@ -88,19 +88,15 @@ const AssetNew = () => {
 
   return (
     <div
-      className="container"
       style={{
-        padding: "30px",
-
+        padding: "10px",
         color: "white"
-        // opacity: "85%"
       }}
     >
-      <div>
+      <div className="container px-lg-5">
         <form onSubmit={handleSubmit} key={params.asset_Id}>
           <input
-            size={75}
-            className="share-input p-2 me-2"
+            className="share-input"
             type="text"
             name="message"
             value={message}

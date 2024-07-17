@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import NewsBanner from "../props/NewsBanner";
 import moment from "moment";
 import AssetEdit from "./AssetEdit";
-import { Button, Card, Modal } from "react-bootstrap";
+import { Button, Card, Container, Modal } from "react-bootstrap";
 import UserContext from "../contexts/UserContext";
 import "../styles/AssetList.css";
 import AssetNew from "./AssetNew";
@@ -230,9 +230,9 @@ const AssetList = () => {
                   <></>
                 )}
 
-                <div className="message-board p-5">
+                <div className="p-2">
                   <div
-                    className="message-frame cont pt-3 pb-3"
+                    className="message-frame cont pt-3"
                     style={{ color: "white" }}
                   >
                     <h1>Message Board</h1>
@@ -244,7 +244,7 @@ const AssetList = () => {
                       </>
                     )}
 
-                    <div>
+                    <div className="container px-lg-5">
                       {asset
                         .sort(
                           (a, b) =>
@@ -258,18 +258,14 @@ const AssetList = () => {
                               style={{
                                 border: "solid #b7b7b7 3px",
                                 backgroundColor: "#767676",
+                                margin: "10px",
 
-                                padding: "40px",
-                                borderRadius: "10px",
-                                margin: "auto",
-                                marginTop: "10px",
-                                // marginBottom: "10px",
-                                width: "65%",
-                                position: "relative"
+                                borderRadius: "10px"
                               }}
                               key={i}
                             >
                               <div
+                                className="p-2"
                                 style={{
                                   color: "black"
                                 }}

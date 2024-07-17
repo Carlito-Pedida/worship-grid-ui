@@ -8,7 +8,7 @@
 
 .rss-main {
   background-color: rgb(74, 95, 112);
-  padding: 50px;
+  padding: 10px;
   border-radius: 25px;
 }
 .rss-main h4 {
@@ -74,7 +74,7 @@
 .rss-box {
   background-color: rgba(0, 0, 0, 0.618);
   border-radius: 25px;
-  padding: 40px 85px 40px 85px;
+  padding: 20px;
   color: white;
-  margin: 25px;
+  margin: 10px;
 }

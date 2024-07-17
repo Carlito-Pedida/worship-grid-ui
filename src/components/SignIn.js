@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../contexts/UserContext";
-import { Button, Modal, Form } from "react-bootstrap";
+import { Button, Modal, Form, Container } from "react-bootstrap";
 import "../styles/SignIn.css";
 
 const SignIn = ({ show, handleClose }) => {
@@ -55,7 +55,7 @@ const SignIn = ({ show, handleClose }) => {
   };
 
   return (
-    <div>
+    <Container>
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header
           style={{ backgroundColor: "#366532" }}
@@ -140,7 +140,7 @@ const SignIn = ({ show, handleClose }) => {
           </Button>
         </Modal.Footer>
       </Modal>
-    </div>
+    </Container>
   );
 };
 

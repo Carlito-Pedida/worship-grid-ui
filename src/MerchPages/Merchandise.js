@@ -11,7 +11,8 @@ const Merchandise = () => {
           backgroundColor: "rgb(51, 51, 51)",
           overflow: "hidden",
           color: "white",
-          padding: "45px"
+          padding: "45px",
+          marginTop: "5px"
         }}
       >
         <h1 className="mb-5">Worship Grid Store</h1>

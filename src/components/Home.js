@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Button, Col, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import NewsBanner from "../props/NewsBanner";
 import AdsBanner from "../props/AdsBanner";
 import UserContext from "../contexts/UserContext";
@@ -71,30 +71,32 @@ const Home = () => {
       </div>
 
       {userLog.user_id === params.user_id ? (
-        <AdsBanner
-          header={
-            <a className="ads-link" href="/signup">
-              GET THE ALL ACCESS
-            </a>
-          }
-          textFx="PASS"
-          subHeader="Every resource you need to create a condusive and interactive practice
+        <Container>
+          <AdsBanner
+            header={
+              <a className="ads-link" href="/signup">
+                GET THE ALL ACCESS
+              </a>
+            }
+            textFx="PASS"
+            subHeader="Every resource you need to create a condusive and interactive practice
         environment."
-          smallText1="Browse through all the music and practice resources to get you
+            smallText1="Browse through all the music and practice resources to get you
         hyped up and performance ready on your weekly gig."
-          smallText2="Pitch up or down your music to match the assigned keys in your
+            smallText2="Pitch up or down your music to match the assigned keys in your
         setlist to make for accurate practice."
-          smallText3="Watch all premium video tutorials from favorite musicians and
+            smallText3="Watch all premium video tutorials from favorite musicians and
         artists!"
-          bigText1="Starting at just 14.99/month"
-          bigText2="Not ready to get the ALL ACCESS PASS yet?"
-          bigText3="Click"
-          linkedText="HERE"
-          bigText4="to try it FREE for 1 month!"
-          buttonText2="LEARN MORE"
-        />
+            bigText1="Starting at just 14.99/month"
+            bigText2="Not ready to get the ALL ACCESS PASS yet?"
+            bigText3="Click"
+            linkedText="HERE"
+            bigText4="to try it FREE for 1 month!"
+            buttonText2="LEARN MORE"
+          />
+        </Container>
       ) : (
-        <>
+        <Container>
           <AdsBanner
             header="Hello,"
             textFx={userLog.first_name + "!"}
@@ -126,9 +128,9 @@ const Home = () => {
               </Button>
             }
           />
-        </>
+        </Container>
       )}
-      <div className="vid-case">
+      <Container>
         <div style={{ color: "white", marginBottom: "50px" }}>
           <h1>Featured Videos</h1>
         </div>
@@ -148,7 +150,7 @@ const Home = () => {
             </Col>
           ))}
         </Row>
-      </div>
+      </Container>
 
       <SpinnerOverlay loading={isLoading} />
     </>
