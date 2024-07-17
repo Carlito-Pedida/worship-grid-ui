@@ -44,6 +44,7 @@ const AssetList = () => {
     return () => {
       isMounted = false;
     };
+    // eslint-disable-next-line
   }, []);
 
   let [updatedAsset, setUpdatedAsset] = useState({
@@ -64,6 +65,7 @@ const AssetList = () => {
       );
     }
     fetch();
+    // eslint-disable-next-line
   }, []);
 
   function handleSubmit(event) {
@@ -116,24 +118,8 @@ const AssetList = () => {
       setUpdatedResponse(userReply);
     }
     fetch();
-  }, [response_id]);
-
-  // function handleSubmitResponse(event) {
-  //   event.preventDefault();
-
-  //   updateUserResponse(updatedResponse, params.response_id)
-  //     .then(() => {
-  //       if (!updatedResponse.ok) {
-  //         alert("Update Successful!");
-  //       }
-  //       navigate("/assets");
-  //     })
-  //     .catch((error) => {
-  //       console.error("There was an error!", error);
-  //       alert("You are not authorized to perform this action!");
-  //       navigate("/assets");
-  //     });
-  // }
+    // eslint-disable-next-line
+  }, []);
 
   function handleSubmitResponse(event) {
     event.preventDefault();
@@ -177,6 +163,7 @@ const AssetList = () => {
     document.title = "Worship Grid > Convo";
 
     getAllUserAssets();
+    // eslint-disable-next-line
   }, []);
 
   const [show, setShow] = useState(false);
@@ -190,16 +177,6 @@ const AssetList = () => {
 
   const handleCloseResponse = () => setShowResponseEdit(false);
   const handleShowResponse = () => setShowResponseEdit(true);
-
-  const handleEdit = (asset) => {
-    setUpdatedAsset(asset);
-    handleShow();
-  };
-
-  const handleEditResponse = (response) => {
-    setUpdatedResponse(response);
-    handleShow();
-  };
 
   const handleEditAssetChange = (updatedAsset) => {
     // Update the state in AssetList
@@ -218,7 +195,7 @@ const AssetList = () => {
           {({ asset }) => {
             return (
               <>
-                {userLog.user_id == params.user_id ? (
+                {userLog.user_id === params.user_id ? (
                   <div>
                     <NewsBanner
                       title="JOIN THE CONVERSATION!"
@@ -279,7 +256,7 @@ const AssetList = () => {
                                   <Card.Header className="message-head">
                                     <div>
                                       <img
-                                        alt=""
+                                        alt="user-avatar"
                                         style={{
                                           borderRadius: "50%"
                                         }}
@@ -330,7 +307,7 @@ const AssetList = () => {
                                               width: "50%",
                                               height: "auto"
                                             }}
-                                            alt="Image"
+                                            alt="user-avatar"
                                           />
                                         ) : null}
                                       </div>
@@ -421,7 +398,7 @@ const AssetList = () => {
                                       <div className="reply-card" key={i}>
                                         <div>
                                           <img
-                                            alt=""
+                                            alt="user-avatar"
                                             style={{
                                               borderRadius: "50%"
                                             }}
