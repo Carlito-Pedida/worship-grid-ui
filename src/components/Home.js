@@ -41,7 +41,7 @@ const Home = () => {
     return () => {
       isMounted = false;
     };
-  });
+  }, []);
 
   let navigate = useNavigate();
   const handleClick = () => {
