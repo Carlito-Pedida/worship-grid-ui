@@ -16,9 +16,39 @@ const SignUp = () => {
   const [position, setPosition] = useState("");
   const [avatar, setAvatar] = useState("");
 
+  // const [signUpCreds, SetSignUpCreds] = useState({
+  //   username: "",
+  //   password: "",
+  //   first_name: "",
+  //   last_name: "",
+  //   email: "",
+  //   city: "",
+  //   state: "",
+  //   zipcode: "",
+  //   position: "",
+  //   avatar: ""
+  // });
+
   const { signupUser } = useContext(UserContext);
 
   const navigate = useNavigate();
+
+  // function handleChange(event) {
+  //   const { name, value } = event.target;
+  //   SetSignUpCreds((prevValue) => ({ ...prevValue, [name]: value }));
+  // }
+
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+  //   signupUser(...signUpCreds)
+  //     .then(() => {
+  //       navigate("/");
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       window.alert("Failed registration: error creating user");
+  //     });
+  // }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -63,6 +93,7 @@ const SignUp = () => {
                   name="username"
                   value={username}
                   placeholder="Username"
+                  //onChange={handleChange}
                   onChange={(e) => setUsername(e.target.value)}
                 />
                 <input
@@ -70,6 +101,7 @@ const SignUp = () => {
                   name="password"
                   value={password}
                   placeholder="Password"
+                  //onChange={handleChange}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
@@ -79,6 +111,7 @@ const SignUp = () => {
                   name="first_name"
                   value={first_name}
                   placeholder="First Name"
+                  //onChange={handleChange}
                   onChange={(e) => setFirst_Name(e.target.value)}
                 />
 
@@ -87,6 +120,7 @@ const SignUp = () => {
                   name="last_name"
                   value={last_name}
                   placeholder="Last Name"
+                  //onChange={handleChange}
                   onChange={(e) => setLast_Name(e.target.value)}
                 />
               </div>
@@ -97,6 +131,7 @@ const SignUp = () => {
                 name="email"
                 value={email}
                 placeholder="Email"
+                //onChange={handleChange}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <input
@@ -105,6 +140,7 @@ const SignUp = () => {
                 name="city"
                 value={city}
                 placeholder="City"
+                //onChange={handleChange}
                 onChange={(e) => setCity(e.target.value)}
               />
               <div className="form-group">
@@ -113,6 +149,7 @@ const SignUp = () => {
                   name="state"
                   value={state}
                   placeholder="State"
+                  //onChange={handleChange}
                   onChange={(e) => setState(e.target.value)}
                 />
                 <input
@@ -120,6 +157,7 @@ const SignUp = () => {
                   name="zipcode"
                   value={zipcode}
                   placeholder="Zipcode"
+                  //onChange={handleChange}
                   onChange={(e) => setZipcode(e.target.value)}
                 />
               </div>
@@ -129,6 +167,7 @@ const SignUp = () => {
                 name="position"
                 value={position}
                 placeholder="Worship Team Position"
+                //onChange={handleChange}
                 onChange={(e) => setPosition(e.target.value)}
               />
               <input
@@ -137,6 +176,7 @@ const SignUp = () => {
                 name="avatar"
                 value={avatar}
                 placeholder="Image URL"
+                //onChange={handleChange}
                 onChange={(e) => setAvatar(e.target.value)}
               />
               <Button size="sm" type="submit" variant="success" className="p-2">

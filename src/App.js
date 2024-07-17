@@ -1,29 +1,34 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SignUp from "./components/SignUp";
-import SignIn from "./components/SignIn";
-import AssetList from "./components/AssetList";
-import AssetNew from "./components/AssetNew";
-import Home from "./components/Home";
-import { UserProvider } from "./providers/UserProvider";
-import { AssetProvider } from "./providers/AssetProvider";
-import { ResponseProvider } from "./providers/ResponseProvider";
-import ResponseNew from "./components/ResponseNew";
-import SignOut from "./components/SignOut";
 import AboutInfo from "./components/AboutInfo";
 import Academy from "./components/Academy";
-import Merchandise from "./MerchPages/Merchandise.js";
 import AssetEdit from "./components/AssetEdit.js";
-import UserSetlist from "./components/UserSetlist";
-import UserProfile from "./components/UserProfile";
+import AssetList from "./components/AssetList";
+import AssetNew from "./components/AssetNew";
+import EditProfile from "./components/EditProfile.js";
+import FeaturedMusic from "./components/FeaturedMusic.js";
+import Home from "./components/Home";
+import Navigation from "./components/Navigation.js";
+import PrivateRoutes from "./components/PrivateRoutes.js";
+import ResponseNew from "./components/ResponseNew";
 import Rss from "./components/Rss.js";
-import Success from "./MerchPages/Success.js";
+import SignIn from "./components/SignIn";
+import SignOut from "./components/SignOut";
+import SignUp from "./components/SignUp";
+import UserProfile from "./components/UserProfile";
+import UserSetlist from "./components/UserSetlist";
 import Cancel from "./MerchPages/Cancel.js";
+import Merchandise from "./MerchPages/Merchandise.js";
+import Success from "./MerchPages/Success.js";
+import SignUpSuccess from "./props/SignUpSuccess.js";
+import { AssetProvider } from "./providers/AssetProvider";
 import { CartProvider } from "./providers/CartProvider.js";
 import FeaturedMusic from "./components/FeaturedMusic.js";
 import PrivateRoutes from "./components/PrivateRoutes.js";
 import EditProfile from "./components/EditProfile.js";
 import Navigation from "./components/Navigation.js";
+import { ResponseProvider } from "./providers/ResponseProvider";
+import { UserProvider } from "./providers/UserProvider";
 
 function App() {
   return (
