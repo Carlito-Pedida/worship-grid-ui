@@ -24,7 +24,7 @@ const CartItemCounter = () => {
     <>
       {cartItemCounter > 0 ? (
         <Link
-          className="text-white mx-2"
+          className="text-white mx-1"
           to={openCartModal}
           onClick={openCartModal}
         >

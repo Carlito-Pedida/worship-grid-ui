@@ -73,9 +73,11 @@ const MenuLogged = () => {
                     to={`/profile/${userLog.user_id}/${userLog.username}`}
                   >
                     HELLO,{" "}
-                    <strong style={{ textTransform: "uppercase" }}>
+                    <span
+                      style={{ textTransform: "uppercase", color: "orange" }}
+                    >
                       {first_name}!
-                    </strong>
+                    </span>
                   </Link>
 
                   <Link

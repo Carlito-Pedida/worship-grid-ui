@@ -49,8 +49,9 @@ const Navigation = () => {
         <Container>
           <Navbar.Brand className="">
             <Link type="link" to="/">
+              <img className="d-lg-none" src="/logo.png" alt="" height={55} />
               <img
-                className="brand-image"
+                className="d-none d-lg-block"
                 src="/logo-2.png"
                 alt=""
                 height={55}
@@ -61,27 +62,29 @@ const Navigation = () => {
             <div className="d-lg-none">
               <CartItemCounter />
             </div>
-            <Link
-              className="mx-2"
-              to={`/profile/${userLog.user_id}/${userLog.username}`}
-            >
-              <img
-                style={{
-                  borderRadius: "50%",
-                  border: "solid 3px white",
-                  marginLeft: "5px",
-                  marginRight: "5px"
-                }}
-                src={userLog.avatar}
-                size="40"
-                round="true"
-                height={45}
-                width={45}
-                alt="user-avatar"
-              />
-            </Link>
+            {userLog.avatar ? (
+              <Link
+                className="d-lg-none mx-1"
+                to={`/profile/${userLog.user_id}/${userLog.username}`}
+              >
+                <img
+                  style={{
+                    borderRadius: "50%",
+                    border: "solid 3px white",
+                    marginLeft: "5px",
+                    marginRight: "5px"
+                  }}
+                  src={userLog.avatar}
+                  size="40"
+                  round="true"
+                  height={45}
+                  width={45}
+                  alt=""
+                />
+              </Link>
+            ) : null}
             <Navbar.Toggle
-              className="mx-2"
+              className="mx-1"
               aria-controls={`offcanvasNavbar-expand-lg`}
               onClick={handleOffcanvasShow}
             />
@@ -94,7 +97,7 @@ const Navigation = () => {
               placement="end"
             >
               <Offcanvas.Header closeButton>
-                <Link type="link" to="/">
+                <Link onClick={handleOffcanvasClose} type="link" to="/">
                   <img
                     className="brand-image"
                     src="/logo-2.png"

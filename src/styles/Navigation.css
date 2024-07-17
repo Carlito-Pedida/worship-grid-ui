@@ -7,6 +7,8 @@
 }
 
 .nav-links:hover {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   background-color: #3e8e41;
   color: white;
   padding: 10px;
@@ -34,6 +36,7 @@
 } */
 
 .navLinks2 {
+  border-radius: 7px;
   border-top: 1px solid rgb(175, 175, 175);
   border-bottom: 1px solid rgb(175, 175, 175);
   margin-top: 5px;
@@ -99,15 +102,4 @@
 .hover-underline-animation:hover:after {
   transform: scaleX(1);
   transform-origin: bottom center;
-}
-.brand-image {
-  align-items: center;
-}
-
-.brand-image2:hover:after {
-  transform: scaleX(1);
-  transform-origin: bottom center;
-}
-.brand-image {
-  margin-bottom: 3px;
 }
