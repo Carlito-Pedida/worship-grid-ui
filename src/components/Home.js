@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import NewsBanner from "../props/NewsBanner";
-import AdsBanner from "../props/AdsBanner";
-import UserContext from "../contexts/UserContext";
-import { useNavigate, useParams } from "react-router-dom";
-import "../styles/Home.css";
-import SpinnerOverlay from "../props/SpinnerOverlay";
 import ReactPlayer from "react-player";
+import { useNavigate, useParams } from "react-router-dom";
+import UserContext from "../contexts/UserContext";
+import AdsBanner from "../props/AdsBanner";
+import NewsBanner from "../props/NewsBanner";
+import SpinnerOverlay from "../props/SpinnerOverlay";
+import "../styles/Home.css";
 
 const Home = () => {
   let params = useParams();

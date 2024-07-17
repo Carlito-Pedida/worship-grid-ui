@@ -5,6 +5,7 @@ import {
   CardBody,
   CardImg,
   Col,
+  Container,
   Form,
   Modal,
   Row
@@ -87,12 +88,14 @@ const MerchCard = (props) => {
         </CardBody>
       </Card>
       <>
-        <Modal show={show} onHide={handleClose} size="xl">
+        <Modal show={show} onHide={handleClose} size="md">
           <Modal.Header closeButton>
             <Modal.Title>{selectedItem?.item_name}</Modal.Title>
           </Modal.Header>
-          <Modal.Body className="d-flex justify-content-center align-items-center">
-            <img style={{ maxHeight: "430px" }} src={selectedItem?.item_img} />
+          <Modal.Body className="d-flex-wrap justify-content-center align-items-center">
+            <div className="d-flex justify-content-center">
+              <img width={300} src={selectedItem?.item_img} />
+            </div>
             <div className="p-3">
               <p>{selectedItem?.description}</p>
               <h4>$ {selectedItem?.price}</h4>

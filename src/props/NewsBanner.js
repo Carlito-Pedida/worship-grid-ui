@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import UserContext from "../contexts/UserContext";
 import SignIn from "../components/SignIn";
+import UserContext from "../contexts/UserContext";
 
 const NewsBanner = (props) => {
   const [userLog, setUserLog] = useState([]);

@@ -1,20 +1,17 @@
-/* Styles for the tab component */
 .songtab-case {
-  display: flex;
-  flex-direction: row;
+  margin: 10px;
+  border-radius: 5px;
   width: 100%;
-  padding: 10px;
-  background-color: white;
+  padding: 5px;
+  background-color: rgba(109, 120, 114, 0.512);
 }
 
-.songtab-header {
-  display: flex;
-  flex-direction: column;
+.tab-heads {
+  background-color: rgb(53, 114, 75);
+  padding: 5px;
+  color: white;
 }
-.songtab-title {
-  display: flex;
-  flex-direction: row;
-}
+
 .key {
   display: flex;
   align-items: center;
@@ -22,41 +19,10 @@
   border-radius: 50%;
   height: 25px;
   width: 25px;
-  background-color: rgb(10, 123, 148);
+  background-color: rgb(24, 164, 80);
   color: white;
 }
 
-.songtab {
-  display: flex;
-  flex-direction: row;
-  padding: 10px 15px;
-  cursor: pointer;
-  border: 1px solid #ccc;
-  border-right: 0;
-  background-color: #f2f2f2;
-  transition: background-color 0.3s ease;
-  width: 350px;
-}
-
-.songtab:last-child {
-  border-right: 1px solid #ccc;
-}
-
-.songtab.active {
-  background-color: #fff;
-  border-right: 0;
-}
-
-.songtab-content {
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-left: 0;
-
-  background-color: #fff;
-  width: 100%;
-}
-
 .songIframe {
-  height: 100vh; /* Set height to 100% of the viewport height */
-  width: 100vh; /* Set width to 100% of the viewport width */
+  height: 100vh;
 }

@@ -3,7 +3,8 @@ import { Outlet, Navigate, useNavigate, Link } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import SignIn from "./SignIn";
 import AdsBanner from "../props/AdsBanner";
-import { Button } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
+import Restricted from "../props/Restricted";
 
 const PrivateRoutes = () => {
   let navigate = useNavigate();
@@ -25,16 +26,11 @@ const PrivateRoutes = () => {
 
   if (redirect) {
     return (
-      <div>
-        <AdsBanner
-          header="THIS PAGE IS"
-          textFx="RESTRICTED!"
-          subHeader1="You need to"
-          subHeaderLink="SIGN IN"
-          subHeader2="to access this area!"
-          button1={
-            <Button onClick={handleClick}>SIGN UP FOR FULL ACCESS</Button>
-          }
+      <div className="container py-4">
+        <Restricted
+          title1="This area is"
+          title2="RESTRICTED!"
+          buttonText="Sign Up for full access"
         />
       </div>
     );

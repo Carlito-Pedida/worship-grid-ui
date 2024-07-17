@@ -1,4 +1,4 @@
-.form-grid {
+/* .form-grid {
   display: flex;
   justify-content: center;
 }
@@ -43,5 +43,84 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Make sure the container takes the full height of the viewport */
+  height: 100vh; 
+} */
+
+.form-style {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(24, 51, 38, 0.883);
+
+  padding: 15px;
+  border-radius: 5px;
+  color: rgb(2, 81, 130);
+}
+.form-container {
+  background-image: url(/public/logo.png);
+  background-position: center;
+  background-size: cover;
+  max-width: 600px;
+  margin: auto;
+  padding: 1em;
+}
+
+.form-style {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input {
+  opacity: 75%;
+  font-family: Dosis;
+  margin-bottom: 0.5em;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.single-line-input {
+  opacity: 75%;
+  font-family: Dosis;
+  margin-bottom: 0.5em;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+@media (min-width: 768px) {
+  .form-group {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .form-group input {
+    font-family: Dosis;
+    flex: 1;
+    margin-right: 0.5em;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .form-group input:last-child {
+    margin-right: 0;
+  }
+
+  .button-group {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }

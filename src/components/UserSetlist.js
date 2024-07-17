@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import SongPanel from "../props/SongPanel";
-import { useParams } from "react-router-dom";
-import iThankGodB from "../PDFs/iThankGodB.pdf";
+import React, { useEffect } from "react";
 import ISpeakJesusD from "../PDFs/ISpeakJesusD.pdf";
 import blessedAssuranceD from "../PDFs/blessedAssuranceD.pdf";
+import iThankGodB from "../PDFs/iThankGodB.pdf";
+import SongPanel from "../props/SongPanel";
 
 const UserSetlist = () => {
   const tabs = [

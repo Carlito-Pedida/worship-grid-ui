@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
-import AssetContext from "../contexts/AssetContext";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import NewsBanner from "../props/NewsBanner";
-import moment from "moment";
-import AssetEdit from "./AssetEdit";
-import { Button, Card, Container, Modal } from "react-bootstrap";
-import UserContext from "../contexts/UserContext";
-import "../styles/AssetList.css";
-import AssetNew from "./AssetNew";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faReply, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import moment from "moment";
+import React, { useContext, useEffect, useState } from "react";
+import { Button, Card, Modal } from "react-bootstrap";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import AssetContext from "../contexts/AssetContext";
 import ResponseContext from "../contexts/ResponseContext";
+import UserContext from "../contexts/UserContext";
+import NewsBanner from "../props/NewsBanner";
+import "../styles/AssetList.css";
+import AssetEdit from "./AssetEdit";
+import AssetNew from "./AssetNew";
 import ResponseEdit from "./ResponseEdit";
 
 const AssetList = () => {

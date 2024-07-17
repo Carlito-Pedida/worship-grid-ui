@@ -1,9 +1,8 @@
-// import React, { useState } from "react";
-import ReactPlayer from "react-player";
-import "../styles/Academy.css";
 import { useState } from "react";
 import { Card, Col, Container, Row, Stack } from "react-bootstrap";
+import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
+import "../styles/Academy.css";
 
 const Academy = () => {
   const [selectedVideoIndex, setSelectedVideoIndex] = useState(0);
