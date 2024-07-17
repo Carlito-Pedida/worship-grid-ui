@@ -58,20 +58,6 @@ export const AssetProvider = (props) => {
       });
   }
 
-  // function updateUserAsset(updatedAsset) {
-  //   let url = "http://localhost:5000/server/assets/asset/";
-  //   let headers = {
-  //     Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`
-  //   };
-
-  //   return axios
-  //     .put(url + updatedAsset.asset_id, updatedAsset, { headers })
-  //     .then((response) => {
-  //       getAllUserAssets();
-  //       return new Promise((resolve) => resolve(response.data));
-  //     });
-  // }
-
   function deleteUserAsset(asset_id) {
     let headers = {
       Authorization: `Bearer ${localStorage.getItem("loggedUserToken")}`

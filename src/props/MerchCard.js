@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Card, CardBody, Col, Form, Modal, Row } from "react-bootstrap";
 import CartContext from "../contexts/CartContext";
 
@@ -23,12 +23,12 @@ const MerchCard = (props) => {
           <Card.Title>{merch.item_name}</Card.Title>
           <img
             style={{ cursor: "pointer" }}
-            alt="photo-here"
+            alt="merch-item"
             onClick={() => {
               handleShow(true);
               setSelectedItem(merch);
             }}
-            height={200}
+            height={150}
             src={merch.item_img}
           />
           <Card.Text>{merch.description}</Card.Text>
@@ -78,12 +78,14 @@ const MerchCard = (props) => {
         </CardBody>
       </Card>
       <>
-        <Modal show={show} onHide={handleClose} size="xl">
+        <Modal show={show} onHide={handleClose} size="md">
           <Modal.Header closeButton>
             <Modal.Title>{selectedItem?.item_name}</Modal.Title>
           </Modal.Header>
-          <Modal.Body className="d-flex justify-content-center align-items-center">
-            <img style={{ maxHeight: "430px" }} src={selectedItem?.item_img} />
+          <Modal.Body className="d-flex-wrap justify-content-center align-items-center">
+            <div className="d-flex justify-content-center">
+              <img width={300} src={selectedItem?.item_img} alt="merch-item" />
+            </div>
             <div className="p-3">
               <p>{selectedItem?.description}</p>
               <h4>$ {selectedItem?.price}</h4>

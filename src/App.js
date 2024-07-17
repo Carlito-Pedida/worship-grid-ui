@@ -23,6 +23,10 @@ import Success from "./MerchPages/Success.js";
 import SignUpSuccess from "./props/SignUpSuccess.js";
 import { AssetProvider } from "./providers/AssetProvider";
 import { CartProvider } from "./providers/CartProvider.js";
+import FeaturedMusic from "./components/FeaturedMusic.js";
+import PrivateRoutes from "./components/PrivateRoutes.js";
+import EditProfile from "./components/EditProfile.js";
+import Navigation from "./components/Navigation.js";
 import { ResponseProvider } from "./providers/ResponseProvider";
 import { UserProvider } from "./providers/UserProvider";
 
@@ -64,7 +68,6 @@ function App() {
                     />
                   </Route>
                   <Route path="/assets" element={<AssetList />} />
-                  <Route path="/signupsuccessful" element={<SignUpSuccess />} />
                   <Route path="/merchandise" element={<Merchandise />} />
                   <Route path="/paysuccessful" element={<Success />} />
                   <Route path="/paycanceled" element={<Cancel />} />

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, Stack } from "react-bootstrap";
-import "../styles/AssetEdit.css";
 
 const ResponseEdit = ({
   response,

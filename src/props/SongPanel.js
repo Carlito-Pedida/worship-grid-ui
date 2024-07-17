@@ -1,33 +1,49 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { Container, Tab, Tabs } from "react-bootstrap";
 import "../styles/UserSetlist.css";
 
 const SongPanel = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState(0);
 
-  const handleClick = (index) => {
+  const handleSelect = (index) => {
     setActiveTab(index);
   };
 
   return (
-    <div className="songtab-case">
-      <div className="songtab-header">
-        {tabs.map((tab, index) => (
-          <div key={index}>
-            <div
-              key={index}
-              className={`songtab ${activeTab === index ? "active" : ""}`}
-              onClick={() => handleClick(index)}
-            >
-              {tab.title}
-              <div className="key mx-2">{tab.key}</div>
-            </div>
-          </div>
-        ))}
+    <>
+      <div className="container songtab-case">
+        <Container className="tab-container">
+          <Tabs
+            activeKey={activeTab}
+            onSelect={() => handleSelect()}
+            id="song-tabs"
+            className="justify-content-center"
+            fill
+          >
+            {tabs.map((tab, index) => (
+              <Tab
+                eventKey={index}
+                title={
+                  <div className="tab-heads d-flex justify-content-center align-items-center">
+                    <div className="key mx-2">{tab.key}</div>
+                    {tab.title}
+                  </div>
+                }
+                key={index}
+              >
+                <iframe
+                  title="doc-viewer"
+                  className="songIframe"
+                  width="100%"
+                  height="100%"
+                  src={tab.content}
+                />
+              </Tab>
+            ))}
+          </Tabs>
+        </Container>
       </div>
-      <div className="songtab-content">
-        <iframe className="songIframe" src={tabs[activeTab].content} />
-      </div>
-    </div>
+    </>
   );
 };
 

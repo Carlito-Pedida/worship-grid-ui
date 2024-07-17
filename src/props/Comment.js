@@ -1,10 +1,10 @@
-import { useState, useRef, useEffect, useContext } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import { useParams } from "react-router-dom";
+import AssetContext from "../contexts/AssetContext";
+import UserContext from "../contexts/UserContext";
 import CommentAction from "../props/CommentAction";
 import { ReactComponent as DownArrow } from "../props/commentImages/down-arrow.svg";
 import { ReactComponent as UpArrow } from "../props/commentImages/up-arrow.svg";
-import { useNavigate, useParams } from "react-router-dom";
-import UserContext from "../contexts/UserContext";
-import AssetContext from "../contexts/AssetContext";
 
 const Comment = ({
   handleInsertNode,
@@ -45,7 +45,6 @@ const Comment = ({
   };
 
   let params = useParams();
-  //let navigate = useNavigate();
   const [userLog, setUserLog] = useState([]);
 
   let { getOneUser } = useContext(UserContext);

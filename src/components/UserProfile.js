@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import "../styles/UserProfile.css";
 import {
-  Button,
   Card,
   Col,
   Container,
@@ -46,7 +45,7 @@ const UserProfile = () => {
   return (
     <div className="profile">
       <Container className="py-4">
-        <div className="profile-data p-5">
+        <div className="profile-data p-2">
           <Row>
             <Col lg="8">
               <Card className="mb-4 p-2">
@@ -156,7 +155,7 @@ const UserProfile = () => {
                   </Row>
                 </Card.Body>
               </Card>
-              <Card>
+              <Card className="mb-4">
                 <Card.Body>
                   <AudioPlayer
                     src="/beWithYou.m4a"
@@ -242,45 +241,81 @@ const UserProfile = () => {
                 <Card.Body className="p-2">
                   <ListGroup flush className="rounded-3">
                     <ListGroup.Item className="d-flex justify-content-between align-items-center p-3">
-                      <a href="#">
+                      <a
+                        href="https://www.facebook.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <FaFacebook size={35} style={{ color: "blue" }} />
                       </a>
                       <Card.Text>
-                        <a className="social" href="#">
+                        <a
+                          className="social"
+                          href="https://www.facebook.com/"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           profile.facebook
                         </a>
                       </Card.Text>
                     </ListGroup.Item>
                     <ListGroup.Item className="d-flex justify-content-between align-items-center p-3">
-                      <a href="#">
+                      <a
+                        href="https://x.com/home"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <FaXTwitter size={34} style={{ color: "black" }} />
                       </a>
 
                       <Card.Text>
                         {" "}
-                        <a className="social" href="#">
+                        <a
+                          className="social"
+                          href="https://x.com/home"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           @profile.x
                         </a>
                       </Card.Text>
                     </ListGroup.Item>
                     <ListGroup.Item className="d-flex justify-content-between align-items-center p-3">
-                      <a href="#">
+                      <a
+                        href="https://www.instagram.com/accounts/login/?hl=en"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <FaInstagram className="insta" size={35} />
                       </a>
                       <Card.Text>
                         {" "}
-                        <a className="social" href="#">
+                        <a
+                          className="social"
+                          href="https://www.instagram.com/accounts/login/?hl=en"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           @profile.insta
                         </a>
                       </Card.Text>
                     </ListGroup.Item>
                     <ListGroup.Item className="d-flex justify-content-between align-items-center p-3">
-                      <a href="#">
+                      <a
+                        href="https://www.youtube.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <FaSquareYoutube size={37} style={{ color: "red" }} />
                       </a>
                       <Card.Text>
                         {" "}
-                        <a className="social" href="#">
+                        <a
+                          className="social"
+                          href="https://www.youtube.com/"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           profile.youtube
                         </a>
                       </Card.Text>

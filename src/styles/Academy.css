@@ -1,20 +1,14 @@
 .academy-body {
-  padding: 50px;
+  padding: 20px;
   background-color: rgb(0, 0, 0);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 .academy-title {
   color: rgb(219, 219, 219);
 }
 .player-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  column-gap: 25px;
-  padding: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 20px;
   background-color: rgb(48, 70, 52);
 }
 #video-tabs {
@@ -24,7 +18,6 @@
   color: rgb(139, 139, 139);
   opacity: 60%;
   margin: 5px;
-  display: flex;
   padding: 10px 15px;
   cursor: pointer;
 }
@@ -42,3 +35,18 @@
 .tab-titles {
   text-align: left;
 }
+/* 
+.react-player {
+  position: relative;
+  width: 100%; 
+  height: 0;
+  padding-top: 56.25%; 
+}
+
+.react-player > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+} */

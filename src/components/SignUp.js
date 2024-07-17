@@ -74,28 +74,20 @@ const SignUp = () => {
   }
 
   useEffect(() => {
-    // Scroll to a specific element by its ID
     const targetElement = document.getElementById("targetElementId");
 
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: "smooth" });
     }
-
-    // Alternatively, scroll to a specific position on the page
-    // window.scrollTo(0, 500); // Scroll to y-coordinate 500
   }, []);
 
   return (
     <div className="centered-container" id="targetElementId">
-      <div className="form-grid">
-        <div className="form-image">
-          <img src="/logo.png" alt="this is a logo" />
-        </div>
-
-        <div className="form-inputs">
+      <div className="form-grid  py-2">
+        <div className="form-container">
           <form className="form-style" onSubmit={handleSubmit}>
-            <Stack gap={3} className="mx-auto">
-              <div className="signup-input">
+            <Stack gap={3}>
+              <div className="form-group">
                 <input
                   type="text"
                   name="username"
@@ -113,7 +105,7 @@ const SignUp = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <div className="signup-input">
+              <div className="form-group">
                 <input
                   type="text"
                   name="first_name"
@@ -151,7 +143,7 @@ const SignUp = () => {
                 //onChange={handleChange}
                 onChange={(e) => setCity(e.target.value)}
               />
-              <div className="signup-input">
+              <div className="form-group">
                 <input
                   type="text"
                   name="state"
@@ -187,18 +179,19 @@ const SignUp = () => {
                 //onChange={handleChange}
                 onChange={(e) => setAvatar(e.target.value)}
               />
-              <Button type="submit" variant="success" className="p-3">
+              <Button size="sm" type="submit" variant="success" className="p-2">
                 Sign Up
+              </Button>
+              <Button
+                size="sm"
+                onClick={() => navigate(-1)}
+                variant="secondary"
+                className="p-2"
+              >
+                Return to Previous Page
               </Button>
             </Stack>
           </form>
-          <Button
-            onClick={() => navigate(-1)}
-            variant="secondary"
-            className=" mb-3 p-3"
-          >
-            Return to Previous Page
-          </Button>
         </div>
       </div>
     </div>

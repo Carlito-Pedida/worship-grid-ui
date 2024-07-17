@@ -46,22 +46,24 @@ const Rss = () => {
   };
 
   return (
-    <div className=" row rss-wrap">
+    <div className="row rss-wrap">
       <div
         className="rss-main col-12 col-md-12 col-lg-9"
         style={{
           background: `url('https://images.unsplash.com/photo-1643148636641-fc498af944c2?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
           backgroundSize: "100%",
           backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
           position: "relative" // Necessary for absolute positioning of children
         }}
       >
-        <div className="divider d-flex align-items-center my-4">
-          <h4 className="text-center mx-3 mb-0">Today's Devotional</h4>
-        </div>
         <div className="rss-content">
           {articles.slice(0, 1).map((item, idx) => (
             <div key={idx} className="rss-box">
+              <div className="divider d-flex align-items-center my-4">
+                <h4 className="text-center mx-3 mb-0">Featured Devotional</h4>
+              </div>
               <h3>{item.title}</h3>
               <br />
               <h6>{item.contentSnippet}</h6>

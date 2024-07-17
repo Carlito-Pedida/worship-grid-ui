@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, Stack } from "react-bootstrap";
-import "../styles/AssetEdit.css";
 
 const AssetEdit = ({ asset, handleClose, handleSubmit, onAssetUpdate }) => {
   let [updatedAsset, setUpdatedAsset] = useState({

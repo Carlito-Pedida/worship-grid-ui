@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import AssetContext from "../contexts/AssetContext";
-import { useNavigate, useParams } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
+import AssetContext from "../contexts/AssetContext";
 import UserContext from "../contexts/UserContext";
 
 const AssetNew = () => {
@@ -63,44 +63,29 @@ const AssetNew = () => {
   }
 
   async function handleSubmit() {
-    setIsUpdating(true); // Set updating status to true when data update starts
+    setIsUpdating(true);
     try {
       await create(newAsset);
-      setIsUpdating(false); // Set updating status to false when data update completes
+      setIsUpdating(false);
       navigate("/assets");
     } catch (error) {
       console.log(error);
       window.alert("You need to sign in to post a message!");
-      setIsUpdating(false); // Set updating status to false on error
+      setIsUpdating(false);
     }
   }
 
-  // function handleSubmit() {
-  //   create(newAsset)
-  //     .then(() => {
-  //       navigate("/assets");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       window.alert("You need to sign in to create assets!");
-  //     });
-  // }
-
   return (
     <div
-      className="container"
       style={{
-        padding: "30px",
-
+        padding: "10px",
         color: "white"
-        // opacity: "85%"
       }}
     >
-      <div>
+      <div className="container px-lg-5">
         <form onSubmit={handleSubmit} key={params.asset_Id}>
           <input
-            size={75}
-            className="share-input p-2 me-2"
+            className="share-input"
             type="text"
             name="message"
             value={message}
@@ -108,7 +93,7 @@ const AssetNew = () => {
             onChange={handleChange}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
-                e.preventDefault(); // Prevents the default form submission
+                e.preventDefault();
                 handleSubmit();
               }
             }}

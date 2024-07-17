@@ -12,7 +12,6 @@ const FeaturedMusic = () => {
   };
 
   useEffect(() => {
-    // Update the HTML title when the component mounts
     document.title = "Worship Grid > New Music";
   }, []);
   return (
@@ -59,7 +58,6 @@ const FeaturedMusic = () => {
             className="audioplayer"
             src="/beWithYou.m4a"
             onPlay={(e) => console.log("onPlay")}
-            // other props here
           />
         </Card.Body>
       </Card>
