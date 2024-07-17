@@ -16,34 +16,9 @@ const SignUp = () => {
   const [position, setPosition] = useState("");
   const [avatar, setAvatar] = useState("");
 
-  const [signUpCreds, SetSignUpCreds] = useState({
-    username: "",
-    password: "",
-    first_name: "",
-    last_name: "",
-    email: "",
-    city: "",
-    state: "",
-    zipcode: "",
-    position: "",
-    avatar: ""
-  });
-
   const { signupUser } = useContext(UserContext);
 
   const navigate = useNavigate();
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    signupUser(...signUpCreds)
-      .then(() => {
-        navigate("/");
-      })
-      .catch((error) => {
-        console.log(error);
-        window.alert("Failed registration: error creating user");
-      });
-  }
 
   function handleSubmit(event) {
     event.preventDefault();
