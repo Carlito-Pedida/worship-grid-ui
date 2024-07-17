@@ -5,35 +5,42 @@ import { Button, Stack } from "react-bootstrap";
 import "../styles/SignUp.css";
 
 const SignUp = () => {
-  const [first_name, setFirst_Name] = useState("");
-  const [last_name, setLast_Name] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [zipcode, setZipcode] = useState("");
-  const [position, setPosition] = useState("");
-  const [avatar, setAvatar] = useState("");
+  // const [first_name, setFirst_Name] = useState("");
+  // const [last_name, setLast_Name] = useState("");
+  // const [username, setUsername] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [city, setCity] = useState("");
+  // const [state, setState] = useState("");
+  // const [zipcode, setZipcode] = useState("");
+  // const [position, setPosition] = useState("");
+  // const [avatar, setAvatar] = useState("");
+
+  const [signUpCreds, SetSignUpCreds] = useState({
+    username: "",
+    password: "",
+    first_name: "",
+    last_name: "",
+    email: "",
+    city: "",
+    state: "",
+    zipcode: "",
+    position: "",
+    avatar: ""
+  });
 
   const { signupUser } = useContext(UserContext);
 
   const navigate = useNavigate();
 
+  function handleChange(event) {
+    const { name, value } = event.target;
+    SetSignUpCreds((prevValue) => ({ ...prevValue, [name]: value }));
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
-    signupUser(
-      username,
-      password,
-      first_name,
-      last_name,
-      email,
-      city,
-      state,
-      zipcode,
-      position,
-      avatar
-    )
+    signupUser(...signUpCreds)
       .then(() => {
         navigate("/");
       })
@@ -42,6 +49,29 @@ const SignUp = () => {
         window.alert("Failed registration: error creating user");
       });
   }
+
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+  //   signupUser(
+  //     username,
+  //     password,
+  //     first_name,
+  //     last_name,
+  //     email,
+  //     city,
+  //     state,
+  //     zipcode,
+  //     position,
+  //     avatar
+  //   )
+  //     .then(() => {
+  //       navigate("/");
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       window.alert("Failed registration: error creating user");
+  //     });
+  // }
 
   useEffect(() => {
     // Scroll to a specific element by its ID
@@ -69,33 +99,37 @@ const SignUp = () => {
                 <input
                   type="text"
                   name="username"
-                  value={username}
+                  value={signUpCreds.username}
                   placeholder="Username"
-                  onChange={(e) => setUsername(e.target.value)}
+                  onChange={handleChange}
+                  //onChange={(e) => setUsername(e.target.value)}
                 />
                 <input
                   type="password"
                   name="password"
-                  value={password}
+                  value={signUpCreds.password}
                   placeholder="Password"
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={handleChange}
+                  // onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className="signup-input">
                 <input
                   type="text"
                   name="first_name"
-                  value={first_name}
+                  value={signUpCreds.first_name}
                   placeholder="First Name"
-                  onChange={(e) => setFirst_Name(e.target.value)}
+                  onChange={handleChange}
+                  //onChange={(e) => setFirst_Name(e.target.value)}
                 />
 
                 <input
                   type="text"
                   name="last_name"
-                  value={last_name}
+                  value={signUpCreds.last_name}
                   placeholder="Last Name"
-                  onChange={(e) => setLast_Name(e.target.value)}
+                  onChange={handleChange}
+                  //onChange={(e) => setLast_Name(e.target.value)}
                 />
               </div>
 
@@ -103,49 +137,55 @@ const SignUp = () => {
                 className="single-line-input"
                 type="email"
                 name="email"
-                value={email}
+                value={signUpCreds.email}
                 placeholder="Email"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleChange}
+                //onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 className="single-line-input"
                 type="text"
                 name="city"
-                value={city}
+                value={signUpCreds.city}
                 placeholder="City"
-                onChange={(e) => setCity(e.target.value)}
+                onChange={handleChange}
+                //onChange={(e) => setCity(e.target.value)}
               />
               <div className="signup-input">
                 <input
                   type="text"
                   name="state"
-                  value={state}
+                  value={signUpCreds.state}
                   placeholder="State"
-                  onChange={(e) => setState(e.target.value)}
+                  onChange={handleChange}
+                  //onChange={(e) => setState(e.target.value)}
                 />
                 <input
                   type="text"
                   name="zipcode"
-                  value={zipcode}
+                  value={signUpCreds.zipcode}
                   placeholder="Zipcode"
-                  onChange={(e) => setZipcode(e.target.value)}
+                  onChange={handleChange}
+                  //onChange={(e) => setZipcode(e.target.value)}
                 />
               </div>
               <input
                 className="single-line-input"
                 type="text"
                 name="position"
-                value={position}
+                value={signUpCreds.position}
                 placeholder="Worship Team Position"
-                onChange={(e) => setPosition(e.target.value)}
+                onChange={handleChange}
+                //onChange={(e) => setPosition(e.target.value)}
               />
               <input
                 className="single-line-input"
                 type="text"
                 name="avatar"
-                value={avatar}
+                value={signUpCreds.avatar}
                 placeholder="Image URL"
-                onChange={(e) => setAvatar(e.target.value)}
+                onChange={handleChange}
+                //onChange={(e) => setAvatar(e.target.value)}
               />
               <Button type="submit" variant="success" className="p-3">
                 Sign Up
