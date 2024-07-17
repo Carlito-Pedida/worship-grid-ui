@@ -20,13 +20,8 @@ import UserSetlist from "./components/UserSetlist";
 import Cancel from "./MerchPages/Cancel.js";
 import Merchandise from "./MerchPages/Merchandise.js";
 import Success from "./MerchPages/Success.js";
-import SignUpSuccess from "./props/SignUpSuccess.js";
 import { AssetProvider } from "./providers/AssetProvider";
 import { CartProvider } from "./providers/CartProvider.js";
-import FeaturedMusic from "./components/FeaturedMusic.js";
-import PrivateRoutes from "./components/PrivateRoutes.js";
-import EditProfile from "./components/EditProfile.js";
-import Navigation from "./components/Navigation.js";
 import { ResponseProvider } from "./providers/ResponseProvider";
 import { UserProvider } from "./providers/UserProvider";
 
