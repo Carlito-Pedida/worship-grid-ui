@@ -3,13 +3,7 @@ import AdsBanner from "../props/AdsBanner";
 
 const Events = () => {
   useEffect(() => {
-    // Update the HTML title when the component mounts
     document.title = "Worship Grid - Events";
-
-    // Optionally, you can reset the title when the component unmounts
-    //   return () => {
-    //     document.title = "Worship Grid";
-    //   };
   }, []);
   return (
     <AdsBanner

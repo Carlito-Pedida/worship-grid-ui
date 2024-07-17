@@ -75,23 +75,6 @@ const EditProfile = () => {
       });
   }
 
-  // function handleDeleteUser(user_id) {
-  //   const confirmDelete = window.confirm(
-  //     "This operation cannot be undone!\nAre you sure want to delete your profile?"
-  //   );
-  //   if (!confirmDelete.ok) {
-  //     deleteUserData(user_id)
-  //       .then(() => {
-  //         navigate("/");
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //         window.alert("You need to sign in to perform this operation");
-  //         navigate(-1);
-  //       });
-  //   }
-  // }
-
   useEffect(() => {
     document.title = "Worship Grid > Edit Profile";
   }, []);
@@ -105,17 +88,10 @@ const EditProfile = () => {
   return (
     <div className="centered-container" id="targetElementId">
       <div className="form-grid">
-        <div className="form-image">
-          <img src="/logo.png" alt="this is a logo" />
-        </div>
-
         <div className="form-inputs">
           <form className="form-style" onSubmit={handleSubmit}>
-            <Stack gap={3} className="mx-auto">
-              <div
-                //style={{ backgroundColor: "#366532" }}
-                className="divider d-flex align-items-center"
-              >
+            <Stack gap={3}>
+              <div className="divider d-flex align-items-center">
                 <div
                   style={{ color: "white" }}
                   className="m-2 text-center mx-3 "
@@ -123,7 +99,7 @@ const EditProfile = () => {
                   <h4>Profile Update</h4>
                 </div>
               </div>
-              <div className="signup-input">
+              <div className="form-group">
                 <input
                   type="text"
                   name="username"
@@ -139,7 +115,7 @@ const EditProfile = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="signup-input">
+              <div className="form-group">
                 <input
                   type="text"
                   name="first_name"
@@ -173,7 +149,7 @@ const EditProfile = () => {
                 placeholder="City"
                 onChange={handleChange}
               />
-              <div className="signup-input">
+              <div className="form-group">
                 <input
                   type="text"
                   name="state"

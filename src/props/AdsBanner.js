@@ -19,9 +19,7 @@ const AdsBanner = (props) => {
     linkedText,
     linkedTextUser,
     textFx,
-    button1,
-    buttonText2,
-    buttonText3
+    button1
   } = props;
 
   const [showSignInModal, setShowSignInModal] = useState(false);

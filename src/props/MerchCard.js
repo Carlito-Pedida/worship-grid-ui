@@ -1,15 +1,5 @@
-import React, { useState, useContext } from "react";
-import {
-  Button,
-  Card,
-  CardBody,
-  CardImg,
-  Col,
-  Container,
-  Form,
-  Modal,
-  Row
-} from "react-bootstrap";
+import React, { useContext, useState } from "react";
+import { Button, Card, CardBody, Col, Form, Modal, Row } from "react-bootstrap";
 import CartContext from "../contexts/CartContext";
 
 const MerchCard = (props) => {
@@ -33,7 +23,7 @@ const MerchCard = (props) => {
           <Card.Title>{merch.item_name}</Card.Title>
           <img
             style={{ cursor: "pointer" }}
-            alt="photo-here"
+            alt="merch-item"
             onClick={() => {
               handleShow(true);
               setSelectedItem(merch);
@@ -94,7 +84,7 @@ const MerchCard = (props) => {
           </Modal.Header>
           <Modal.Body className="d-flex-wrap justify-content-center align-items-center">
             <div className="d-flex justify-content-center">
-              <img width={300} src={selectedItem?.item_img} />
+              <img width={300} src={selectedItem?.item_img} alt="merch-item" />
             </div>
             <div className="p-3">
               <p>{selectedItem?.description}</p>

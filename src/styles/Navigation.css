@@ -15,26 +15,6 @@
   transition: 0.25s;
 }
 
-/* .nav-container {
-  background-color: #2c5728;
-  border-top: 2px gray;
-}
-.nav-top {
-  display: grid;
-  justify-items: center;
-  align-items: center;
-}
-.nav-top-left {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-.nav-top-right {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-} */
-
 .navLinks2 {
   border-radius: 7px;
   border-top: 1px solid rgb(175, 175, 175);

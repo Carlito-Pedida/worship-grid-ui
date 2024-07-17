@@ -15,7 +15,6 @@ const ResponseNew = () => {
 
   const { createUserReply } = useContext(ResponseContext);
 
-  // let { reply, reactions } = newResponse;
   let response_id = params.response_id;
 
   function createReply() {
@@ -55,9 +54,6 @@ const ResponseNew = () => {
         padding: "30px",
         borderRadius: "10px",
         margin: "45px 45px 45px 45px"
-
-        // width: "50%"
-        // position: "relative"
       }}
     >
       <Modal className="p-3" centered show={show} onHide={handleClose}>

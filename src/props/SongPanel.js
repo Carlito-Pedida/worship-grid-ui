@@ -32,6 +32,7 @@ const SongPanel = ({ tabs }) => {
                 key={index}
               >
                 <iframe
+                  title="doc-viewer"
                   className="songIframe"
                   width="100%"
                   height="100%"

@@ -24,7 +24,6 @@ import FeaturedMusic from "./components/FeaturedMusic.js";
 import PrivateRoutes from "./components/PrivateRoutes.js";
 import EditProfile from "./components/EditProfile.js";
 import Navigation from "./components/Navigation.js";
-import UserLocation from "./components/UserLocation.js";
 
 function App() {
   return (
@@ -64,7 +63,6 @@ function App() {
                     />
                   </Route>
                   <Route path="/assets" element={<AssetList />} />
-                  <Route path="/userlocal" element={<UserLocation />} />
                   <Route path="/merchandise" element={<Merchandise />} />
                   <Route path="/paysuccessful" element={<Success />} />
                   <Route path="/paycanceled" element={<Cancel />} />

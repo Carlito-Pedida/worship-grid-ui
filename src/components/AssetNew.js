@@ -63,28 +63,17 @@ const AssetNew = () => {
   }
 
   async function handleSubmit() {
-    setIsUpdating(true); // Set updating status to true when data update starts
+    setIsUpdating(true);
     try {
       await create(newAsset);
-      setIsUpdating(false); // Set updating status to false when data update completes
+      setIsUpdating(false);
       navigate("/assets");
     } catch (error) {
       console.log(error);
       window.alert("You need to sign in to post a message!");
-      setIsUpdating(false); // Set updating status to false on error
+      setIsUpdating(false);
     }
   }
-
-  // function handleSubmit() {
-  //   create(newAsset)
-  //     .then(() => {
-  //       navigate("/assets");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       window.alert("You need to sign in to create assets!");
-  //     });
-  // }
 
   return (
     <div
@@ -104,7 +93,7 @@ const AssetNew = () => {
             onChange={handleChange}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
-                e.preventDefault(); // Prevents the default form submission
+                e.preventDefault();
                 handleSubmit();
               }
             }}

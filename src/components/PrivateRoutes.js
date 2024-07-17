@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Outlet, Navigate, useNavigate, Link } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
-import SignIn from "./SignIn";
-import AdsBanner from "../props/AdsBanner";
-import { Button, Container } from "react-bootstrap";
+import { Outlet } from "react-router-dom";
 import Restricted from "../props/Restricted";
 
 const PrivateRoutes = () => {
-  let navigate = useNavigate();
   const token = localStorage.getItem("loggedUserToken");
 
   const isAuthenticated = token !== null && token !== undefined;
@@ -19,10 +14,6 @@ const PrivateRoutes = () => {
       setRedirect(true);
     }
   }, [isAuthenticated]);
-
-  function handleClick() {
-    navigate("/signup");
-  }
 
   if (redirect) {
     return (
