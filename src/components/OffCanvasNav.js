@@ -1,14 +1,9 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Offcanvas from "react-bootstrap/Offcanvas";
+import { Stack } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import SignIn from "./SignIn";
 
-export const OffCanvasNav = () => {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+export const OffCanvasNav = ({ onLinkClick, userLog }) => {
   const [showSignInModal, setShowSignInModal] = useState(false);
 
   const openSignInModal = () => {
@@ -24,13 +19,72 @@ export const OffCanvasNav = () => {
   };
 
   return (
-    <>
-      <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          <Link className="hover-underline-animation" to="/signup">
+    <div className="d-lg-none">
+      {userLog && (
+        <>
+          <Stack gap={2}>
+            <Link
+              className="hover-underline-animation"
+              to="/setlist"
+              onClick={onLinkClick}
+            >
+              MY SETLIST
+            </Link>
+            <Link
+              className="hover-underline-animation"
+              to="/featured_music"
+              onClick={onLinkClick}
+            >
+              MY MUSIC
+            </Link>
+
+            <Link
+              className="hover-underline-animation"
+              to="/assets"
+              onClick={onLinkClick}
+            >
+              MESSAGE BOARD
+            </Link>
+
+            <Link
+              className="hover-underline-animation"
+              to="/merchandise"
+              onClick={onLinkClick}
+            >
+              MERCHANDISE
+            </Link>
+            <Link
+              className="hover-underline-animation"
+              to="/daily_devotionals"
+              onClick={onLinkClick}
+            >
+              DEVO
+            </Link>
+            <Link
+              className="hover-underline-animation"
+              to="/academy"
+              onClick={onLinkClick}
+            >
+              WORSHIP GRID ACADEMY
+            </Link>
+            <hr />
+            <Link
+              className="hover-underline-animation"
+              to="/signout"
+              onClick={onLinkClick}
+            >
+              SIGN OUT
+            </Link>
+          </Stack>
+        </>
+      )}
+      {!userLog && (
+        <Stack gap={2}>
+          <Link
+            className="hover-underline-animation"
+            to="/signup"
+            onClick={onLinkClick}
+          >
             GET ACCESS
           </Link>
           <Link
@@ -40,20 +94,41 @@ export const OffCanvasNav = () => {
           >
             MY ACCOUNT
           </Link>
-          <Link className="hover-underline-animation" to={"/assets"}>
+          <Link
+            className="hover-underline-animation"
+            to={"/assets"}
+            onClick={onLinkClick}
+          >
             MESSAGE BOARD
           </Link>
-          <Link className="hover-underline-animation" to="/merchandise">
+          <Link
+            className="hover-underline-animation"
+            to="/merchandise"
+            onClick={onLinkClick}
+          >
             MERCHANDISE
           </Link>
-          <Link className="hover-underline-animation" to="/daily_devotionals">
+          <Link
+            className="hover-underline-animation"
+            to="/daily_devotionals"
+            onClick={onLinkClick}
+          >
             DEVO
           </Link>
-          <Link className="hover-underline-animation" to="/academy">
+          <Link
+            className="hover-underline-animation"
+            to="/academy"
+            onClick={onLinkClick}
+          >
             WORSHIP GRID ACADEMY
           </Link>
-        </Offcanvas.Body>
-      </Offcanvas>
-    </>
+          <SignIn
+            show={showSignInModal}
+            handleClose={closeSignInModal}
+            handleSubmit={handleSubmit}
+          />
+        </Stack>
+      )}
+    </div>
   );
 };

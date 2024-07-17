@@ -1,5 +1,14 @@
 import React, { useState, useContext } from "react";
-import { Button, Card, CardBody, Col, Form, Modal, Row } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardImg,
+  Col,
+  Form,
+  Modal,
+  Row
+} from "react-bootstrap";
 import CartContext from "../contexts/CartContext";
 
 const MerchCard = (props) => {
@@ -28,7 +37,7 @@ const MerchCard = (props) => {
               handleShow(true);
               setSelectedItem(merch);
             }}
-            height={200}
+            height={150}
             src={merch.item_img}
           />
           <Card.Text>{merch.description}</Card.Text>

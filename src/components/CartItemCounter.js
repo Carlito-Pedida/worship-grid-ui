@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
-import CartContext from "../contexts/CartContext";
-import { Link } from "react-router-dom";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import CartContext from "../contexts/CartContext";
 import MerchCart from "../MerchPages/MerchCart";
 
 const CartItemCounter = () => {
@@ -24,15 +24,11 @@ const CartItemCounter = () => {
     <>
       {cartItemCounter > 0 ? (
         <Link
-          className="search-tool-animation"
+          className="text-white mx-2"
           to={openCartModal}
           onClick={openCartModal}
         >
-          <FontAwesomeIcon
-            className="search-tool-icon"
-            icon={faCartShopping}
-            size="xl"
-          />
+          <FontAwesomeIcon icon={faCartShopping} size="xl" />
           <span style={{ color: "orange", fontSize: "15px" }}>
             {cartItemCounter}
           </span>

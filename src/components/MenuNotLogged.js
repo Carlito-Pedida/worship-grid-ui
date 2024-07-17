@@ -1,12 +1,12 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import { Nav, Stack } from "react-bootstrap";
+import { Stack } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../styles/Navigation.css";
 import CartItemCounter from "./CartItemCounter";
-import SignIn from "./SignIn";
 import SearchModal from "./SearchModal";
+import SignIn from "./SignIn";
 
 const MenuNotLogged = () => {
   const [showSignInModal, setShowSignInModal] = useState(false);
@@ -34,7 +34,7 @@ const MenuNotLogged = () => {
   };
 
   return (
-    <>
+    <div className="navLinks2">
       <Stack direction="horizontal" gap={3}>
         {" "}
         <Link className="hover-underline-animation" to="/signup">
@@ -74,7 +74,7 @@ const MenuNotLogged = () => {
         handleSubmit={handleSubmit}
       />
       <SearchModal show={showSearchModal} handleClose={closeSearchModal} />
-    </>
+    </div>
   );
 };
 
