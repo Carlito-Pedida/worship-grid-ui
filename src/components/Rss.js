@@ -10,9 +10,7 @@ const Rss = () => {
   useEffect(() => {
     const fetchRssFeeds = async () => {
       try {
-        const response = await fetch(
-          "https://worship-grid-api.vercel.app/server/rss/feeds"
-        );
+        const response = await fetch("http://localhost:5000/server/rss/feeds");
         if (response.ok) {
           const data = await response.json();
           setArticles(data);
