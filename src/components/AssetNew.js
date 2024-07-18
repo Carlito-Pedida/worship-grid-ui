@@ -36,7 +36,6 @@ const AssetNew = () => {
     return () => {
       isMounted = false;
     };
-    // eslint-disable-next-line
   }, []);
 
   const [newAsset, setNewAsset] = useState({

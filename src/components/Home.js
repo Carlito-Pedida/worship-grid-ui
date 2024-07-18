@@ -41,7 +41,6 @@ const Home = () => {
     return () => {
       isMounted = false;
     };
-    // eslint-disable-next-line
   }, []);
 
   let navigate = useNavigate();

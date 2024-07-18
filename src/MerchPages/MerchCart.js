@@ -15,7 +15,7 @@ const MerchCart = (props) => {
   const cartItemCounter = cartItems.reduce((sum, item) => sum + item.qty, 0);
 
   const handleCheckout = async () => {
-    await fetch("http://localhost:5000/server/checkout", {
+    await fetch("https://worship-grid-api.vercel.app/server/checkout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
