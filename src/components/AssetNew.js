@@ -36,13 +36,24 @@ const AssetNew = () => {
     return () => {
       isMounted = false;
     };
+    // eslint-disable-next-line
   }, []);
+
   const [newAsset, setNewAsset] = useState({
     asset_id: params.asset_id,
     message: "",
     imageLink: "",
     videoLink: ""
   });
+
+  function resetForm() {
+    setNewAsset({
+      asset_id: params.asset_id,
+      message: "",
+      imageLink: "",
+      videoLink: ""
+    });
+  }
 
   let { message, imageLink, videoLink } = newAsset;
 
@@ -67,6 +78,7 @@ const AssetNew = () => {
     try {
       await create(newAsset);
       setIsUpdating(false);
+      resetForm();
       navigate("/assets");
     } catch (error) {
       console.log(error);
@@ -85,7 +97,7 @@ const AssetNew = () => {
       <div className="container px-lg-5">
         <form onSubmit={handleSubmit} key={params.asset_Id}>
           <input
-            className="share-input"
+            className="share-input px-3"
             type="text"
             name="message"
             value={message}

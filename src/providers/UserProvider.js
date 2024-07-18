@@ -11,7 +11,8 @@ export const UserProvider = (props) => {
       await getAllUserAssets();
     }
     fetchData();
-  }, []); // Removed dependency array since getAllUserAssets doesn't depend on any props or state
+    // eslint-disable-next-line
+  }, []);
 
   function getAllUserAssets() {
     return axios

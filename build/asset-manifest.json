@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.ef9a3d91.css",
-    "main.js": "/static/js/main.bd733701.js",
+    "main.js": "/static/js/main.340adbc2.js",
     "reactPlayerYouTube.js": "/static/js/reactPlayerYouTube.50721a4c.chunk.js",
     "reactPlayerSoundCloud.js": "/static/js/reactPlayerSoundCloud.b930959a.chunk.js",
     "reactPlayerVimeo.js": "/static/js/reactPlayerVimeo.36bcc6a2.chunk.js",
@@ -21,7 +21,7 @@
     "static/media/blessedAssuranceD.pdf": "/static/media/blessedAssuranceD.2be3002e477c5b2ee8df.pdf",
     "index.html": "/index.html",
     "main.ef9a3d91.css.map": "/static/css/main.ef9a3d91.css.map",
-    "main.bd733701.js.map": "/static/js/main.bd733701.js.map",
+    "main.340adbc2.js.map": "/static/js/main.340adbc2.js.map",
     "reactPlayerYouTube.50721a4c.chunk.js.map": "/static/js/reactPlayerYouTube.50721a4c.chunk.js.map",
     "reactPlayerSoundCloud.b930959a.chunk.js.map": "/static/js/reactPlayerSoundCloud.b930959a.chunk.js.map",
     "reactPlayerVimeo.36bcc6a2.chunk.js.map": "/static/js/reactPlayerVimeo.36bcc6a2.chunk.js.map",
@@ -38,6 +38,6 @@
   },
   "entrypoints": [
     "static/css/main.ef9a3d91.css",
-    "static/js/main.bd733701.js"
+    "static/js/main.340adbc2.js"
   ]
 }
