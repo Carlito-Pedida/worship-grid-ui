@@ -41,6 +41,7 @@ const Home = () => {
     return () => {
       isMounted = false;
     };
+    // eslint-disable-next-line
   }, []);
 
   let navigate = useNavigate();
@@ -60,7 +61,7 @@ const Home = () => {
   ];
 
   return (
-    <>
+    <div className="mb-4">
       <div>
         <NewsBanner
           title="New Song Alert!"
@@ -153,7 +154,7 @@ const Home = () => {
       </Container>
 
       <SpinnerOverlay loading={isLoading} />
-    </>
+    </div>
   );
 };
 

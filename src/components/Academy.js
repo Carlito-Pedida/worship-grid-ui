@@ -58,9 +58,11 @@ const Academy = () => {
 
   return (
     <div className="academy-body">
-      <h2 className="academy-title">Featured Tutorial</h2>
       <Stack>
         <Container>
+          <div className="academy-title mt-3">
+            <h2>Featured Tutorial</h2>
+          </div>
           <Row className="align-items-center">
             <Col className="d-flex">
               <ReactPlayer
