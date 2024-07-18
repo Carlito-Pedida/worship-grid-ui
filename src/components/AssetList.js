@@ -44,7 +44,6 @@ const AssetList = () => {
     return () => {
       isMounted = false;
     };
-    // eslint-disable-next-line
   }, []);
 
   let [updatedAsset, setUpdatedAsset] = useState({
@@ -65,7 +64,6 @@ const AssetList = () => {
       );
     }
     fetch();
-    // eslint-disable-next-line
   }, []);
 
   function handleSubmit(event) {
@@ -118,7 +116,6 @@ const AssetList = () => {
       setUpdatedResponse(userReply);
     }
     fetch();
-    // eslint-disable-next-line
   }, []);
 
   function handleSubmitResponse(event) {
@@ -163,7 +160,6 @@ const AssetList = () => {
     document.title = "Worship Grid > Convo";
 
     getAllUserAssets();
-    // eslint-disable-next-line
   }, []);
 
   const [show, setShow] = useState(false);
