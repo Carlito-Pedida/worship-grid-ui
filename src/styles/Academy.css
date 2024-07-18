@@ -1,9 +1,9 @@
 .academy-body {
-  padding: 20px;
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.856);
+  padding-bottom: 1px;
 }
 .academy-title {
-  color: rgb(219, 219, 219);
+  color: rgb(229, 229, 229);
 }
 .player-wrapper {
   flex-direction: row;
@@ -16,7 +16,7 @@
 }
 .tab {
   color: rgb(139, 139, 139);
-  opacity: 60%;
+  opacity: 97%;
   margin: 5px;
   padding: 10px 15px;
   cursor: pointer;

@@ -1,0 +1,26 @@
+.aboutInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #292a29;
+  justify-content: center;
+  padding: 40px;
+}
+
+p > a {
+  text-decoration: none;
+  color: white;
+}
+
+.insta {
+  background-image: linear-gradient(
+    to top right,
+    #feda75,
+    #fa7e1e,
+    #d62976,
+    #962fbf,
+    #4f5bd5
+  );
+  border-radius: 10px;
+}

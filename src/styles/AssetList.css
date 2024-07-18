@@ -12,6 +12,7 @@
   border: 2px;
   border-radius: 10px;
   background-color: #45664374;
+  padding-bottom: 40px;
 }
 .message-head {
   display: flex;

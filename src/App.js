@@ -24,6 +24,7 @@ import { AssetProvider } from "./providers/AssetProvider";
 import { CartProvider } from "./providers/CartProvider.js";
 import { ResponseProvider } from "./providers/ResponseProvider";
 import { UserProvider } from "./providers/UserProvider";
+import Footer from "./components/Footer.js";
 
 function App() {
   return (
@@ -70,6 +71,7 @@ function App() {
                 </Routes>
               </BrowserRouter>
               <AboutInfo />
+              <Footer />
             </div>
           </ResponseProvider>
         </AssetProvider>

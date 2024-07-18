@@ -44,7 +44,7 @@ const UserProfile = () => {
 
   return (
     <div className="profile">
-      <Container className="py-4">
+      <Container className="py-3">
         <div className="profile-data p-2">
           <Row>
             <Col lg="8">
@@ -155,7 +155,7 @@ const UserProfile = () => {
                   </Row>
                 </Card.Body>
               </Card>
-              <Card className="mb-4">
+              <Card>
                 <Card.Body>
                   <AudioPlayer
                     src="/beWithYou.m4a"
@@ -237,7 +237,7 @@ const UserProfile = () => {
                   </div>
                 </Card.Body>
               </Card>
-              <Card className="mb-4">
+              <Card>
                 <Card.Body className="p-2">
                   <ListGroup flush className="rounded-3">
                     <ListGroup.Item className="d-flex justify-content-between align-items-center p-3">

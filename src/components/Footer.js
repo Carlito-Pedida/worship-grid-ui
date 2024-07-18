@@ -1,19 +1,16 @@
 import React from "react";
-import "../styles/Footer.css";
-import AboutInfo from "./AboutInfo";
+import styles from "../styles/Footer.module.css";
 
 const Footer = () => {
   return (
-    <>
-      <div className="foot-container">
-        <div className="footer">
-          <p>
-            &copy; {new Date().getFullYear()} | Worship Grid Inc. All rights
-            reserved.
-          </p>
-        </div>
+    <div className={styles.footer}>
+      <div className="d-flex-wrap justify-content-center align-items-center">
+        <p>
+          &copy; {new Date().getFullYear()} | Worship Grid Inc. All rights
+          reserved.
+        </p>
       </div>
-    </>
+    </div>
   );
 };
 
